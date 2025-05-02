@@ -18,13 +18,13 @@ const BalanceCard = ({ balance, rewards }: BalanceCardProps) => {
   };
 
   return (
-    <div className="bg-paygo-purple text-white rounded-xl p-4 w-full">
+    <div className="bg-[#9b20f5] text-white rounded-xl p-4 w-full">
       <div className="mb-4">
         <h2 className="text-xl">Today Balance</h2>
       </div>
-      <div className="flex justify-between items-center mb-2">
+      <div className="flex justify-between items-center mb-4">
         <h3 className="text-3xl font-bold">{formatCurrency(balance)}</h3>
-        <Button className="bg-white text-paygo-purple hover:bg-gray-100 rounded-full px-6">
+        <Button className="bg-white text-[#9b20f5] hover:bg-gray-100 rounded-full px-6 font-medium">
           Withdraw
         </Button>
       </div>

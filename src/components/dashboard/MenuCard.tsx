@@ -1,24 +1,25 @@
 
 import React from "react";
-import { Icon } from "lucide-react";
 import { LucideIcon } from "lucide-react";
 
 interface MenuCardProps {
   title: string;
-  icon: LucideIcon;
+  icon: LucideIcon | React.ReactNode;
   onClick?: () => void;
 }
 
-const MenuCard: React.FC<MenuCardProps> = ({ title, icon: IconComponent, onClick }) => {
+const MenuCard: React.FC<MenuCardProps> = ({ title, icon, onClick }) => {
   return (
     <div 
       onClick={onClick} 
-      className="paygo-card cursor-pointer hover:bg-gray-50"
+      className="bg-white rounded-xl shadow-sm p-4 flex flex-col items-center justify-center gap-2 h-[110px] cursor-pointer"
     >
-      <div className="paygo-icon">
-        <IconComponent size={28} />
+      <div className="text-center">
+        {React.isValidElement(icon) ? 
+          icon : 
+          React.createElement(icon as React.ComponentType, { size: 28 })}
       </div>
-      <p className="font-medium">{title}</p>
+      <p className="font-medium text-center">{title}</p>
     </div>
   );
 };

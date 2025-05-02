@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 import BalanceCard from "@/components/dashboard/BalanceCard";
 import MenuGrid from "@/components/dashboard/MenuGrid";
+import WarningBanner from "@/components/dashboard/WarningBanner";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -29,13 +30,16 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-100">
+    <div className="flex flex-col min-h-screen bg-gray-50">
       <DashboardHeader />
-      <div className="p-4 flex-1">
-        <div className="mb-6">
-          <BalanceCard balance={100000} rewards={180000} />
+      <div className="flex-1">
+        <WarningBanner />
+        <div className="px-4 py-6">
+          <div className="mb-6">
+            <BalanceCard balance={180000} rewards={180000} />
+          </div>
+          <MenuGrid />
         </div>
-        <MenuGrid />
       </div>
     </div>
   );
