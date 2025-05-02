@@ -1,0 +1,86 @@
+
+import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+
+const RegisterForm = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    
+    // Simulate registration - in a real app, this would call an API
+    setTimeout(() => {
+      // Simple validation
+      if (!name || !email || !password) {
+        toast.error("Please fill in all fields");
+        setIsLoading(false);
+        return;
+      }
+      
+      // Store user info in localStorage (just for demo purposes)
+      localStorage.setItem("paygo-user", JSON.stringify({
+        name: name,
+        email: email,
+        isLoggedIn: true
+      }));
+      
+      toast.success("Registration successful!");
+      navigate("/dashboard");
+      setIsLoading(false);
+    }, 1000);
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div>
+        <Input
+          type="text"
+          placeholder="Enter Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="rounded-full h-14 px-6"
+        />
+      </div>
+      <div>
+        <Input
+          type="email"
+          placeholder="Enter Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="rounded-full h-14 px-6"
+        />
+      </div>
+      <div>
+        <Input
+          type="password"
+          placeholder="Enter Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="rounded-full h-14 px-6"
+        />
+      </div>
+      <Button
+        type="submit"
+        disabled={isLoading}
+        className="w-full bg-black hover:bg-gray-800 text-white py-6 rounded-full text-lg"
+      >
+        {isLoading ? "Loading..." : "Register"}
+      </Button>
+      <div className="text-center mt-4">
+        <Link to="/login" className="text-paygo-purple text-lg hover:underline">
+          Already have an account? Login
+        </Link>
+      </div>
+    </form>
+  );
+};
+
+export default RegisterForm;
