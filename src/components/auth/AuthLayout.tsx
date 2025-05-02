@@ -11,8 +11,12 @@ const AuthLayout = ({ children, heading }: AuthLayoutProps) => {
     <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-[#FFF1F3]">
       <div className="w-full max-w-md">
         <div className="mb-8 text-center">
-          <div className="bg-paygo-gradient w-full max-w-[300px] mx-auto rounded-lg p-4 mb-6">
-            <h1 className="text-4xl font-bold text-white">PayGo</h1>
+          <div className="w-full max-w-[200px] mx-auto mb-6">
+            <img 
+              src="/paygo-logo-new.png" 
+              alt="PayGo Logo" 
+              className="w-full h-auto rounded-full"
+            />
           </div>
           <h2 className="text-2xl font-medium text-gray-600">{heading}</h2>
         </div>
