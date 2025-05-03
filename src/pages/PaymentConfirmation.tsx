@@ -84,7 +84,7 @@ const PaymentConfirmation = () => {
             </div>
             
             <p className="text-gray-600 mb-1">Account Name</p>
-            <p className="text-xl font-bold mb-6">SALVATION NMESOMA NKEMJIKA</p>
+            <p className="text-xl font-bold mb-6">VERONICA CHISOM BENJAMIN</p>
             
             <p className="text-gray-500 text-sm">
               this one-time account expires in {formatTime(timeLeft)}
