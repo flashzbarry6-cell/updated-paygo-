@@ -22,7 +22,7 @@ const AuthLayout = ({ children, heading }: AuthLayoutProps) => {
           <div className="mb-12 text-center">
             <div className="w-full max-w-[300px] mx-auto mb-8">
               <img 
-                src="/lovable-uploads/a7bca988-9dbf-4cf6-9e23-6afca0f09ebb.png" 
+                src="/lovable-uploads/63dcf04b-d54d-4fae-b4d5-6146cba42114.png" 
                 alt="PayGo Logo" 
                 className="w-full h-auto"
               />
