@@ -39,14 +39,14 @@ const RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-6">
       <div>
         <Input
           type="text"
           placeholder="Enter Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="rounded-full h-14 px-6"
+          className="h-16 px-6 rounded-full bg-white text-lg"
         />
       </div>
       <div>
@@ -55,7 +55,7 @@ const RegisterForm = () => {
           placeholder="Enter Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="rounded-full h-14 px-6"
+          className="h-16 px-6 rounded-full bg-white text-lg"
         />
       </div>
       <div>
@@ -64,18 +64,20 @@ const RegisterForm = () => {
           placeholder="Enter Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="rounded-full h-14 px-6"
+          className="h-16 px-6 rounded-full bg-white text-lg"
         />
       </div>
-      <Button
-        type="submit"
-        disabled={isLoading}
-        className="w-full bg-black hover:bg-gray-800 text-white py-6 rounded-full text-lg"
-      >
-        {isLoading ? "Loading..." : "Register"}
-      </Button>
-      <div className="text-center mt-4">
-        <Link to="/login" className="text-paygo-purple text-lg hover:underline">
+      <div className="pt-2">
+        <Button
+          type="submit"
+          disabled={isLoading}
+          className="w-full bg-black hover:bg-gray-800 text-white py-8 rounded-full text-xl font-medium"
+        >
+          {isLoading ? "Loading..." : "Register"}
+        </Button>
+      </div>
+      <div className="text-center mt-6">
+        <Link to="/login" className="text-paygo-purple text-lg font-medium hover:underline">
           Already have an account? Login
         </Link>
       </div>
