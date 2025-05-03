@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Input } from "@/components/ui/input";
@@ -19,9 +18,8 @@ const BuyPayId = () => {
       return;
     }
 
-    // Process payment
-    toast.success("Payment successful! Your PAY ID will be displayed soon.");
-    navigate("/dashboard");
+    // Navigate to payment confirmation page with email
+    navigate("/payment-confirmation", { state: { email: email } });
   };
 
   return (
