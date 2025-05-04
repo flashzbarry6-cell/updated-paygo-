@@ -7,8 +7,19 @@ interface BalanceCardProps {
 }
 
 const BalanceCard = ({ balance, rewards }: BalanceCardProps) => {
-  // Format number with Naira symbol and commas
+  // Format number with Naira symbol
   const formatCurrency = (amount: number) => {
+    return new Intl.NumberFormat('en-NG', {
+      style: 'currency',
+      currency: 'NGN',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+      currencyDisplay: 'symbol'
+    }).format(amount).replace('NGN', '₦');
+  };
+
+  // Format with .00 for rewards
+  const formatRewards = (amount: number) => {
     return new Intl.NumberFormat('en-NG', {
       style: 'currency',
       currency: 'NGN',
@@ -18,18 +29,18 @@ const BalanceCard = ({ balance, rewards }: BalanceCardProps) => {
   };
 
   return (
-    <div className="bg-[#9b20f5] text-white rounded-xl p-4 w-full">
-      <div className="mb-4">
-        <h2 className="text-xl">Today Balance</h2>
+    <div className="bg-[#9b20f5] text-white rounded-3xl p-6 w-full">
+      <div className="mb-6">
+        <h2 className="text-xl font-medium">Today Balance</h2>
       </div>
-      <div className="flex justify-between items-center mb-4">
-        <h3 className="text-3xl font-bold">{formatCurrency(balance)}</h3>
-        <Button className="bg-white text-[#9b20f5] hover:bg-gray-100 rounded-full px-6 font-medium">
+      <div className="mb-8">
+        <h3 className="text-5xl font-bold">{formatCurrency(balance)}</h3>
+      </div>
+      <div className="flex justify-between items-center">
+        <p className="text-white/95">Weekly Rewards: {formatRewards(rewards)}</p>
+        <Button className="bg-white text-[#9b20f5] hover:bg-gray-100 rounded-full px-8 py-2 font-medium text-base">
           Withdraw
         </Button>
-      </div>
-      <div>
-        <p>Weekly Rewards: {formatCurrency(rewards)}</p>
       </div>
     </div>
   );

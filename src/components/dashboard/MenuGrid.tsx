@@ -1,19 +1,7 @@
 
 import { useNavigate } from "react-router-dom";
-import { 
-  History, 
-  CreditCard, 
-  BarChart3, 
-  Smartphone, 
-  Satellite, 
-  MessageCircle, 
-  Globe, 
-  Info, 
-  LogOut,
-  BanknoteIcon
-} from "lucide-react";
-import MenuCard from "./MenuCard";
 import { toast } from "sonner";
+import MenuCard from "./MenuCard";
 
 const MenuGrid = () => {
   const navigate = useNavigate();
@@ -32,100 +20,116 @@ const MenuGrid = () => {
     }
   };
 
-  // Custom icons
+  // Icons styled as SVGs
   const HistoryIcon = () => (
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M9 5H7C4 5 2 7 2 10V15C2 18 4 20 7 20H17C20 20 22 18 22 15V10C22 7 20 5 17 5H15" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M9 5C9 3.9 9.9 3 11 3H13C14.1 3 15 3.9 15 5C15 6.1 14.1 7 13 7H11C9.9 7 9 6.1 9 5Z" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M8 12H11" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M13 12H16" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M8 15H16" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M12 8V12L14.5 14.5" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M5.6 19.4C4.5 18.3 3.7 16.8 3.3 15.2C2.9 13.6 3.0 11.9 3.6 10.4C4.1 8.8 5.1 7.4 6.4 6.4C7.7 5.4 9.3 4.8 11 4.7C12.7 4.6 14.4 5.0 15.9 5.8C17.4 6.6 18.6 7.9 19.4 9.4C20.2 10.9 20.5 12.7 20.3 14.4C20.1 16.1 19.4 17.7 18.2 19" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M19 20L16 17L15 19" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   );
 
   const CreditCardIcon = () => (
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M2 8.5H22" stroke="#292D32" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M6 16.5H8" stroke="#292D32" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M10.5 16.5H14.5" stroke="#292D32" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M22 12.03V16.11C22 19.62 21.11 20.5 17.56 20.5H6.44C2.89 20.5 2 19.62 2 16.11V7.89C2 4.38 2.89 3.5 6.44 3.5H17.55C21.11 3.5 22 4.38 22 7.89V8.49" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <rect x="2" y="5" width="20" height="14" rx="2" stroke="#9b87f5" strokeWidth="2" />
+      <path d="M2 10H22" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round" />
+      <path d="M7 15H13" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round" />
     </svg>
   );
 
-  const ChartIcon = () => (
+  const WatchIcon = () => (
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M7 10.74V13.94" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M12 9V13.94" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M17 13.94V7.26" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M2 13.95H22" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M2 8.94H7" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M2 3.94H12" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M12 18.95H22" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M7 18.95H2" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <circle cx="12" cy="12" r="7" stroke="#9b87f5" strokeWidth="2" />
+      <path d="M12 8V12L14.5 14.5" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M16 4L17 2" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round" />
+      <path d="M8 4L7 2" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round" />
+      <path d="M16 20L17 22" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round" />
+      <path d="M8 20L7 22" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round" />
     </svg>
   );
 
-  const PhoneIcon = () => (
+  const AirtimeIcon = () => (
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M17 2H7C5.9 2 5 2.9 5 4V20C5 21.1 5.9 22 7 22H17C18.1 22 19 21.1 19 20V4C19 2.9 18.1 2 17 2ZM15.5 19H8.5C8.22 19 8 18.78 8 18.5C8 18.22 8.22 18 8.5 18H15.5C15.78 18 16 18.22 16 18.5C16 18.78 15.78 19 15.5 19ZM17 16H7V6H17V16Z" fill="#292D32"/>
+      <path d="M12 4L10.2658 7.49391C9.98381 8.05851 9.8428 8.3408 9.64215 8.55392C9.46436 8.74245 9.24245 8.88827 9 8.97858C8.72223 9.08196 8.40128 9.08196 7.75939 9.08196H5C4.44772 9.08196 4 9.52968 4 10.082V11C4 11.5523 4.44772 12 5 12H7.75939C8.40128 12 8.72223 12 9 12.1034C9.24245 12.1937 9.46436 12.3395 9.64215 12.5281C9.8428 12.7412 9.98381 13.0235 10.2658 13.5881L12 17" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M16.5 4L19.5 7M19.5 4L16.5 7" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M20 10V12" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M17 15L19 17M19 15L17 17" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M15 19H17" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round"/>
     </svg>
   );
 
-  const SatelliteIcon = () => (
+  const DataIcon = () => (
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M13.5 12.98C15.43 12.98 16.98 11.44 16.98 9.5C16.98 7.57 15.43 6.02 13.5 6.02C11.57 6.02 10.02 7.57 10.02 9.5" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M17.56 7.94L21.53 3.96" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M9.44 7.94L5.46 3.96" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M5.46 20.04L18.54 6.95996" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M2 22L22 2" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M4 13.98C4 18.41 7.58 21.98 12 21.98C16.42 21.98 20 18.41 20 13.98" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <circle cx="12" cy="12" r="10" stroke="#9b87f5" strokeWidth="2" />
+      <circle cx="12" cy="12" r="5" stroke="#9b87f5" strokeWidth="2" />
+      <path d="M12 2V7" stroke="#9b87f5" strokeWidth="2" />
+      <path d="M12 17V22" stroke="#9b87f5" strokeWidth="2" />
+      <path d="M22 12L17 12" stroke="#9b87f5" strokeWidth="2" />
+      <path d="M7 12L2 12" stroke="#9b87f5" strokeWidth="2" />
     </svg>
   );
 
   const SupportIcon = () => (
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 13.5997 2.37562 15.1116 3.04346 16.4525C3.22094 16.8088 3.28001 17.2161 3.17712 17.6006L2.58151 19.8267C2.32295 20.793 3.20701 21.677 4.17335 21.4185L6.39939 20.8229C6.78393 20.72 7.19121 20.7791 7.54753 20.9565C8.88837 21.6244 10.4003 22 12 22Z" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M12 13.5C12.8284 13.5 13.5 12.8284 13.5 12C13.5 11.1716 12.8284 10.5 12 10.5C11.1716 10.5 10.5 11.1716 10.5 12C10.5 12.8284 11.1716 13.5 12 13.5Z" fill="#292D32"/>
-      <path d="M7.5 13.5C8.32843 13.5 9 12.8284 9 12C9 11.1716 8.32843 10.5 7.5 10.5C6.67157 10.5 6 11.1716 6 12C6 12.8284 6.67157 13.5 7.5 13.5Z" fill="#292D32"/>
-      <path d="M16.5 13.5C17.3284 13.5 18 12.8284 18 12C18 11.1716 17.3284 10.5 16.5 10.5C15.6716 10.5 15 11.1716 15 12C15 12.8284 15.6716 13.5 16.5 13.5Z" fill="#292D32"/>
+      <circle cx="12" cy="12" r="10" stroke="#9b87f5" strokeWidth="2" />
+      <path d="M12 17V16.9" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round" />
+      <path d="M12 14C12 11 15 11.5 15 9C15 7.5 13.6667 6 12 6C10.5 6 9.5 7 9 8" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round" />
     </svg>
   );
 
-  const GlobeIcon = () => (
+  const GroupIcon = () => (
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M8.0001 3H9.0001C7.0501 8.84 7.0501 15.16 9.0001 21H8.0001" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M15 3C16.95 8.84 16.95 15.16 15 21" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M3 16V15C8.84 16.95 15.16 16.95 21 15V16" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M3 9.0001C8.84 7.0501 15.16 7.0501 21 9.0001" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <circle cx="9" cy="7" r="3" stroke="#9b87f5" strokeWidth="2" />
+      <circle cx="16" cy="15" r="3" stroke="#9b87f5" strokeWidth="2" />
+      <path d="M5 17C5 14.2386 6.79086 12 9 12C11.2091 12 13 14.2386 13 17" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  );
+
+  const ReferIcon = () => (
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M9 17L4 12L9 7" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M20 12L8 12" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M12 4H6C4.89543 4 4 4.89543 4 6V18C4 19.1046 4.89543 20 6 20H12" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  );
+
+  const LoanIcon = () => (
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 8H18C18.5523 8 19 8.44772 19 9V19C19 19.5523 18.5523 20 18 20H6C5.44772 20 5 19.5523 5 19V9C5 8.44772 5.44772 8 6 8H8" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round" />
+      <path d="M16 12H8" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round" />
+      <path d="M16 16H8" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round" />
+      <path d="M12 3L12 8" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round" />
+      <path d="M9.5 5.5L12 3L14.5 5.5" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 
   const InfoIcon = () => (
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M12 8V13" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M11.9945 16H12.0035" stroke="#292D32" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <circle cx="12" cy="12" r="10" stroke="#9b87f5" strokeWidth="2" />
+      <path d="M12 8V16" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round" />
+      <path d="M12 7.5C12.8284 7.5 13.5 6.82843 13.5 6C13.5 5.17157 12.8284 4.5 12 4.5C11.1716 4.5 10.5 5.17157 10.5 6C10.5 6.82843 11.1716 7.5 12 7.5Z" fill="#9b87f5" />
     </svg>
   );
 
   const LogoutIcon = () => (
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M8.90002 7.55999C9.21002 3.95999 11.06 2.48999 15.11 2.48999H15.24C19.71 2.48999 21.5 4.27999 21.5 8.74999V15.27C21.5 19.74 19.71 21.53 15.24 21.53H15.11C11.09 21.53 9.24002 20.08 8.91002 16.54" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M15 12H3.62" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M5.85 8.6499L2.5 11.9999L5.85 15.3499" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M16 17L21 12L16 7" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M21 12H9" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="grid grid-cols-3 gap-3">
       <MenuCard title="History" icon={<HistoryIcon />} onClick={() => handleMenuClick("History")} />
       <MenuCard title="Buy PAY ID" icon={<CreditCardIcon />} onClick={() => handleMenuClick("Buy PAY ID", "/buy-pay-id")} />
-      <MenuCard title="Watch" icon={<ChartIcon />} onClick={() => handleMenuClick("Watch")} />
-      <MenuCard title="Airtime" icon={<PhoneIcon />} onClick={() => handleMenuClick("Airtime")} />
-      <MenuCard title="Data" icon={<SatelliteIcon />} onClick={() => handleMenuClick("Data", "/data")} />
+      <MenuCard title="Watch" icon={<WatchIcon />} onClick={() => handleMenuClick("Watch")} />
+      <MenuCard title="Airtime" icon={<AirtimeIcon />} onClick={() => handleMenuClick("Airtime")} />
+      <MenuCard title="Data" icon={<DataIcon />} onClick={() => handleMenuClick("Data", "/data")} />
       <MenuCard title="Support" icon={<SupportIcon />} onClick={() => handleMenuClick("Support")} />
-      <MenuCard title="Group" icon={<GlobeIcon />} onClick={() => handleMenuClick("Group")} />
+      <MenuCard title="Group" icon={<GroupIcon />} onClick={() => handleMenuClick("Group")} />
+      <MenuCard title="Refer" icon={<ReferIcon />} onClick={() => handleMenuClick("Refer")} />
+      <MenuCard title="Loan" icon={<LoanIcon />} onClick={() => handleMenuClick("Loan")} />
       <MenuCard title="About" icon={<InfoIcon />} onClick={() => handleMenuClick("About")} />
       <MenuCard title="Log out" icon={<LogoutIcon />} onClick={handleLogout} />
     </div>

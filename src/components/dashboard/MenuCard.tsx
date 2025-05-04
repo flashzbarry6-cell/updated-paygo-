@@ -1,6 +1,5 @@
 
 import React from "react";
-import { LucideIcon } from "lucide-react";
 
 interface MenuCardProps {
   title: string;
@@ -12,12 +11,12 @@ const MenuCard: React.FC<MenuCardProps> = ({ title, icon, onClick }) => {
   return (
     <div 
       onClick={onClick} 
-      className="bg-white rounded-xl shadow-sm p-4 flex flex-col items-center justify-center gap-2 h-[110px] cursor-pointer"
+      className="bg-white rounded-xl shadow-sm p-4 flex flex-col items-center justify-center gap-2 h-[100px] cursor-pointer"
     >
       <div className="text-center">
         {icon}
       </div>
-      <p className="font-medium text-center">{title}</p>
+      <p className="font-medium text-center text-sm">{title}</p>
     </div>
   );
 };
