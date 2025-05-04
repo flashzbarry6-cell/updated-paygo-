@@ -4,11 +4,14 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Copy } from "lucide-react";
 import { toast } from "sonner";
+import TransactionResult from "@/components/payment/TransactionResult";
 
 const PaymentConfirmation = () => {
   const navigate = useNavigate();
   const [timeLeft, setTimeLeft] = useState(1800); // 30 minutes in seconds
   const location = useLocation();
+  const [showResult, setShowResult] = useState(false);
+  const [paymentSuccess, setPaymentSuccess] = useState(false);
   
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
@@ -36,8 +39,18 @@ const PaymentConfirmation = () => {
   };
   
   const handleTransferDone = () => {
-    toast.success("We've received your transfer notification");
-    navigate("/dashboard");
+    setShowResult(true);
+    
+    // Random success/failure for demo purposes
+    // In a real app, this would be based on actual verification
+    setPaymentSuccess(Math.random() > 0.5);
+  };
+  
+  const handleCloseResult = () => {
+    setShowResult(false);
+    if (paymentSuccess) {
+      navigate("/dashboard");
+    }
   };
 
   return (
@@ -99,6 +112,12 @@ const PaymentConfirmation = () => {
           </Button>
         </div>
       </div>
+
+      <TransactionResult 
+        isOpen={showResult}
+        onClose={handleCloseResult}
+        success={paymentSuccess}
+      />
     </div>
   );
 };
