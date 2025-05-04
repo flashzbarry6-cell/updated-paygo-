@@ -5,7 +5,6 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
-import WarningBanner from "@/components/dashboard/WarningBanner";
 
 const TransferBank = () => {
   const navigate = useNavigate();
@@ -101,7 +100,7 @@ const TransferBank = () => {
           </div>
           
           <div className="pt-2">
-            <p className="text-lg font-semibold">Available Balance: ₦100000.00</p>
+            <p className="text-lg font-semibold">Available Balance: ₦180000.00</p>
           </div>
           
           <div className="pt-4">
