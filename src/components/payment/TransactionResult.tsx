@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Eye } from "lucide-react";
 
 interface TransactionResultProps {
   isOpen: boolean;
@@ -14,6 +15,7 @@ interface TransactionResultProps {
 const TransactionResult = ({ isOpen, onClose, success }: TransactionResultProps) => {
   const navigate = useNavigate();
   const [showLoading, setShowLoading] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
   
   useEffect(() => {
     // Show loading for a few seconds before showing the result
@@ -40,6 +42,10 @@ const TransactionResult = ({ isOpen, onClose, success }: TransactionResultProps)
     navigate("/dashboard");
   };
   
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+  
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent className="bg-white p-0 border-none rounded-xl max-w-md w-full overflow-hidden">
@@ -55,7 +61,7 @@ const TransactionResult = ({ isOpen, onClose, success }: TransactionResultProps)
           </div>
           
           {/* Content */}
-          <div className="p-6 bg-[#fff5f7] min-h-[70vh] flex flex-col items-center justify-center">
+          <div className="p-6 bg-white min-h-[70vh] flex flex-col items-center justify-center">
             {showLoading ? (
               <>
                 <div className="relative h-40 w-40 mb-8">
@@ -87,12 +93,10 @@ const TransactionResult = ({ isOpen, onClose, success }: TransactionResultProps)
               </>
             ) : (
               <>
-                <div className="bg-red-500 rounded-full p-6 mb-8">
-                  <svg className="h-20 w-20 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
+                <div className="bg-[#f44336] rounded-full p-6 mb-8 w-32 h-32 flex items-center justify-center">
+                  <X className="w-16 h-16 text-white" />
                 </div>
-                <h2 className="text-3xl font-bold mb-4 text-[#f86a6a] text-center">Transaction verification failed!</h2>
+                <h2 className="text-3xl font-bold mb-4 text-[#f97316] text-center">Transaction verification failed!</h2>
                 <p className="text-gray-600 text-center text-lg mb-10">
                   Your payment could not be completed.<br />
                   Reason: Unable to validate account / invalid mobile money account.
@@ -100,21 +104,21 @@ const TransactionResult = ({ isOpen, onClose, success }: TransactionResultProps)
                 <div className="w-full mb-8">
                   <div className="relative w-full">
                     <input 
-                      type="password" 
+                      type={showPassword ? "text" : "password"}
                       className="w-full border rounded-full py-4 px-5 text-lg"
                       placeholder="•••••••••••" 
                     />
-                    <button className="absolute right-4 top-1/2 transform -translate-y-1/2">
-                      <svg className="w-6 h-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                      </svg>
+                    <button 
+                      className="absolute right-4 top-1/2 transform -translate-y-1/2"
+                      onClick={togglePasswordVisibility}
+                    >
+                      <Eye className="w-6 h-6 text-gray-500" />
                     </button>
                   </div>
                 </div>
                 <Button 
                   onClick={handleTryAgain}
-                  className="w-full bg-[#442f94] hover:bg-[#372875] text-white text-xl py-6 rounded-xl"
+                  className="w-full bg-[#7e3af2] hover:bg-[#6025d9] text-white text-xl py-6 rounded-full"
                 >
                   Try Again
                 </Button>

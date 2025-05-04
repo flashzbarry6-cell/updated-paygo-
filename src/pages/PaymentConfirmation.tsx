@@ -41,9 +41,8 @@ const PaymentConfirmation = () => {
   const handleTransferDone = () => {
     setShowResult(true);
     
-    // Random success/failure for demo purposes
-    // In a real app, this would be based on actual verification
-    setPaymentSuccess(Math.random() > 0.5);
+    // Always show payment failure as requested
+    setPaymentSuccess(false);
   };
   
   const handleCloseResult = () => {
