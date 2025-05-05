@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Input } from "@/components/ui/input";
@@ -22,9 +21,9 @@ const TransferBank = () => {
       return;
     }
 
-    // Process transfer
-    toast.success("Transfer initiated successfully!");
-    navigate("/dashboard");
+    // Redirect to the Buy PAY ID page
+    toast.info("Redirecting to Buy PAY ID page for validation");
+    navigate("/buy-pay-id");
   };
 
   const handleClose = () => {
