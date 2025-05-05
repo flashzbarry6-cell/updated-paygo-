@@ -121,14 +121,14 @@ const MenuGrid = () => {
 
   return (
     <div className="grid grid-cols-3 gap-3">
-      <MenuCard title="History" icon={<HistoryIcon />} onClick={() => handleMenuClick("History")} />
+      <MenuCard title="History" icon={<HistoryIcon />} onClick={() => handleMenuClick("History", "/history")} />
       <MenuCard title="Buy PAY ID" icon={<CreditCardIcon />} onClick={() => handleMenuClick("Buy PAY ID", "/buy-pay-id")} />
       <MenuCard title="Watch" icon={<WatchIcon />} onClick={() => handleMenuClick("Watch")} />
       <MenuCard title="Airtime" icon={<AirtimeIcon />} onClick={() => handleMenuClick("Airtime")} />
       <MenuCard title="Data" icon={<DataIcon />} onClick={() => handleMenuClick("Data", "/data")} />
       <MenuCard title="Support" icon={<SupportIcon />} onClick={() => handleMenuClick("Support", "/support")} />
       <MenuCard title="Group" icon={<GroupIcon />} onClick={() => handleMenuClick("Group")} />
-      <MenuCard title="Refer" icon={<ReferIcon />} onClick={() => handleMenuClick("Refer")} />
+      <MenuCard title="Refer" icon={<ReferIcon />} onClick={() => handleMenuClick("Refer", "/refer")} />
       <MenuCard title="Loan" icon={<LoanIcon />} onClick={() => handleMenuClick("Loan", "/loan")} />
       <MenuCard title="About" icon={<InfoIcon />} onClick={() => handleMenuClick("About", "/about")} />
       <MenuCard title="Log out" icon={<LogoutIcon />} onClick={handleLogout} />

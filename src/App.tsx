@@ -15,6 +15,8 @@ import Data from "./pages/Data";
 import Support from "./pages/Support";
 import Loan from "./pages/Loan";
 import About from "./pages/About";
+import Refer from "./pages/Refer";
+import History from "./pages/History";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -37,6 +39,8 @@ const App = () => (
           <Route path="/support" element={<Support />} />
           <Route path="/loan" element={<Loan />} />
           <Route path="/about" element={<About />} />
+          <Route path="/refer" element={<Refer />} />
+          <Route path="/history" element={<History />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

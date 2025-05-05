@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
 import { X, ArrowLeft } from "lucide-react";
 
@@ -63,18 +62,12 @@ const TransferBank = () => {
           </div>
           
           <div>
-            <Select value={bank} onValueChange={setBank}>
-              <SelectTrigger className="border-2 border-[#E0F7FA]/80 rounded-full h-14 text-lg bg-[#E0F7FA]/20">
-                <SelectValue placeholder="Select Bank" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="access">Access Bank</SelectItem>
-                <SelectItem value="firstbank">First Bank</SelectItem>
-                <SelectItem value="gtb">GTBank</SelectItem>
-                <SelectItem value="zenith">Zenith Bank</SelectItem>
-                <SelectItem value="uba">UBA</SelectItem>
-              </SelectContent>
-            </Select>
+            <Input 
+              placeholder="Bank Name"
+              value={bank}
+              onChange={(e) => setBank(e.target.value)}
+              className="border-2 border-[#E0F7FA]/80 rounded-full h-14 text-lg placeholder:text-gray-400"
+            />
           </div>
           
           <div>
