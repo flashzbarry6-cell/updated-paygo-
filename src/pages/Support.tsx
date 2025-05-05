@@ -1,6 +1,6 @@
 
 import { useNavigate } from "react-router-dom";
-import { X, ArrowLeft, Mail, Telegram } from "lucide-react";
+import { X, ArrowLeft, Mail, MessageCircle } from "lucide-react";
 
 const Support = () => {
   const navigate = useNavigate();
@@ -45,7 +45,7 @@ const Support = () => {
           <div className="flex items-center justify-between bg-blue-50 rounded-lg p-4">
             <div className="flex items-center">
               <div className="bg-blue-500 p-3 rounded-full mr-4">
-                <Telegram className="text-white" />
+                <MessageCircle className="text-white" />
               </div>
               <div>
                 <h3 className="text-2xl font-bold">Telegram Support</h3>
