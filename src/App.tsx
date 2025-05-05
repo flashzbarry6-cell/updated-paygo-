@@ -12,6 +12,7 @@ import TransferBank from "./pages/TransferBank";
 import BuyPayId from "./pages/BuyPayId";
 import PaymentConfirmation from "./pages/PaymentConfirmation";
 import Data from "./pages/Data";
+import Support from "./pages/Support";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/buy-pay-id" element={<BuyPayId />} />
           <Route path="/payment-confirmation" element={<PaymentConfirmation />} />
           <Route path="/data" element={<Data />} />
+          <Route path="/support" element={<Support />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
