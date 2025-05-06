@@ -1,3 +1,4 @@
+
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import MenuCard from "./MenuCard";
@@ -13,7 +14,14 @@ const MenuGrid = () => {
 
   const handleMenuClick = (item: string, route?: string) => {
     if (route) {
-      navigate(route);
+      if (route.startsWith("http")) {
+        // External link
+        window.open(route, "_blank", "noopener,noreferrer");
+        toast(`Opening ${item} in a new tab`);
+      } else {
+        // Internal route
+        navigate(route);
+      }
     } else {
       toast(`${item} feature coming soon!`);
     }
@@ -135,7 +143,7 @@ const MenuGrid = () => {
       <MenuCard title="Airtime" icon={<AirtimeIcon />} onClick={() => handleMenuClick("Airtime", "/airtime")} />
       <MenuCard title="Data" icon={<DataIcon />} onClick={() => handleMenuClick("Data", "/data")} />
       <MenuCard title="Support" icon={<SupportIcon />} onClick={() => handleMenuClick("Support", "/support")} />
-      <MenuCard title="Group" icon={<GroupIcon />} onClick={() => handleMenuClick("Group")} />
+      <MenuCard title="Group" icon={<GroupIcon />} onClick={() => handleMenuClick("Group", "https://t.me/+9PQFIYgVQUU0YzZk")} />
       <MenuCard title="Refer" icon={<ReferIcon />} onClick={() => handleMenuClick("Refer", "/refer")} />
       <MenuCard title="Loan" icon={<LoanIcon />} onClick={() => handleMenuClick("Loan", "/loan")} />
       <MenuCard title="About" icon={<InfoIcon />} onClick={() => handleMenuClick("About", "/about")} />
