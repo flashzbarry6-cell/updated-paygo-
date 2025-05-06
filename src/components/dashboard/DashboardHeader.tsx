@@ -1,10 +1,14 @@
 
 import { useEffect, useState } from "react";
-import { Bell } from "lucide-react";
+import { Bell, BellDot } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { useNavigate } from "react-router-dom";
+import { useNotification } from "@/contexts/NotificationContext";
 
 const DashboardHeader = () => {
   const [user, setUser] = useState({ name: "" });
+  const navigate = useNavigate();
+  const { hasUnreadNotifications, notificationsEnabled } = useNotification();
 
   useEffect(() => {
     const userData = localStorage.getItem("paygo-user");
@@ -23,6 +27,10 @@ const DashboardHeader = () => {
     return user.name ? user.name.split(" ")[0] : "Charis";
   };
 
+  const handleNotificationClick = () => {
+    navigate("/notification-settings");
+  };
+
   return (
     <header className="flex justify-between items-center p-4 bg-[#fff6f9]">
       <div className="flex items-center gap-3">
@@ -34,8 +42,15 @@ const DashboardHeader = () => {
           <p className="text-sm text-gray-600">Hi, {getFirstName()}</p>
         </div>
       </div>
-      <div className="text-gray-700">
-        <Bell size={24} />
+      <div 
+        className="text-gray-700 cursor-pointer" 
+        onClick={handleNotificationClick}
+      >
+        {notificationsEnabled && hasUnreadNotifications ? (
+          <BellDot size={24} className="text-[#9b20f5]" />
+        ) : (
+          <Bell size={24} />
+        )}
       </div>
     </header>
   );
