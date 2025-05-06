@@ -35,7 +35,7 @@ const Support = () => {
               </div>
               <div>
                 <h3 className="text-2xl font-bold">Email Support</h3>
-                <p className="text-gray-500">plutozanki@gmail.com</p>
+                <p className="text-gray-500">paygocustomercareservice@gmail.com</p>
               </div>
             </div>
             <ArrowLeft className="transform rotate-180 text-gray-400" />
