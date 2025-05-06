@@ -1,4 +1,3 @@
-
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import MenuCard from "./MenuCard";
@@ -119,6 +118,15 @@ const MenuGrid = () => {
     </svg>
   );
 
+  const ChatIcon = () => (
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M21 12C21 16.9706 16.9706 21 12 21C10.2289 21 8.57736 20.4884 7.18385 19.605L3 21L4.39499 16.8161C3.51156 15.4226 3 13.7711 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M12 12V12.01" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M8 12V12.01" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round"/>
+      <path d="M16 12V12.01" stroke="#9b87f5" strokeWidth="2" strokeLinecap="round"/>
+    </svg>
+  );
+
   return (
     <div className="grid grid-cols-3 gap-3">
       <MenuCard title="History" icon={<HistoryIcon />} onClick={() => handleMenuClick("History", "/history")} />
@@ -131,6 +139,7 @@ const MenuGrid = () => {
       <MenuCard title="Refer" icon={<ReferIcon />} onClick={() => handleMenuClick("Refer", "/refer")} />
       <MenuCard title="Loan" icon={<LoanIcon />} onClick={() => handleMenuClick("Loan", "/loan")} />
       <MenuCard title="About" icon={<InfoIcon />} onClick={() => handleMenuClick("About", "/about")} />
+      <MenuCard title="Chat" icon={<ChatIcon />} onClick={() => handleMenuClick("Chat", "/live-chat")} />
       <MenuCard title="Log out" icon={<LogoutIcon />} onClick={handleLogout} />
     </div>
   );

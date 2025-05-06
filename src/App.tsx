@@ -13,7 +13,7 @@ import TransferBank from "./pages/TransferBank";
 import BuyPayId from "./pages/BuyPayId";
 import PaymentConfirmation from "./pages/PaymentConfirmation";
 import Data from "./pages/Data";
-import Airtime from "./pages/Airtime"; // Add this import
+import Airtime from "./pages/Airtime";
 import Support from "./pages/Support";
 import Loan from "./pages/Loan";
 import About from "./pages/About";
@@ -21,6 +21,7 @@ import Refer from "./pages/Refer";
 import History from "./pages/History";
 import NotificationSettings from "./pages/NotificationSettings";
 import NotFound from "./pages/NotFound";
+import LiveChat from "./pages/LiveChat"; // Add this import
 
 const queryClient = new QueryClient();
 
@@ -40,13 +41,14 @@ const App = () => (
             <Route path="/buy-pay-id" element={<BuyPayId />} />
             <Route path="/payment-confirmation" element={<PaymentConfirmation />} />
             <Route path="/data" element={<Data />} />
-            <Route path="/airtime" element={<Airtime />} /> {/* Add this route */}
+            <Route path="/airtime" element={<Airtime />} />
             <Route path="/support" element={<Support />} />
             <Route path="/loan" element={<Loan />} />
             <Route path="/about" element={<About />} />
             <Route path="/refer" element={<Refer />} />
             <Route path="/history" element={<History />} />
             <Route path="/notification-settings" element={<NotificationSettings />} />
+            <Route path="/live-chat" element={<LiveChat />} /> {/* Add this route */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
