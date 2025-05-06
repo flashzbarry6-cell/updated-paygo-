@@ -124,7 +124,7 @@ const MenuGrid = () => {
       <MenuCard title="History" icon={<HistoryIcon />} onClick={() => handleMenuClick("History", "/history")} />
       <MenuCard title="Buy PAY ID" icon={<CreditCardIcon />} onClick={() => handleMenuClick("Buy PAY ID", "/buy-pay-id")} />
       <MenuCard title="Watch" icon={<WatchIcon />} onClick={() => handleMenuClick("Watch")} />
-      <MenuCard title="Airtime" icon={<AirtimeIcon />} onClick={() => handleMenuClick("Airtime")} />
+      <MenuCard title="Airtime" icon={<AirtimeIcon />} onClick={() => handleMenuClick("Airtime", "/airtime")} />
       <MenuCard title="Data" icon={<DataIcon />} onClick={() => handleMenuClick("Data", "/data")} />
       <MenuCard title="Support" icon={<SupportIcon />} onClick={() => handleMenuClick("Support", "/support")} />
       <MenuCard title="Group" icon={<GroupIcon />} onClick={() => handleMenuClick("Group")} />
