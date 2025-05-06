@@ -31,7 +31,11 @@ const LoginForm = () => {
         isLoggedIn: true
       }));
       
-      toast.success("Login successful!");
+      // Show login success notification
+      toast.success("Login successful! Welcome back.", {
+        description: "You've successfully logged into your PayGo account."
+      });
+      
       navigate("/dashboard");
       setIsLoading(false);
     }, 1000);
