@@ -86,7 +86,7 @@ const PaymentConfirmation = () => {
           <p className="text-center text-gray-700 mb-4">Transfer to account details below</p>
           
           <div className="bg-gray-50 rounded-lg p-5 mb-6 text-center">
-            <p className="text-xl font-bold mb-4">OPay</p>
+            <p className="text-xl font-bold mb-4">MOMO PSB</p>
             
             <div className="flex items-center justify-center gap-2 mb-4">
               <span className="text-2xl text-[#00aaff] font-bold">8102562883</span>
