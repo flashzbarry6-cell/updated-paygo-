@@ -86,17 +86,17 @@ const PaymentConfirmation = () => {
           <p className="text-center text-gray-700 mb-4">Transfer to account details below</p>
           
           <div className="bg-gray-50 rounded-lg p-5 mb-6 text-center">
-            <p className="text-xl font-bold mb-4">MONEIPOINT</p>
+            <p className="text-xl font-bold mb-4">MOMO PSB</p>
             
             <div className="flex items-center justify-center gap-2 mb-4">
-              <span className="text-2xl text-[#00aaff] font-bold">5036801457</span>
+              <span className="text-2xl text-[#00aaff] font-bold">8102562883</span>
               <button onClick={handleCopyAccount} className="text-gray-500">
                 <Copy className="w-5 h-5" />
               </button>
             </div>
             
             <p className="text-gray-600 mb-1">Account Name</p>
-            <p className="text-xl font-bold mb-6">PRIZE FREDRICK RUFUS </p>
+            <p className="text-xl font-bold mb-6">VERONICA CHISOM BENJAMIN</p>
             
             <p className="text-gray-500 text-sm">
               this one-time account expires in {formatTime(timeLeft)}
