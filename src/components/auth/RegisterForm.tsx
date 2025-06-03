@@ -32,6 +32,9 @@ const RegisterForm = () => {
         isLoggedIn: true
       }));
       
+      // Clear onboarding flag to show it
+      localStorage.removeItem("paygo-onboarding-completed");
+      
       toast.success("Registration successful!");
       navigate("/dashboard");
       setIsLoading(false);

@@ -20,11 +20,11 @@ const AuthLayout = ({ children, heading }: AuthLayoutProps) => {
       <div className="flex flex-col items-center justify-center flex-grow px-4 pt-16 pb-12">
         <div className="w-full max-w-md">
           <div className="mb-12 text-center">
-            <div className="w-full max-w-[300px] mx-auto mb-8">
+            <div className="w-full max-w-[300px] mx-auto mb-8 overflow-hidden">
               <img 
                 src="/lovable-uploads/63dcf04b-d54d-4fae-b4d5-6146cba42114.png" 
                 alt="PayGo Logo" 
-                className="w-full h-auto"
+                className="w-full h-auto animate-[slide-in-right_3s_ease-in-out_infinite_alternate]"
               />
             </div>
             <h2 className="text-2xl font-medium text-gray-600">{heading}</h2>

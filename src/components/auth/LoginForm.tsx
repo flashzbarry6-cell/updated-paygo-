@@ -31,6 +31,9 @@ const LoginForm = () => {
         isLoggedIn: true
       }));
       
+      // Clear onboarding flag to show it again
+      localStorage.removeItem("paygo-onboarding-completed");
+      
       // Show login success notification
       toast.success("Login successful! Welcome back.", {
         description: "You've successfully logged into your PayGo account."
