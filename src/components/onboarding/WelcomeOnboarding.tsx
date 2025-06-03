@@ -54,13 +54,13 @@ const WelcomeOnboarding = () => {
       setCurrentStep(currentStep + 1);
     } else {
       localStorage.setItem("paygo-onboarding-completed", "true");
-      navigate("/dashboard");
+      window.location.reload(); // Refresh to show dashboard without onboarding
     }
   };
 
   const handleClose = () => {
     localStorage.setItem("paygo-onboarding-completed", "true");
-    navigate("/dashboard");
+    window.location.reload(); // Refresh to show dashboard without onboarding
   };
 
   const currentStepData = steps[currentStep];

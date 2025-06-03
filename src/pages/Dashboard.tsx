@@ -38,10 +38,10 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#fff6f9]">
+    <div className="flex flex-col min-h-screen bg-gray-50">
       {/* Warning Banner */}
       <div className="bg-red-500 text-white text-center py-2 px-4 text-sm">
-        Note: Opay does not support Opay bank transfers. Please use other banks for your payments.
+        NOTE: DEAR USERS WERE CURRENTLY EXPERIENCING ISSUES WITH OPAY TRANSFER PLEASE USE OTHER BANKS TO MAKE YOUR PAYMENT FOR PAY ID
       </div>
       
       {/* Animated Logo */}
@@ -49,7 +49,7 @@ const Dashboard = () => {
         <img 
           src="/lovable-uploads/63dcf04b-d54d-4fae-b4d5-6146cba42114.png" 
           alt="PayGo Logo" 
-          className="h-16 w-auto animate-[slide-in-right_3s_ease-in-out_infinite_alternate]"
+          className="h-16 w-auto animate-[slide-in-right_1s_ease-in-out_infinite_alternate]"
         />
       </div>
 

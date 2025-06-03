@@ -3,20 +3,21 @@ import React from "react";
 
 interface MenuCardProps {
   title: string;
-  icon: React.ReactNode;
+  icon: string;
+  bgColor?: string;
   onClick?: () => void;
 }
 
-const MenuCard: React.FC<MenuCardProps> = ({ title, icon, onClick }) => {
+const MenuCard: React.FC<MenuCardProps> = ({ title, icon, bgColor = "bg-white", onClick }) => {
   return (
     <div 
       onClick={onClick} 
-      className="bg-white rounded-xl shadow-sm p-4 flex flex-col items-center justify-center gap-2 h-[100px] cursor-pointer"
+      className={`${bgColor} rounded-xl shadow-sm p-4 flex flex-col items-center justify-center gap-2 h-[80px] cursor-pointer hover:shadow-md transition-shadow`}
     >
-      <div className="text-center">
+      <div className="text-2xl">
         {icon}
       </div>
-      <p className="font-medium text-center text-sm">{title}</p>
+      <p className="font-medium text-center text-xs text-gray-700">{title}</p>
     </div>
   );
 };
