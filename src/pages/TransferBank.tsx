@@ -1,120 +1,120 @@
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
-import { X, ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
 const TransferBank = () => {
   const navigate = useNavigate();
-  const [accountName, setAccountName] = useState("");
+  const [selectedBank, setSelectedBank] = useState("");
   const [accountNumber, setAccountNumber] = useState("");
-  const [bank, setBank] = useState("");
+  const [accountName, setAccountName] = useState("");
   const [amount, setAmount] = useState("");
   const [payId, setPayId] = useState("");
+
+  const banks = [
+    "Access Bank", "Zenith Bank", "GTBank", "First Bank", "UBA", 
+    "Fidelity Bank", "FCMB", "Sterling Bank", "Union Bank", "Wema Bank"
+  ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!accountName || !accountNumber || !bank || !amount || !payId) {
+    if (!selectedBank || !accountNumber || !accountName || !amount || !payId) {
       toast.error("Please fill all fields");
       return;
     }
 
-    // Redirect to the Buy PAY ID page
-    toast.info("Redirecting to Buy PAY ID page for validation");
-    navigate("/buy-pay-id");
-  };
-
-  const handleClose = () => {
+    toast.success("Transfer initiated successfully!");
     navigate("/dashboard");
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
-      <header className="bg-[#9b20f5] p-4 text-white flex items-center justify-between">
-        <div className="flex items-center">
-          <ArrowLeft className="mr-2" onClick={() => navigate("/dashboard")} />
-          <h1 className="text-2xl font-bold">Transfer To Bank</h1>
-        </div>
-        <X onClick={handleClose} className="cursor-pointer" />
-      </header>
-      
-      <div className="p-5 flex-1">
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <Input 
-              placeholder="Account Name"
-              value={accountName}
-              onChange={(e) => setAccountName(e.target.value)}
-              className="border-2 border-[#9b20f5]/50 rounded-full h-14 text-lg placeholder:text-gray-400"
-            />
+    <div className="flex justify-center min-h-screen bg-gray-50">
+      <div className="w-full max-w-md bg-white">
+        <header className="bg-white p-4 flex items-center border-b">
+          <ArrowLeft className="mr-3 cursor-pointer" onClick={() => navigate("/dashboard")} />
+          <h1 className="text-xl font-semibold text-black">Transfer to Bank</h1>
+        </header>
+        
+        <div className="p-6">
+          {/* Available Balance Card */}
+          <div className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] rounded-2xl p-6 text-white mb-8">
+            <p className="text-white/80 mb-2">Available Balance</p>
+            <h2 className="text-3xl font-bold">₦180,000.00</h2>
           </div>
-          
-          <div>
-            <Input 
-              placeholder="Account Number"
-              value={accountNumber}
-              onChange={(e) => setAccountNumber(e.target.value)}
-              className="border-2 border-[#FFA500]/50 rounded-full h-14 text-lg placeholder:text-gray-400"
-            />
-          </div>
-          
-          <div>
-            <Input 
-              placeholder="Bank Name"
-              value={bank}
-              onChange={(e) => setBank(e.target.value)}
-              className="border-2 border-[#E0F7FA]/80 rounded-full h-14 text-lg placeholder:text-gray-400"
-            />
-          </div>
-          
-          <div>
-            <Input 
-              placeholder="Amount"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-              className="border-2 border-[#FFDAB9]/80 rounded-full h-14 text-lg placeholder:text-gray-400"
-            />
-          </div>
-          
-          <div>
-            <Input 
-              placeholder="Enter PAY ID Code"
-              value={payId}
-              onChange={(e) => setPayId(e.target.value)}
-              className="border-2 border-[#E6E6FA]/80 rounded-full h-14 text-lg placeholder:text-gray-400"
-            />
-          </div>
-          
-          <div className="text-[#9b20f5] text-center">
-            <p className="text-lg">
-              Don't have a PAY ID? <a 
-                href="/buy-pay-id"
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate("/buy-pay-id");
-                }}
-                className="font-bold text-[#9b20f5]"
-              >
-                Buy PAY ID
-              </a>
-            </p>
-          </div>
-          
-          <div className="pt-2">
-            <p className="text-xl font-bold">Available Balance: ₦180,000</p>
-          </div>
-          
-          <div className="pt-4">
+
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <label className="block text-gray-700 font-medium mb-2">Select Bank</label>
+              <Select value={selectedBank} onValueChange={setSelectedBank}>
+                <SelectTrigger className="w-full h-12 border-gray-300 rounded-lg">
+                  <SelectValue placeholder="Choose a bank" />
+                </SelectTrigger>
+                <SelectContent>
+                  {banks.map((bank) => (
+                    <SelectItem key={bank} value={bank}>
+                      {bank}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div>
+              <label className="block text-gray-700 font-medium mb-2">Account Number</label>
+              <Input 
+                placeholder="Enter account number"
+                value={accountNumber}
+                onChange={(e) => setAccountNumber(e.target.value)}
+                className="h-12 border-gray-300 rounded-lg"
+              />
+            </div>
+
+            <div>
+              <label className="block text-gray-700 font-medium mb-2">Account Name</label>
+              <Input 
+                placeholder="Enter account name"
+                value={accountName}
+                onChange={(e) => setAccountName(e.target.value)}
+                className="h-12 border-gray-300 rounded-lg"
+              />
+            </div>
+
+            <div>
+              <label className="block text-gray-700 font-medium mb-2">Amount</label>
+              <Input 
+                placeholder="Enter amount"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+                className="h-12 border-gray-300 rounded-lg"
+              />
+            </div>
+
+            <div>
+              <label className="block text-gray-700 font-medium mb-2">PAY ID Code</label>
+              <Input 
+                placeholder="Enter PAY ID Code"
+                value={payId}
+                onChange={(e) => setPayId(e.target.value)}
+                className="h-12 border-gray-300 rounded-lg"
+              />
+              <p className="text-sm text-gray-500 mt-2">
+                Enter your PAY ID code to authorize withdrawal.
+              </p>
+            </div>
+
             <Button 
               type="submit" 
-              className="w-full bg-[#9b20f5] hover:bg-[#8b10e5] text-white text-xl py-6 rounded-full"
+              className="w-full bg-[#9b20f5] hover:bg-[#8b10e5] text-white text-lg py-6 rounded-full mt-8"
             >
-              Submit
+              Transfer Money
             </Button>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   );

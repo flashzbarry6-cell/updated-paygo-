@@ -89,7 +89,7 @@ const DashboardHeader = () => {
       <div className="flex gap-3">
         <Button 
           className="bg-white/20 text-white border-white/30 rounded-full px-6 py-2 hover:bg-white/30"
-          onClick={() => navigate("/buy-pay-id")}
+          onClick={() => navigate("/upgrade-account")}
         >
           ✓ Upgrade
         </Button>

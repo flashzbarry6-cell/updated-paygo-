@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -50,7 +49,7 @@ const PromotionalCarousel = () => {
             <img 
               src={promo.image} 
               alt={promo.title}
-              className="w-full h-48 object-cover rounded-xl"
+              className="w-full h-30 object-cover rounded-xl"
             />
           </div>
         ))}

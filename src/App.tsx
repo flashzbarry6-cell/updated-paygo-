@@ -36,6 +36,8 @@ const App = () => (
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/transfer" element={<TransferBank />} />
+          <Route path="/upgrade-account" element={<UpgradeAccount />} />
+          <Route path="/upgrade-benefits/:level" element={<UpgradeBenefits />} />
           <Route path="/buy-pay-id" element={<BuyPayId />} />
           <Route path="/payment-confirmation" element={<PaymentConfirmation />} />
           <Route path="/data" element={<Data />} />
