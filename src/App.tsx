@@ -9,6 +9,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import TransferBank from "./pages/TransferBank";
+import UpgradeAccount from "./pages/UpgradeAccount";
+import UpgradeBenefits from "./pages/UpgradeBenefits";
 import BuyPayId from "./pages/BuyPayId";
 import PaymentConfirmation from "./pages/PaymentConfirmation";
 import Data from "./pages/Data";
