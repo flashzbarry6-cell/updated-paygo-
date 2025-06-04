@@ -60,7 +60,7 @@ const UpgradeBenefits = () => {
   const benefits = getBenefits(currentLevel);
 
   const handleProceedToPayment = () => {
-    navigate("/payment-confirmation");
+    navigate(`/upgrade-payment/${currentLevel}`);
   };
 
   return (

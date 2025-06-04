@@ -50,16 +50,13 @@ const Dashboard = () => {
           <img 
             src="/lovable-uploads/63dcf04b-d54d-4fae-b4d5-6146cba42114.png" 
             alt="PayGo Logo" 
-            className="h-12 w-auto animate-[slide-in-right_0.3s_ease-in-out_infinite_alternate]" 
+            className="h-12 w-auto animate-logo" 
           />
         </div>
 
         <DashboardHeader />
         
         <div className="flex-1 px-3 py-4">
-          <div className="mb-4">
-            <BalanceCard balance={180000} rewards={180000} />
-          </div>
           <MenuGrid />
           
           {/* Current Promotions Section */}

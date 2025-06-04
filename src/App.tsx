@@ -25,6 +25,12 @@ import LiveChat from "./pages/LiveChat";
 import Profile from "./pages/Profile";
 import PreparePayment from "./pages/PreparePayment";
 import BankTransfer from "./pages/BankTransfer";
+import PaymentFailed from "./pages/PaymentFailed";
+import UpgradePayment from "./pages/UpgradePayment";
+import UpgradePreparePayment from "./pages/UpgradePreparePayment";
+import UpgradeBankTransfer from "./pages/UpgradeBankTransfer";
+import UpgradePaymentConfirmation from "./pages/UpgradePaymentConfirmation";
+import UpgradePaymentFailed from "./pages/UpgradePaymentFailed";
 
 const queryClient = new QueryClient();
 
@@ -42,10 +48,16 @@ const App = () => (
           <Route path="/transfer" element={<TransferBank />} />
           <Route path="/upgrade-account" element={<UpgradeAccount />} />
           <Route path="/upgrade-benefits/:level" element={<UpgradeBenefits />} />
+          <Route path="/upgrade-payment/:level" element={<UpgradePayment />} />
+          <Route path="/upgrade-prepare-payment" element={<UpgradePreparePayment />} />
+          <Route path="/upgrade-bank-transfer" element={<UpgradeBankTransfer />} />
+          <Route path="/upgrade-payment-confirmation" element={<UpgradePaymentConfirmation />} />
+          <Route path="/upgrade-payment-failed" element={<UpgradePaymentFailed />} />
           <Route path="/buy-pay-id" element={<BuyPayId />} />
           <Route path="/prepare-payment" element={<PreparePayment />} />
           <Route path="/bank-transfer" element={<BankTransfer />} />
           <Route path="/payment-confirmation" element={<PaymentConfirmation />} />
+          <Route path="/payment-failed" element={<PaymentFailed />} />
           <Route path="/data" element={<Data />} />
           <Route path="/airtime" element={<Airtime />} />
           <Route path="/support" element={<Support />} />

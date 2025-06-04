@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Copy } from "lucide-react";
 import { toast } from "sonner";
 
-const BankTransfer = () => {
+const UpgradeBankTransfer = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [userEmail, setUserEmail] = useState(location.state?.email || "");
@@ -34,14 +34,14 @@ const BankTransfer = () => {
       toast.error("Please upload your payment receipt");
       return;
     }
-    navigate("/payment-confirmation");
+    navigate("/upgrade-payment-confirmation");
   };
 
   return (
     <div className="flex justify-center min-h-screen bg-gray-50">
       <div className="w-full max-w-sm bg-white">
         <header className="bg-white p-4 flex items-center border-b">
-          <ArrowLeft className="mr-3 cursor-pointer" onClick={() => navigate("/prepare-payment")} />
+          <ArrowLeft className="mr-3 cursor-pointer" onClick={() => navigate("/upgrade-prepare-payment")} />
           <h1 className="text-xl font-semibold text-black">Bank Transfer</h1>
         </header>
         
@@ -88,7 +88,7 @@ const BankTransfer = () => {
           <div className="mb-6">
             <h3 className="text-lg font-bold mb-2">Amount to Transfer</h3>
             <div className="bg-gray-50 p-3 rounded-lg">
-              <span className="text-2xl font-bold">₦7,250</span>
+              <span className="text-2xl font-bold">₦20,000</span>
             </div>
           </div>
 
@@ -131,4 +131,4 @@ const BankTransfer = () => {
   );
 };
 
-export default BankTransfer;
+export default UpgradeBankTransfer;

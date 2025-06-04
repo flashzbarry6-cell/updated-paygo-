@@ -7,35 +7,36 @@ const PromotionalCarousel = () => {
   const promotions = [
     {
       id: 1,
-      title: "Get 20% Off Data",
-      description: "Limited time offer on all data bundles",
-      bgColor: "bg-gradient-to-r from-blue-500 to-purple-600"
+      title: "Game Day",
+      description: "NASDEC Complex Lusaka",
+      image: "/lovable-uploads/e163c715-9897-484b-9d98-c876dd692a88.png"
     },
     {
       id: 2,
-      title: "Free Airtime Bonus",
-      description: "Buy airtime and get 5% extra",
-      bgColor: "bg-gradient-to-r from-green-500 to-blue-500"
+      title: "Transact & Win",
+      description: "Pay with PayGo and win great prizes",
+      image: "/lovable-uploads/768e2174-6072-4370-8aa3-77d366e3af0d.png"
     },
     {
       id: 3,
-      title: "Refer & Earn",
-      description: "Earn rewards for every friend you refer",
-      bgColor: "bg-gradient-to-r from-orange-500 to-red-500"
+      title: "Winners",
+      description: "K20 airtime winners announced",
+      image: "/lovable-uploads/3d173dfb-5e8b-4804-8e48-b57bc6124598.png"
     }
   ];
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % promotions.length);
-    }, 3000);
+    }, 4000);
 
     return () => clearInterval(timer);
   }, [promotions.length]);
 
   return (
     <div className="mb-4">
-      <div className="relative overflow-hidden rounded-xl h-30"> {/* Reduced from h-32 to h-30 */}
+      <h3 className="text-lg font-semibold mb-3 px-1">Current Promotions</h3>
+      <div className="relative overflow-hidden rounded-xl h-30">
         <div 
           className="flex transition-transform duration-500 ease-in-out h-full"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -43,10 +44,13 @@ const PromotionalCarousel = () => {
           {promotions.map((promo) => (
             <div 
               key={promo.id} 
-              className={`min-w-full h-full ${promo.bgColor} text-white p-4 flex flex-col justify-center`}
+              className="min-w-full h-full relative"
             >
-              <h3 className="text-lg font-bold mb-1">{promo.title}</h3>
-              <p className="text-sm opacity-90">{promo.description}</p>
+              <img 
+                src={promo.image} 
+                alt={promo.title}
+                className="w-full h-full object-cover"
+              />
             </div>
           ))}
         </div>
