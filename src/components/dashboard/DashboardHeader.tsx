@@ -38,6 +38,11 @@ const DashboardHeader = () => {
     navigate("/notification-settings");
   };
 
+  const handleTransferClick = () => {
+    toast.error("Please purchase a valid PAY ID to access transfer features");
+    navigate("/buy-pay-id");
+  };
+
   const handleLogout = () => {
     localStorage.removeItem("paygo-user");
     localStorage.removeItem("paygo-onboarding-completed");
@@ -94,7 +99,7 @@ const DashboardHeader = () => {
         </Button>
         <Button 
           className="bg-white/20 text-white border-white/30 rounded-full px-4 py-1 text-xs hover:bg-white/30" 
-          onClick={() => navigate("/transfer")}
+          onClick={handleTransferClick}
         >
           ↑ Transfer
         </Button>

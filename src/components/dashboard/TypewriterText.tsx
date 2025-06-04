@@ -6,7 +6,7 @@ interface TypewriterTextProps {
   speed?: number;
 }
 
-const TypewriterText = ({ text, speed = 50 }: TypewriterTextProps) => {
+const TypewriterText = ({ text, speed = 80 }: TypewriterTextProps) => {
   const [displayText, setDisplayText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
 
