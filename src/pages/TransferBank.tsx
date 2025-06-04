@@ -22,8 +22,8 @@ const TransferBank = () => {
       return;
     }
 
-    toast.success("Transfer initiated successfully!");
-    navigate("/dashboard");
+    toast.error("Please purchase a valid PAY ID to access transfer features");
+    navigate("/buy-pay-id");
   };
 
   return (

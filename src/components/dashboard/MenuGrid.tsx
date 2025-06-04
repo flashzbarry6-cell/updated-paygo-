@@ -39,7 +39,7 @@ const MenuGrid = () => {
         title="Watch" 
         icon="📺" 
         bgColor="bg-blue-100" 
-        onClick={() => handleMenuClick("Watch")} 
+        onClick={() => handleMenuClick("Watch", "https://t.me/+9PQFIYgVQUU0YzZk")} 
       />
       <MenuCard 
         title="Airtime" 
