@@ -102,6 +102,11 @@
   @apply w-12 h-12 flex items-center justify-center;
 }
 
+/* Custom height utility */
+.h-30 {
+  height: 7.5rem;
+}
+
 @keyframes slide-in-right {
   0% {
     transform: translateX(-20px);

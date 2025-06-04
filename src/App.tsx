@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -23,6 +22,9 @@ import History from "./pages/History";
 import NotificationSettings from "./pages/NotificationSettings";
 import NotFound from "./pages/NotFound";
 import LiveChat from "./pages/LiveChat";
+import Profile from "./pages/Profile";
+import PreparePayment from "./pages/PreparePayment";
+import BankTransfer from "./pages/BankTransfer";
 
 const queryClient = new QueryClient();
 
@@ -41,12 +43,15 @@ const App = () => (
           <Route path="/upgrade-account" element={<UpgradeAccount />} />
           <Route path="/upgrade-benefits/:level" element={<UpgradeBenefits />} />
           <Route path="/buy-pay-id" element={<BuyPayId />} />
+          <Route path="/prepare-payment" element={<PreparePayment />} />
+          <Route path="/bank-transfer" element={<BankTransfer />} />
           <Route path="/payment-confirmation" element={<PaymentConfirmation />} />
           <Route path="/data" element={<Data />} />
           <Route path="/airtime" element={<Airtime />} />
           <Route path="/support" element={<Support />} />
           <Route path="/loan" element={<Loan />} />
           <Route path="/about" element={<About />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/refer" element={<Refer />} />
           <Route path="/history" element={<History />} />
           <Route path="/notification-settings" element={<NotificationSettings />} />

@@ -28,7 +28,7 @@ const MenuGrid = () => {
   };
 
   return (
-    <div className="grid grid-cols-4 gap-3">
+    <div className="grid grid-cols-4 gap-2">
       <MenuCard 
         title="Buy PAY ID" 
         icon="💳" 
@@ -75,7 +75,7 @@ const MenuGrid = () => {
         title="Profile" 
         icon="👤" 
         bgColor="bg-blue-100" 
-        onClick={() => handleMenuClick("About", "/about")} 
+        onClick={() => handleMenuClick("Profile", "/profile")} 
       />
     </div>
   );

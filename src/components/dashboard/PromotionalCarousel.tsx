@@ -1,5 +1,5 @@
+
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const PromotionalCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -7,18 +7,21 @@ const PromotionalCarousel = () => {
   const promotions = [
     {
       id: 1,
-      image: "/lovable-uploads/5210f63f-6e77-4eae-9e29-78db2fe0e9e0.png",
-      title: "Game Day - NASDEC Complex Lusaka"
+      title: "Get 20% Off Data",
+      description: "Limited time offer on all data bundles",
+      bgColor: "bg-gradient-to-r from-blue-500 to-purple-600"
     },
     {
       id: 2,
-      image: "/lovable-uploads/1a6210e9-4170-4748-b97b-bdf41e69c68b.png",
-      title: "Transact & Win"
+      title: "Free Airtime Bonus",
+      description: "Buy airtime and get 5% extra",
+      bgColor: "bg-gradient-to-r from-green-500 to-blue-500"
     },
     {
       id: 3,
-      image: "/lovable-uploads/30368476-1b01-4f2e-9284-5c5d1c602239.png",
-      title: "Winners of K20 Airtime"
+      title: "Refer & Earn",
+      description: "Earn rewards for every friend you refer",
+      bgColor: "bg-gradient-to-r from-orange-500 to-red-500"
     }
   ];
 
@@ -30,57 +33,36 @@ const PromotionalCarousel = () => {
     return () => clearInterval(timer);
   }, [promotions.length]);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % promotions.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + promotions.length) % promotions.length);
-  };
-
   return (
-    <div className="relative overflow-hidden rounded-xl">
-      <div 
-        className="flex transition-transform duration-500 ease-in-out"
-        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-      >
-        {promotions.map((promo) => (
-          <div key={promo.id} className="w-full flex-shrink-0">
-            <img 
-              src={promo.image} 
-              alt={promo.title}
-              className="w-full h-30 object-cover rounded-xl"
+    <div className="mb-4">
+      <div className="relative overflow-hidden rounded-xl h-30"> {/* Reduced from h-32 to h-30 */}
+        <div 
+          className="flex transition-transform duration-500 ease-in-out h-full"
+          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        >
+          {promotions.map((promo) => (
+            <div 
+              key={promo.id} 
+              className={`min-w-full h-full ${promo.bgColor} text-white p-4 flex flex-col justify-center`}
+            >
+              <h3 className="text-lg font-bold mb-1">{promo.title}</h3>
+              <p className="text-sm opacity-90">{promo.description}</p>
+            </div>
+          ))}
+        </div>
+        
+        {/* Dots indicator */}
+        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
+          {promotions.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-2 h-2 rounded-full transition-colors ${
+                index === currentSlide ? 'bg-white' : 'bg-white/50'
+              }`}
             />
-          </div>
-        ))}
-      </div>
-
-      {/* Navigation arrows */}
-      <button 
-        onClick={prevSlide}
-        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-1.5 rounded-full hover:bg-opacity-70 transition-opacity"
-      >
-        <ChevronLeft size={16} />
-      </button>
-      
-      <button 
-        onClick={nextSlide}
-        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-1.5 rounded-full hover:bg-opacity-70 transition-opacity"
-      >
-        <ChevronRight size={16} />
-      </button>
-
-      {/* Dots indicator */}
-      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1">
-        {promotions.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`w-2 h-2 rounded-full transition-colors ${
-              index === currentSlide ? 'bg-[#9b87f5]' : 'bg-gray-300'
-            }`}
-          />
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

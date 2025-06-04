@@ -1,14 +1,49 @@
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
 import { toast } from "sonner";
 
 const BuyPayId = () => {
   const navigate = useNavigate();
-  const [amount, setAmount] = useState("₦6,500");
+  const [amount, setAmount] = useState("₦7,250");
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
+
+  // Typewriter effect for name and email
+  useEffect(() => {
+    const userData = localStorage.getItem("paygo-user");
+    if (userData) {
+      const user = JSON.parse(userData);
+      setIsTyping(true);
+      
+      // Type name
+      const nameText = user.name || "Charis Benjamin";
+      let nameIndex = 0;
+      const nameTimer = setInterval(() => {
+        setFullName(nameText.slice(0, nameIndex + 1));
+        nameIndex++;
+        if (nameIndex >= nameText.length) {
+          clearInterval(nameTimer);
+          
+          // Type email after name is complete
+          const emailText = user.email || "benjamincharis15@gmail.com";
+          let emailIndex = 0;
+          const emailTimer = setInterval(() => {
+            setEmail(emailText.slice(0, emailIndex + 1));
+            emailIndex++;
+            if (emailIndex >= emailText.length) {
+              clearInterval(emailTimer);
+              setIsTyping(false);
+            }
+          }, 50);
+        }
+      }, 50);
+    }
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,67 +53,73 @@ const BuyPayId = () => {
       return;
     }
 
-    // Navigate to payment confirmation page with email
-    navigate("/payment-confirmation", { state: { email: email } });
+    // Navigate to preparing payment page
+    navigate("/prepare-payment", { state: { email: email } });
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <header className="bg-[#442f94] p-5 text-white">
-        <h1 className="text-2xl font-bold">Buy PAY ID</h1>
-      </header>
-      
-      <div className="p-5 flex-1">
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="space-y-2">
-            <label className="text-gray-700 text-lg">Amount</label>
-            <Input 
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-              className="border-2 border-gray-200 rounded-xl h-14 text-lg bg-gray-100"
-              readOnly
-            />
-          </div>
-          
-          <div className="space-y-2">
-            <label className="text-gray-700 text-lg">Full Name</label>
-            <Input 
-              placeholder="Your full name"
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
-              className="border-2 border-gray-200 rounded-xl h-14 text-lg"
-            />
-          </div>
-          
-          <div className="space-y-2">
-            <label className="text-gray-700 text-lg">Your Email Address</label>
-            <Input 
-              type="email"
-              placeholder="email address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="border-2 border-gray-200 rounded-xl h-14 text-lg"
-            />
-          </div>
-          
-          <div className="pt-4">
-            <Button 
-              type="submit" 
-              className="w-full bg-[#9b87f5] hover:bg-[#8b77e5] text-white text-xl py-6 rounded-xl"
-            >
-              Pay
-            </Button>
-          </div>
-          
-          <div className="text-center text-gray-600 pt-4">
-            <p>Your PAY ID will be displayed on the app once your payment is confirmed.</p>
-          </div>
-        </form>
+    <div className="flex justify-center min-h-screen bg-gray-50">
+      <div className="w-full max-w-sm bg-white">
+        <header className="bg-[#442f94] p-4 text-white flex items-center">
+          <ArrowLeft className="mr-3 cursor-pointer" onClick={() => navigate("/dashboard")} />
+          <h1 className="text-xl font-bold">Buy PAY ID</h1>
+        </header>
+        
+        <div className="p-4 flex-1">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="space-y-2">
+              <label className="text-gray-700 text-lg">Amount</label>
+              <Input 
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+                className="border-2 border-gray-200 rounded-xl h-14 text-lg bg-gray-100"
+                readOnly
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <label className="text-gray-700 text-lg">Full Name</label>
+              <Input 
+                placeholder="Your full name"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+                className="border-2 border-gray-200 rounded-xl h-14 text-lg"
+                readOnly={isTyping}
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <label className="text-gray-700 text-lg">Your Email Address</label>
+              <Input 
+                type="email"
+                placeholder="email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="border-2 border-gray-200 rounded-xl h-14 text-lg"
+                readOnly={isTyping}
+              />
+            </div>
+            
+            <div className="pt-4">
+              <Button 
+                type="submit" 
+                className="w-full bg-[#9b87f5] hover:bg-[#8b77e5] text-white text-xl py-6 rounded-xl"
+                disabled={isTyping}
+              >
+                Pay
+              </Button>
+            </div>
+            
+            <div className="text-center text-gray-600 pt-4">
+              <p>Your PAY ID will be displayed on the app once your payment is confirmed.</p>
+            </div>
+          </form>
+        </div>
+        
+        <footer className="bg-gray-100 p-4 text-center text-gray-600">
+          <p>PayGo Financial Services LTD</p>
+        </footer>
       </div>
-      
-      <footer className="bg-gray-100 p-4 text-center text-gray-600">
-        <p>PayGo Financial Services LTD</p>
-      </footer>
     </div>
   );
 };
