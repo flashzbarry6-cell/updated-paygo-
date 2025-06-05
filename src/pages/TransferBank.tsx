@@ -3,26 +3,58 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
 import { ArrowLeft } from "lucide-react";
 
 const TransferBank = () => {
   const navigate = useNavigate();
-  const [bankName, setBankName] = useState("");
+  const [selectedBank, setSelectedBank] = useState("");
   const [accountNumber, setAccountNumber] = useState("");
   const [accountName, setAccountName] = useState("");
   const [amount, setAmount] = useState("");
   const [payId, setPayId] = useState("");
 
+  const banks = [
+    "Access Bank",
+    "GTBank",
+    "First Bank",
+    "UBA",
+    "Zenith Bank",
+    "Fidelity Bank",
+    "Union Bank",
+    "Sterling Bank",
+    "Stanbic IBTC",
+    "Wema Bank",
+    "FCMB",
+    "Ecobank",
+    "Heritage Bank",
+    "Keystone Bank",
+    "Polaris Bank",
+    "Unity Bank",
+    "Providus Bank",
+    "Jaiz Bank",
+    "SunTrust Bank",
+    "Titan Trust Bank",
+    "Moniepoint Bank",
+    "Opay",
+    "Palmpay",
+    "Kuda Bank"
+  ];
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!bankName || !accountNumber || !accountName || !amount || !payId) {
+    if (!selectedBank || !accountNumber || !accountName || !amount || !payId) {
       toast.error("Please fill all fields");
       return;
     }
 
     toast.error("Please purchase a valid PAY ID to access transfer features");
+    navigate("/buy-pay-id");
+  };
+
+  const handleBuyId = () => {
     navigate("/buy-pay-id");
   };
 
@@ -43,13 +75,19 @@ const TransferBank = () => {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-gray-700 font-medium mb-2">Bank Name</label>
-              <Input 
-                placeholder="Enter your bank name"
-                value={bankName}
-                onChange={(e) => setBankName(e.target.value)}
-                className="h-12 border-gray-300 rounded-lg"
-              />
+              <label className="block text-gray-700 font-medium mb-2">Select Bank</label>
+              <Select value={selectedBank} onValueChange={setSelectedBank}>
+                <SelectTrigger className="h-12 border-gray-300 rounded-lg">
+                  <SelectValue placeholder="Choose a bank" />
+                </SelectTrigger>
+                <SelectContent>
+                  {banks.map((bank) => (
+                    <SelectItem key={bank} value={bank}>
+                      {bank}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
 
             <div>
@@ -100,6 +138,14 @@ const TransferBank = () => {
               className="w-full bg-[#9b20f5] hover:bg-[#8b10e5] text-white text-lg py-6 rounded-full mt-6"
             >
               Transfer Money
+            </Button>
+
+            <Button 
+              type="button"
+              onClick={handleBuyId}
+              className="w-full bg-orange-500 hover:bg-orange-600 text-white text-lg py-6 rounded-full mt-4"
+            >
+              Buy ID Code
             </Button>
           </form>
         </div>

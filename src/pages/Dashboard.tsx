@@ -27,6 +27,17 @@ const Dashboard = () => {
       setShowOnboarding(true);
     }
     setIsLoading(false);
+
+    // Listen for onboarding completion
+    const handleOnboardingCompleted = () => {
+      setShowOnboarding(false);
+    };
+
+    window.addEventListener('onboarding-completed', handleOnboardingCompleted);
+
+    return () => {
+      window.removeEventListener('onboarding-completed', handleOnboardingCompleted);
+    };
   }, [navigate]);
 
   if (isLoading) {

@@ -53,14 +53,16 @@ const WelcomeOnboarding = () => {
     if (currentStep < steps.length - 1) {
       setCurrentStep(currentStep + 1);
     } else {
+      // Complete onboarding immediately without reload
       localStorage.setItem("paygo-onboarding-completed", "true");
-      window.location.reload(); // Refresh to show dashboard without onboarding
+      // Force re-render by updating a state that triggers dashboard re-render
+      window.dispatchEvent(new Event('onboarding-completed'));
     }
   };
 
   const handleClose = () => {
     localStorage.setItem("paygo-onboarding-completed", "true");
-    window.location.reload(); // Refresh to show dashboard without onboarding
+    window.dispatchEvent(new Event('onboarding-completed'));
   };
 
   const currentStepData = steps[currentStep];
