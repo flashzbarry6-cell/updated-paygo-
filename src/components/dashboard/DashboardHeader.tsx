@@ -94,7 +94,7 @@ const DashboardHeader = () => {
         </Button>
         <Button 
           className="bg-white/20 text-white border-white/30 rounded-full px-4 py-1 text-xs hover:bg-white/30" 
-          onClick={() => navigate("/transfer-bank")}
+          onClick={() => navigate("/transfer")}
         >
           ↑ Transfer
         </Button>
