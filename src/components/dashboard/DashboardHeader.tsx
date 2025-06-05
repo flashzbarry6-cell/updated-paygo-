@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import { Bell, BellDot } from "lucide-react";
+import { Bell, BellDot, Eye, EyeOff } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
@@ -11,6 +11,7 @@ const DashboardHeader = () => {
   const [user, setUser] = useState({
     name: ""
   });
+  const [showBalance, setShowBalance] = useState(true);
   const navigate = useNavigate();
   const {
     hasUnreadNotifications,
@@ -45,6 +46,10 @@ const DashboardHeader = () => {
     navigate("/login");
   };
 
+  const toggleBalanceVisibility = () => {
+    setShowBalance(!showBalance);
+  };
+
   return (
     <div className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] rounded-2xl mx-3 mt-3 p-4 text-white">
       <div className="flex justify-between items-center mb-3">
@@ -74,7 +79,15 @@ const DashboardHeader = () => {
       <div className="mb-3">
         <p className="text-sm opacity-90">Your Balance</p>
         <div className="flex items-center gap-2">
-          <h3 className="text-2xl font-bold">₦180,000.00</h3>
+          <h3 className="text-2xl font-bold">
+            {showBalance ? "₦180,000.00" : "₦****,***.**"}
+          </h3>
+          <div className="cursor-pointer" onClick={toggleBalanceVisibility}>
+            {showBalance ? 
+              <Eye size={20} className="text-white" /> : 
+              <EyeOff size={20} className="text-white" />
+            }
+          </div>
           <div className="cursor-pointer" onClick={handleNotificationClick}>
             {notificationsEnabled && hasUnreadNotifications ? 
               <BellDot size={20} className="text-white" /> : 
@@ -82,7 +95,9 @@ const DashboardHeader = () => {
             }
           </div>
         </div>
-        <p className="text-xs opacity-75">Weekly Rewards: ₦180,000.00</p>
+        <p className="text-xs opacity-75">
+          Weekly Rewards: {showBalance ? "₦180,000.00" : "₦****,***.**"}
+        </p>
       </div>
 
       <div className="flex gap-2">

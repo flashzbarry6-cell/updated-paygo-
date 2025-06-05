@@ -12,7 +12,7 @@ const MenuCard: React.FC<MenuCardProps> = ({ title, icon, bgColor = "bg-white", 
   return (
     <div 
       onClick={onClick} 
-      className={`${bgColor} rounded-xl shadow-sm p-4 flex flex-col items-center justify-center gap-2 h-[80px] cursor-pointer hover:shadow-md transition-shadow`}
+      className={`${bgColor} rounded-xl shadow-sm p-4 flex flex-col items-center justify-center gap-2 h-[90px] cursor-pointer hover:shadow-md transition-shadow border border-gray-100`}
     >
       <div className="text-2xl">
         {icon}

@@ -28,53 +28,53 @@ const MenuGrid = () => {
   };
 
   return (
-    <div className="grid grid-cols-4 gap-3">
+    <div className="grid grid-cols-4 gap-4">
       <MenuCard 
         title="Buy PAY ID" 
         icon="💳" 
-        bgColor="bg-yellow-100" 
+        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
         onClick={() => handleMenuClick("Buy PAY ID", "/buy-pay-id")} 
       />
       <MenuCard 
         title="Watch" 
         icon="📺" 
-        bgColor="bg-blue-100" 
+        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
         onClick={() => handleMenuClick("Watch", "https://t.me/+9PQFIYgVQUU0YzZk")} 
       />
       <MenuCard 
         title="Airtime" 
         icon="📊" 
-        bgColor="bg-green-100" 
+        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
         onClick={() => handleMenuClick("Airtime", "/airtime")} 
       />
       <MenuCard 
         title="Data" 
         icon="💾" 
-        bgColor="bg-gray-100" 
+        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
         onClick={() => handleMenuClick("Data", "/data")} 
       />
       <MenuCard 
         title="Support" 
         icon="🎧" 
-        bgColor="bg-blue-100" 
+        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
         onClick={() => handleMenuClick("Support", "/support")} 
       />
       <MenuCard 
         title="Group" 
         icon="🌐" 
-        bgColor="bg-cyan-100" 
+        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
         onClick={() => handleMenuClick("Group", "https://t.me/+9PQFIYgVQUU0YzZk")} 
       />
       <MenuCard 
         title="Earn More" 
         icon="💰" 
-        bgColor="bg-yellow-100" 
+        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
         onClick={() => handleMenuClick("Refer", "/refer")} 
       />
       <MenuCard 
         title="Profile" 
         icon="👤" 
-        bgColor="bg-blue-100" 
+        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
         onClick={() => handleMenuClick("Profile", "/profile")} 
       />
     </div>
