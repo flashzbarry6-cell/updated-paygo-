@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Input } from "@/components/ui/input";
@@ -60,7 +59,7 @@ const BuyPayId = () => {
   return (
     <div className="flex justify-center min-h-screen bg-gray-50">
       <div className="w-full max-w-sm bg-white">
-        <header className="bg-[#442f94] p-4 text-white flex items-center">
+        <header className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] p-4 text-white flex items-center">
           <ArrowLeft className="mr-3 cursor-pointer" onClick={() => navigate("/dashboard")} />
           <h1 className="text-xl font-bold">Buy PAY ID</h1>
         </header>

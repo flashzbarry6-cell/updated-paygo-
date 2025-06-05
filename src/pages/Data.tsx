@@ -1,9 +1,9 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
+import { ArrowLeft } from "lucide-react";
 
 const Data = () => {
   const navigate = useNavigate();
@@ -37,7 +37,14 @@ const Data = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
-      <header className="bg-[#442f94] p-5 text-white">
+      <header className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] p-5 text-white flex items-center">
+        <Button 
+          variant="ghost" 
+          className="p-0 mr-2" 
+          onClick={() => navigate("/dashboard")}
+        >
+          <ArrowLeft size={24} />
+        </Button>
         <h1 className="text-2xl font-bold">Buy Data</h1>
       </header>
 
