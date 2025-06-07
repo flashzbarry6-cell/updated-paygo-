@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import NetworkSelector from "@/components/telecom/NetworkSelector";
-import PeriodSelector from "@/components/telecom/PeriodSelector";
 import PhoneNumberInput from "@/components/telecom/PhoneNumberInput";
 import PayIdInput from "@/components/telecom/PayIdInput";
 import DataHeader from "@/components/telecom/DataHeader";
@@ -12,7 +11,6 @@ import DataPlanGrid from "@/components/telecom/DataPlanGrid";
 const Data = () => {
   const navigate = useNavigate();
   const [selectedNetwork, setSelectedNetwork] = useState<string | null>("MTN");
-  const [selectedPeriod, setSelectedPeriod] = useState<string>("Daily");
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [payId, setPayId] = useState<string>("");
 
@@ -45,13 +43,8 @@ const Data = () => {
           onChange={setPhoneNumber}
         />
 
-        <PeriodSelector 
-          selectedPeriod={selectedPeriod}
-          onPeriodSelect={setSelectedPeriod}
-        />
-
         <DataPlanGrid 
-          selectedPeriod={selectedPeriod}
+          selectedPeriod="Daily"
           onBuyData={handleBuyData}
         />
 
@@ -59,6 +52,27 @@ const Data = () => {
           value={payId}
           onChange={setPayId}
         />
+
+        <div className="mt-8">
+          <button 
+            onClick={() => {
+              if (!phoneNumber) {
+                toast.error("Please enter a phone number");
+                return;
+              }
+              
+              if (!payId) {
+                navigate("/buy-pay-id");
+                return;
+              }
+              
+              toast.success("Data purchase successful!");
+            }}
+            className="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white py-4 rounded-full font-semibold text-lg hover:opacity-90 transition-opacity"
+          >
+            Buy Data
+          </button>
+        </div>
       </div>
     </div>
   );

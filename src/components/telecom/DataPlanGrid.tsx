@@ -7,38 +7,52 @@ interface DataPlanGridProps {
 const DataPlanGrid = ({ selectedPeriod, onBuyData }: DataPlanGridProps) => {
   if (selectedPeriod === "Daily") {
     return (
-      <div className="grid grid-cols-2 gap-4 mb-4">
-        <div 
-          className="rounded-3xl border p-4 text-center cursor-pointer"
-          onClick={() => onBuyData(150, "200MB")}
-        >
-          <div className="text-lg text-gray-500">1 DAY</div>
-          <div className="text-4xl font-bold my-2">200MB</div>
-          <div className="text-xl font-medium">₦150</div>
-        </div>
-        <div 
-          className="rounded-3xl border p-4 text-center cursor-pointer"
-          onClick={() => onBuyData(200, "500MB")}
-        >
-          <div className="text-lg text-gray-500">1 DAY</div>
-          <div className="text-4xl font-bold my-2">500MB</div>
-          <div className="text-xl font-medium">₦200</div>
-        </div>
-        <div 
-          className="rounded-3xl border p-4 text-center cursor-pointer"
-          onClick={() => onBuyData(70, "100MB")}
-        >
-          <div className="text-lg text-gray-500">1 DAY</div>
-          <div className="text-4xl font-bold my-2">100MB</div>
-          <div className="text-xl font-medium">₦70</div>
-        </div>
-        <div 
-          className="rounded-3xl border p-4 text-center cursor-pointer"
-          onClick={() => onBuyData(350, "1GB")}
-        >
-          <div className="text-lg text-gray-500">1 DAY</div>
-          <div className="text-4xl font-bold my-2">1GB</div>
-          <div className="text-xl font-medium">₦350</div>
+      <div className="mb-6">
+        <h3 className="text-lg font-semibold mb-4 text-gray-800">Select Data Plan</h3>
+        <div className="grid grid-cols-3 gap-3">
+          {/* First Row */}
+          <div 
+            className="border border-gray-200 rounded-lg p-4 text-center cursor-pointer hover:bg-gray-50 transition-colors"
+            onClick={() => onBuyData(100, "300MB")}
+          >
+            <div className="text-2xl font-bold text-gray-800">₦100</div>
+            <div className="text-sm text-gray-500">300MB</div>
+            <div className="text-xs text-gray-400">1 DAY</div>
+          </div>
+          <div 
+            className="border border-gray-200 rounded-lg p-4 text-center cursor-pointer hover:bg-gray-50 transition-colors"
+            onClick={() => onBuyData(300, "1GB")}
+          >
+            <div className="text-2xl font-bold text-gray-800">₦300</div>
+            <div className="text-sm text-gray-500">1GB</div>
+            <div className="text-xs text-gray-400">7 DAYS</div>
+          </div>
+          <div 
+            className="border border-gray-200 rounded-lg p-4 text-center cursor-pointer hover:bg-gray-50 transition-colors"
+            onClick={() => onBuyData(500, "3GB")}
+          >
+            <div className="text-2xl font-bold text-gray-800">₦500</div>
+            <div className="text-sm text-gray-500">3GB</div>
+            <div className="text-xs text-gray-400">30 DAYS</div>
+          </div>
+          
+          {/* Second Row */}
+          <div 
+            className="border border-gray-200 rounded-lg p-4 text-center cursor-pointer hover:bg-gray-50 transition-colors"
+            onClick={() => onBuyData(800, "5GB")}
+          >
+            <div className="text-2xl font-bold text-gray-800">₦800</div>
+            <div className="text-sm text-gray-500">5GB</div>
+            <div className="text-xs text-gray-400">30 DAYS</div>
+          </div>
+          <div 
+            className="border border-gray-200 rounded-lg p-4 text-center cursor-pointer hover:bg-gray-50 transition-colors"
+            onClick={() => onBuyData(1500, "10GB")}
+          >
+            <div className="text-2xl font-bold text-gray-800">₦1500</div>
+            <div className="text-sm text-gray-500">10GB</div>
+            <div className="text-xs text-gray-400">30 DAYS</div>
+          </div>
         </div>
       </div>
     );

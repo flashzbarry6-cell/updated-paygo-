@@ -7,30 +7,77 @@ interface AirtimePlanGridProps {
 const AirtimePlanGrid = ({ selectedPeriod, onBuyAirtime }: AirtimePlanGridProps) => {
   if (selectedPeriod === "Daily") {
     return (
-      <div className="grid grid-cols-2 gap-4 mb-4">
-        <div 
-          className="rounded-3xl border p-4 text-center cursor-pointer"
-          onClick={() => onBuyAirtime(50, 1)}
-        >
-          <div className="text-lg text-gray-500">1 DAY</div>
-          <div className="text-4xl font-bold my-2">₦50</div>
-          <div className="text-xl font-medium">₦1 Cashback</div>
-        </div>
-        <div 
-          className="rounded-3xl border p-4 text-center cursor-pointer"
-          onClick={() => onBuyAirtime(100, 2)}
-        >
-          <div className="text-lg text-gray-500">1 DAY</div>
-          <div className="text-4xl font-bold my-2">₦100</div>
-          <div className="text-xl font-medium">₦2 Cashback</div>
-        </div>
-        <div 
-          className="rounded-3xl border p-4 text-center cursor-pointer"
-          onClick={() => onBuyAirtime(200, 3)}
-        >
-          <div className="text-lg text-gray-500">1 DAY</div>
-          <div className="text-4xl font-bold my-2">₦200</div>
-          <div className="text-xl font-medium">₦3 Cashback</div>
+      <div className="mb-6">
+        <h3 className="text-lg font-semibold mb-4 text-gray-800">Select Amount</h3>
+        <div className="grid grid-cols-3 gap-3">
+          {/* First Row */}
+          <div 
+            className="border border-gray-200 rounded-lg p-4 text-center cursor-pointer hover:bg-gray-50 transition-colors"
+            onClick={() => onBuyAirtime(50, 1)}
+          >
+            <div className="text-2xl font-bold text-gray-800">₦50</div>
+            <div className="text-sm text-gray-500">₦1 Cashback</div>
+          </div>
+          <div 
+            className="border border-gray-200 rounded-lg p-4 text-center cursor-pointer hover:bg-gray-50 transition-colors"
+            onClick={() => onBuyAirtime(100, 2)}
+          >
+            <div className="text-2xl font-bold text-gray-800">₦100</div>
+            <div className="text-sm text-gray-500">₦2 Cashback</div>
+          </div>
+          <div 
+            className="border border-gray-200 rounded-lg p-4 text-center cursor-pointer hover:bg-gray-50 transition-colors"
+            onClick={() => onBuyAirtime(200, 3)}
+          >
+            <div className="text-2xl font-bold text-gray-800">₦200</div>
+            <div className="text-sm text-gray-500">₦3 Cashback</div>
+          </div>
+          
+          {/* Second Row */}
+          <div 
+            className="border border-gray-200 rounded-lg p-4 text-center cursor-pointer hover:bg-gray-50 transition-colors"
+            onClick={() => onBuyAirtime(500, 10)}
+          >
+            <div className="text-2xl font-bold text-gray-800">₦500</div>
+            <div className="text-sm text-gray-500">₦10 Cashback</div>
+          </div>
+          <div 
+            className="border border-gray-200 rounded-lg p-4 text-center cursor-pointer hover:bg-gray-50 transition-colors"
+            onClick={() => onBuyAirtime(1000, 20)}
+          >
+            <div className="text-2xl font-bold text-gray-800">₦1000</div>
+            <div className="text-sm text-gray-500">₦20 Cashback</div>
+          </div>
+          <div 
+            className="border border-gray-200 rounded-lg p-4 text-center cursor-pointer hover:bg-gray-50 transition-colors"
+            onClick={() => onBuyAirtime(2000, 50)}
+          >
+            <div className="text-2xl font-bold text-gray-800">₦2000</div>
+            <div className="text-sm text-gray-500">₦50 Cashback</div>
+          </div>
+          
+          {/* Third Row */}
+          <div 
+            className="border border-gray-200 rounded-lg p-4 text-center cursor-pointer hover:bg-gray-50 transition-colors"
+            onClick={() => onBuyAirtime(3000, 75)}
+          >
+            <div className="text-2xl font-bold text-gray-800">₦3000</div>
+            <div className="text-sm text-gray-500">₦75 Cashback</div>
+          </div>
+          <div 
+            className="border border-gray-200 rounded-lg p-4 text-center cursor-pointer hover:bg-gray-50 transition-colors"
+            onClick={() => onBuyAirtime(5000, 125)}
+          >
+            <div className="text-2xl font-bold text-gray-800">₦5000</div>
+            <div className="text-sm text-gray-500">₦125 Cashback</div>
+          </div>
+          <div 
+            className="border border-gray-200 rounded-lg p-4 text-center cursor-pointer hover:bg-gray-50 transition-colors"
+            onClick={() => onBuyAirtime(10000, 250)}
+          >
+            <div className="text-2xl font-bold text-gray-800">₦10000</div>
+            <div className="text-sm text-gray-500">₦250 Cashback</div>
+          </div>
         </div>
       </div>
     );

@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import NetworkSelector from "@/components/telecom/NetworkSelector";
-import PeriodSelector from "@/components/telecom/PeriodSelector";
 import PhoneNumberInput from "@/components/telecom/PhoneNumberInput";
 import PayIdInput from "@/components/telecom/PayIdInput";
 import AirtimeHeader from "@/components/telecom/AirtimeHeader";
@@ -13,7 +12,6 @@ import AirtimePurchaseButton from "@/components/telecom/AirtimePurchaseButton";
 const Airtime = () => {
   const navigate = useNavigate();
   const [selectedNetwork, setSelectedNetwork] = useState<string | null>("MTN");
-  const [selectedPeriod, setSelectedPeriod] = useState<string>("Daily");
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [payId, setPayId] = useState<string>("");
 
@@ -46,13 +44,8 @@ const Airtime = () => {
           onChange={setPhoneNumber}
         />
 
-        <PeriodSelector 
-          selectedPeriod={selectedPeriod}
-          onPeriodSelect={setSelectedPeriod}
-        />
-
         <AirtimePlanGrid 
-          selectedPeriod={selectedPeriod}
+          selectedPeriod="Daily"
           onBuyAirtime={handleBuyAirtime}
         />
 
