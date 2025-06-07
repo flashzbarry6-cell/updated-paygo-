@@ -2,11 +2,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
-import BalanceCard from "@/components/dashboard/BalanceCard";
 import MenuGrid from "@/components/dashboard/MenuGrid";
 import PromotionalCarousel from "@/components/dashboard/PromotionalCarousel";
 import WelcomeOnboarding from "@/components/onboarding/WelcomeOnboarding";
-import TypewriterText from "@/components/dashboard/TypewriterText";
+import MobileWarningBanner from "@/components/dashboard/MobileWarningBanner";
+import MobileLogo from "@/components/dashboard/MobileLogo";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -42,8 +42,11 @@ const Dashboard = () => {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <p>Loading...</p>
+      <div className="flex items-center justify-center min-h-screen bg-gray-50">
+        <div className="animate-pulse">
+          <div className="h-8 w-24 bg-gray-300 rounded mb-2"></div>
+          <div className="h-4 w-16 bg-gray-200 rounded"></div>
+        </div>
       </div>
     );
   }
@@ -51,27 +54,14 @@ const Dashboard = () => {
   return (
     <div className="flex justify-center min-h-screen bg-gray-50">
       <div className="w-full max-w-sm bg-gray-50">
-        {/* Warning Banner */}
-        <div className="bg-red-500 text-white text-center py-2 px-4 text-sm">
-          <TypewriterText text="NOTE: DEAR USERS WERE CURRENTLY EXPERIENCING ISSUES WITH OPAY TRANSFER PLEASE USE OTHER BANKS TO MAKE YOUR PAYMENT FOR PAY ID" />
-        </div>
-        
-        {/* Animated Logo */}
-        <div className="bg-white p-3 flex justify-center">
-          <img 
-            src="/lovable-uploads/63dcf04b-d54d-4fae-b4d5-6146cba42114.png" 
-            alt="PayGo Logo" 
-            className="h-12 w-auto animate-logo" 
-          />
-        </div>
-
+        <MobileWarningBanner />
+        <MobileLogo />
         <DashboardHeader />
         
-        <div className="flex-1 px-3 py-4">
+        <div className="flex-1 px-2 sm:px-3 py-4">
           <MenuGrid />
           
-          {/* Current Promotions Section */}
-          <div className="mt-6">
+          <div className="mt-4 sm:mt-6">
             <PromotionalCarousel />
           </div>
         </div>
