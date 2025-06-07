@@ -7,7 +7,7 @@ const Support = () => {
   const navigate = useNavigate();
 
   const handleWhatsAppChat = () => {
-    const phoneNumber = "2349160407513";
+    const phoneNumber = "2348123978226";
     const message = "Hello, I need help with PayGo";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");
@@ -69,7 +69,7 @@ const Support = () => {
                 💬 Chat on WhatsApp
               </Button>
               <p className="text-gray-600 text-sm mt-2 text-center">
-                Contact: +234 916 040 7513
+                Contact: +234 812 397 8226
               </p>
             </div>
           </div>
