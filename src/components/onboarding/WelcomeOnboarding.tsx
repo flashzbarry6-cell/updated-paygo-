@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { X, Gift, CreditCard, Phone, Wallet, Zap } from "lucide-react";
+import { X, Gift, CreditCard, Zap } from "lucide-react";
 
 const WelcomeOnboarding = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -13,38 +13,20 @@ const WelcomeOnboarding = () => {
       title: "Welcome to PayGo!",
       subtitle: "As a new user, you'll receive a generous welcome bonus of",
       amount: "₦180,000",
-      description: ", which can be withdrawn at any time. Yes, you read that right - it's yours to keep!",
-      buttonText: "Continue to Dashboard",
-      icon: <Gift className="w-16 h-16 text-[#9b87f5]" />
-    },
-    {
-      title: "Welcome Bonus",
-      subtitle: "You've received a welcome bonus of ₦180,000! This amount is already in your account and can be withdrawn after purchasing a PAY ID.",
-      buttonText: "Next →",
+      description: ", which can be withdrawn after purchasing a PAY ID. Yes, you read that right - it's yours to keep!",
+      buttonText: "Amazing! Continue →",
       icon: <Gift className="w-16 h-16 text-[#9b87f5]" />
     },
     {
       title: "Get Your PAY ID",
-      subtitle: "To withdraw funds, you'll need to purchase a PAY ID for ₦7,250. This is a one-time purchase that unlocks all features of the app.",
-      buttonText: "Next →",
+      subtitle: "To unlock withdrawals and all app features, purchase a PAY ID for just ₦7,250. This one-time purchase gives you access to airtime, data, transfers, and withdrawals.",
+      buttonText: "Got it! Next →",
       icon: <CreditCard className="w-16 h-16 text-blue-500" />
     },
     {
-      title: "Airtime & Data",
-      subtitle: "You can purchase airtime and data for all major networks directly from the app. Simply select the service, enter the phone number, choose your plan, and complete your purchase.",
-      buttonText: "Next →",
-      icon: <Phone className="w-16 h-16 text-green-500" />
-    },
-    {
-      title: "Withdrawal Process",
-      subtitle: "To withdraw your funds, tap the \"Withdraw\" button on your dashboard, enter your bank details and PAY ID, and submit your request. Withdrawals are processed within 24 hours.",
-      buttonText: "Next →",
-      icon: <Wallet className="w-16 h-16 text-red-500" />
-    },
-    {
-      title: "Earn More",
-      subtitle: "Explore our app to discover ways to earn more! Refer friends to earn ₦500 per referral, join our communities, and take advantage of special promotions.",
-      buttonText: "Get Started →",
+      title: "Start Earning More!",
+      subtitle: "Beyond your welcome bonus, earn through referrals (₦500 each), daily check-ins, watching ads, and special promotions. Ready to explore?",
+      buttonText: "Let's Get Started! →",
       icon: <Zap className="w-16 h-16 text-orange-500" />
     }
   ];
@@ -53,9 +35,7 @@ const WelcomeOnboarding = () => {
     if (currentStep < steps.length - 1) {
       setCurrentStep(currentStep + 1);
     } else {
-      // Complete onboarding immediately without reload
       localStorage.setItem("paygo-onboarding-completed", "true");
-      // Force re-render by updating a state that triggers dashboard re-render
       window.dispatchEvent(new Event('onboarding-completed'));
     }
   };
@@ -74,20 +54,20 @@ const WelcomeOnboarding = () => {
         <div className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] p-6 text-white relative">
           <button 
             onClick={handleClose}
-            className="absolute top-4 right-4 text-white"
+            className="absolute top-4 right-4 text-white hover:bg-white/20 rounded-full p-1 transition-colors"
           >
-            <X size={24} />
+            <X size={20} />
           </button>
           
-          <h2 className="text-xl font-bold">Welcome to PayGo, Charis Benjamin !</h2>
-          <p className="text-sm mt-1">Step {currentStep + 1} of {steps.length}</p>
+          <h2 className="text-xl font-bold">Welcome to PayGo, Charis Benjamin!</h2>
+          <p className="text-sm mt-1 opacity-90">Step {currentStep + 1} of {steps.length}</p>
           
           {/* Progress bar */}
-          <div className="flex gap-1 mt-4">
+          <div className="flex gap-2 mt-4">
             {steps.map((_, index) => (
               <div 
                 key={index} 
-                className={`h-1 flex-1 rounded ${
+                className={`h-2 flex-1 rounded-full transition-all duration-300 ${
                   index <= currentStep ? 'bg-white' : 'bg-white/30'
                 }`} 
               />
@@ -97,7 +77,7 @@ const WelcomeOnboarding = () => {
 
         {/* Content */}
         <div className="p-8 text-center">
-          <div className="bg-gray-100 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6">
+          <div className="bg-gradient-to-br from-gray-50 to-gray-100 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
             {currentStepData.icon}
           </div>
 
@@ -105,7 +85,7 @@ const WelcomeOnboarding = () => {
             {currentStepData.title}
           </h3>
 
-          <div className="text-gray-600 text-lg leading-relaxed mb-8">
+          <div className="text-gray-600 text-base leading-relaxed mb-8">
             {currentStep === 0 ? (
               <div>
                 {currentStepData.subtitle}
@@ -119,7 +99,7 @@ const WelcomeOnboarding = () => {
 
           <Button
             onClick={handleNext}
-            className="w-full bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] hover:opacity-90 text-white py-6 rounded-2xl text-lg font-medium"
+            className="w-full bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] hover:opacity-90 text-white py-6 rounded-2xl text-lg font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
           >
             {currentStepData.buttonText}
           </Button>
