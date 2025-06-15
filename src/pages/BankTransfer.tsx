@@ -88,7 +88,7 @@ const BankTransfer = () => {
           <div className="mb-6">
             <h3 className="text-lg font-bold mb-2">Amount to Transfer</h3>
             <div className="bg-gray-50 p-3 rounded-lg">
-              <span className="text-2xl font-bold">₦7,250</span>
+              <span className="text-2xl font-bold">₦6,500</span>
             </div>
           </div>
 
