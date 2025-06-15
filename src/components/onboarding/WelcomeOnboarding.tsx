@@ -19,7 +19,7 @@ const WelcomeOnboarding = () => {
     },
     {
       title: "Get Your PAY ID",
-      subtitle: "To unlock withdrawals and all app features, purchase a PAY ID for just ₦7,250. This one-time purchase gives you access to airtime, data, transfers, and withdrawals.",
+      subtitle: "To unlock withdrawals and all app features, purchase a PAY ID for just ₦6,500. This one-time purchase gives you access to airtime, data, transfers, and withdrawals.",
       buttonText: "Got it! Next →",
       icon: <CreditCard className="w-16 h-16 text-blue-500" />
     },
