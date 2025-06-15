@@ -49,21 +49,21 @@ const WelcomeOnboarding = () => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-3xl max-w-md w-full relative overflow-hidden">
+      <div className="bg-white rounded-2xl max-w-sm w-full relative overflow-hidden">
         {/* Header with gradient */}
-        <div className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] p-6 text-white relative">
+        <div className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] p-4 text-white relative">
           <button 
             onClick={handleClose}
-            className="absolute top-4 right-4 text-white hover:bg-white/20 rounded-full p-1 transition-colors"
+            className="absolute top-3 right-3 text-white hover:bg-white/20 rounded-full p-1 transition-colors"
           >
-            <X size={20} />
+            <X size={18} />
           </button>
           
-          <h2 className="text-xl font-bold">Welcome to PayGo, Charis Benjamin!</h2>
+          <h2 className="text-lg font-bold">Welcome to PayGo, Charis Benjamin!</h2>
           <p className="text-sm mt-1 opacity-90">Step {currentStep + 1} of {steps.length}</p>
           
           {/* Progress bar */}
-          <div className="flex gap-2 mt-4">
+          <div className="flex gap-2 mt-3">
             {steps.map((_, index) => (
               <div 
                 key={index} 
@@ -76,20 +76,20 @@ const WelcomeOnboarding = () => {
         </div>
 
         {/* Content */}
-        <div className="p-8 text-center">
-          <div className="bg-gradient-to-br from-gray-50 to-gray-100 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
+        <div className="p-6 text-center">
+          <div className="bg-gradient-to-br from-gray-50 to-gray-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner">
             {currentStepData.icon}
           </div>
 
-          <h3 className="text-2xl font-bold text-gray-800 mb-4">
+          <h3 className="text-xl font-bold text-gray-800 mb-3">
             {currentStepData.title}
           </h3>
 
-          <div className="text-gray-600 text-base leading-relaxed mb-8">
+          <div className="text-gray-600 text-sm leading-relaxed mb-6">
             {currentStep === 0 ? (
               <div>
                 {currentStepData.subtitle}
-                <span className="text-[#9b87f5] font-bold text-2xl"> {currentStepData.amount}</span>
+                <span className="text-[#9b87f5] font-bold text-xl"> {currentStepData.amount}</span>
                 {currentStepData.description}
               </div>
             ) : (
@@ -99,7 +99,7 @@ const WelcomeOnboarding = () => {
 
           <Button
             onClick={handleNext}
-            className="w-full bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] hover:opacity-90 text-white py-6 rounded-2xl text-lg font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
+            className="w-full bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] hover:opacity-90 text-white py-5 rounded-xl text-base font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
           >
             {currentStepData.buttonText}
           </Button>

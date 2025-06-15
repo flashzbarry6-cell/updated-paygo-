@@ -52,7 +52,7 @@ const LoginForm = () => {
           placeholder="Enter Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="rounded-full h-14 px-6"
+          className="rounded-full h-12 px-4"
         />
       </div>
       <div>
@@ -61,18 +61,18 @@ const LoginForm = () => {
           placeholder="Enter Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="rounded-full h-14 px-6"
+          className="rounded-full h-12 px-4"
         />
       </div>
       <Button
         type="submit"
         disabled={isLoading}
-        className="w-full bg-black hover:bg-gray-800 text-white py-6 rounded-full text-lg"
+        className="w-full bg-black hover:bg-gray-800 text-white py-5 rounded-full text-lg"
       >
         {isLoading ? "Loading..." : "Login"}
       </Button>
       <div className="text-center mt-4">
-        <Link to="/register" className="text-paygo-purple text-lg hover:underline">
+        <Link to="/register" className="text-paygo-purple text-base hover:underline">
           Don't have an account? Register
         </Link>
       </div>

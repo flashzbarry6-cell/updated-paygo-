@@ -68,14 +68,14 @@ const RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-4">
       <div>
         <Input
           type="text"
           placeholder="Enter Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="h-16 px-6 rounded-full bg-white text-lg"
+          className="h-12 px-4 rounded-full bg-white text-base"
         />
       </div>
       <div>
@@ -84,7 +84,7 @@ const RegisterForm = () => {
           placeholder="Enter Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="h-16 px-6 rounded-full bg-white text-lg"
+          className="h-12 px-4 rounded-full bg-white text-base"
         />
       </div>
       <div>
@@ -93,12 +93,12 @@ const RegisterForm = () => {
           placeholder="Enter Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="h-16 px-6 rounded-full bg-white text-lg"
+          className="h-12 px-4 rounded-full bg-white text-base"
         />
       </div>
       <div>
         <Select value={country} onValueChange={setCountry}>
-          <SelectTrigger className="h-16 px-6 rounded-full bg-white text-lg">
+          <SelectTrigger className="h-12 px-4 rounded-full bg-white text-base">
             <SelectValue placeholder="Select Country" />
           </SelectTrigger>
           <SelectContent>
@@ -114,13 +114,13 @@ const RegisterForm = () => {
         <Button
           type="submit"
           disabled={isLoading}
-          className="w-full bg-black hover:bg-gray-800 text-white py-8 rounded-full text-xl font-medium"
+          className="w-full bg-black hover:bg-gray-800 text-white py-6 rounded-full text-lg font-medium"
         >
           {isLoading ? "Loading..." : "Register"}
         </Button>
       </div>
-      <div className="text-center mt-6">
-        <Link to="/login" className="text-paygo-purple text-lg font-medium hover:underline">
+      <div className="text-center mt-4">
+        <Link to="/login" className="text-paygo-purple text-base font-medium hover:underline">
           Already have an account? Login
         </Link>
       </div>
