@@ -7,7 +7,7 @@ import { toast } from "sonner";
 
 const BuyPayId = () => {
   const navigate = useNavigate();
-  const [amount, setAmount] = useState("₦7,250");
+  const [amount, setAmount] = useState("₦6,500");
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [isTyping, setIsTyping] = useState(false);
