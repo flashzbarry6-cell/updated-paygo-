@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -25,6 +26,7 @@ import NotificationSettings from "./pages/NotificationSettings";
 import NotFound from "./pages/NotFound";
 import LiveChat from "./pages/LiveChat";
 import Profile from "./pages/Profile";
+import ProfileInformation from "./pages/ProfileInformation";
 import PreparePayment from "./pages/PreparePayment";
 import BankTransfer from "./pages/BankTransfer";
 import PaymentFailed from "./pages/PaymentFailed";
@@ -68,6 +70,7 @@ const App = () => (
             <Route path="/loan" element={<Loan />} />
             <Route path="/about" element={<About />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/profile-information" element={<ProfileInformation />} />
             <Route path="/refer" element={<Refer />} />
             <Route path="/history" element={<History />} />
             <Route path="/notification-settings" element={<NotificationSettings />} />

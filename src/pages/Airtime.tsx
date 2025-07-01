@@ -30,10 +30,10 @@ const Airtime = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50">
+    <div className="flex flex-col min-h-screen bg-gray-50 max-w-sm mx-auto">
       <AirtimeHeader />
 
-      <div className="p-3 bg-white">
+      <div className="p-2 bg-white flex-1">
         <NetworkSelector 
           selectedNetwork={selectedNetwork}
           onNetworkSelect={setSelectedNetwork}

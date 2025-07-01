@@ -8,24 +8,24 @@ const AirtimeHeader = () => {
 
   return (
     <div>
-      <header className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] p-3 text-white flex items-center">
+      <header className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] p-2 text-white flex items-center">
         <Button 
           variant="ghost" 
           className="p-0 mr-2" 
           onClick={() => navigate("/dashboard")}
         >
-          <ArrowLeft size={20} />
+          <ArrowLeft size={18} />
         </Button>
-        <h1 className="text-xl font-bold">Airtime</h1>
+        <h1 className="text-lg font-bold">Airtime</h1>
       </header>
       
       {/* Promotional Banner */}
-      <div className="bg-gradient-to-r from-purple-600 to-purple-700 p-3 text-white flex items-center justify-between">
+      <div className="bg-gradient-to-r from-purple-600 to-purple-700 p-2 text-white flex items-center justify-between">
         <div>
-          <span className="text-sm">Enjoy </span>
-          <span className="text-yellow-300 font-bold text-sm">Airtime Bonuses!</span>
+          <span className="text-xs">Enjoy </span>
+          <span className="text-yellow-300 font-bold text-xs">Bonuses!</span>
         </div>
-        <Button className="bg-yellow-400 text-black font-bold px-4 py-1 rounded-full hover:bg-yellow-300 text-sm">
+        <Button className="bg-yellow-400 text-black font-bold px-3 py-1 rounded-full hover:bg-yellow-300 text-xs">
           GO
         </Button>
       </div>
