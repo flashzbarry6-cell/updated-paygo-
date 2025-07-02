@@ -25,42 +25,42 @@ const UpgradeAccount = () => {
 
   return (
     <div className="flex justify-center min-h-screen bg-gray-50">
-      <div className="w-full max-w-md bg-white">
-        <header className="bg-[#9b20f5] p-4 text-white flex items-center">
+      <div className="w-full max-w-sm bg-white">
+        <header className="bg-[#9b20f5] p-3 text-white flex items-center">
           <ArrowLeft className="mr-3 cursor-pointer" onClick={() => navigate("/dashboard")} />
-          <h1 className="text-xl font-semibold">Upgrade Account</h1>
+          <h1 className="text-lg font-semibold">Upgrade Account</h1>
         </header>
         
-        <div className="p-6">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-gray-800 mb-2">Choose Your Level</h2>
-            <p className="text-gray-600">Select a level to view benefits and upgrade</p>
+        <div className="p-3">
+          <div className="text-center mb-4">
+            <h2 className="text-lg font-bold text-gray-800 mb-1">Choose Your Level</h2>
+            <p className="text-gray-600 text-sm">Select a level to view benefits and upgrade</p>
           </div>
 
-          <div className="mb-6">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="bg-orange-100 p-2 rounded-full">
-                <span className="text-2xl">🥉</span>
+          <div className="mb-4">
+            <div className="flex items-center gap-2 mb-3">
+              <div className="bg-orange-100 p-1.5 rounded-full">
+                <span className="text-lg">🥉</span>
               </div>
               <div>
-                <p className="text-gray-600">Current Level</p>
-                <p className="text-xl font-bold">Basic</p>
+                <p className="text-gray-600 text-sm">Current Level</p>
+                <p className="text-lg font-bold">Basic</p>
               </div>
             </div>
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Select Level to Upgrade</h3>
-            <div className="grid grid-cols-2 gap-4">
+            <h3 className="text-base font-semibold mb-3">Select Level to Upgrade</h3>
+            <div className="grid grid-cols-2 gap-3">
               {levels.map((level) => (
                 <div
                   key={level.name}
                   onClick={() => handleLevelSelect(level.name)}
-                  className={`${level.color} rounded-xl p-4 text-center cursor-pointer hover:shadow-md transition-shadow`}
+                  className={`${level.color} rounded-xl p-3 text-center cursor-pointer hover:shadow-md transition-shadow`}
                 >
-                  <div className="text-3xl mb-2">{level.icon}</div>
-                  <h4 className="font-bold text-lg mb-1">{level.name}</h4>
-                  <p className="text-sm font-semibold">{level.price}</p>
+                  <div className="text-2xl mb-1">{level.icon}</div>
+                  <h4 className="font-bold text-base mb-0.5">{level.name}</h4>
+                  <p className="text-xs font-semibold">{level.price}</p>
                 </div>
               ))}
             </div>
