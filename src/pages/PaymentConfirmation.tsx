@@ -10,9 +10,8 @@ const PaymentConfirmation = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowConfirmation(false);
-      // After confirmation, show failure after another 3 seconds
       setTimeout(() => {
-        navigate("/payment-failed");
+        navigate("/payment-received");
       }, 3000);
     }, 3000);
 
@@ -24,23 +23,23 @@ const PaymentConfirmation = () => {
       <div className="w-full max-w-sm bg-white">
         <header className="bg-[#442f94] p-4 text-white flex items-center">
           <ArrowLeft className="mr-3 cursor-pointer" onClick={() => navigate("/bank-transfer")} />
-          <h1 className="text-xl font-bold">Payment Confirmation</h1>
+          <h1 className="text-xl font-bold">Confirming Payment</h1>
         </header>
         
-        <div className="flex-1 flex flex-col items-center justify-center p-8 text-center">
-          {showConfirmation ? (
-            <>
-              <div className="w-24 h-24 border-4 border-green-500 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Confirming Your Payment</h2>
-              <p className="text-gray-600">Please wait while we process your transfer...</p>
-            </>
-          ) : (
-            <>
-              <div className="w-24 h-24 border-4 border-red-500 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
-              <h2 className="text-2xl font-bold text-red-600 mb-4">Processing...</h2>
-              <p className="text-gray-600">Verifying payment details...</p>
-            </>
-          )}
+        <div className="flex-1 flex flex-col items-center justify-center p-8 text-center min-h-screen bg-gray-50">
+          <div className="mb-8">
+            <div className="w-24 h-24 border-8 border-orange-500 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
+          </div>
+          
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">Confirming Your Payment</h2>
+          <p className="text-gray-600 mb-8">Please wait while we verify your transaction...</p>
+          
+          <div className="w-full bg-gray-300 rounded-full h-2 mb-8">
+            <div className="bg-orange-500 h-2 rounded-full animate-pulse" style={{ width: '30%' }}></div>
+          </div>
+          
+          <p className="text-gray-500 text-sm mb-4">This may take a few moments</p>
+          <p className="text-gray-500 text-sm">Please do not close this page</p>
         </div>
         
         <footer className="bg-gray-100 p-4 text-center text-gray-600">

@@ -52,6 +52,7 @@ const App = () => (
             <Route path="/register" element={<Register />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/transfer" element={<TransferBank />} />
+            <Route path="/transfer-success" element={<TransferSuccess />} />
             <Route path="/upgrade-account" element={<UpgradeAccount />} />
             <Route path="/upgrade-benefits/:level" element={<UpgradeBenefits />} />
             <Route path="/upgrade-payment/:level" element={<UpgradePayment />} />
@@ -63,6 +64,7 @@ const App = () => (
             <Route path="/prepare-payment" element={<PreparePayment />} />
             <Route path="/bank-transfer" element={<BankTransfer />} />
             <Route path="/payment-confirmation" element={<PaymentConfirmation />} />
+            <Route path="/payment-received" element={<PaymentReceived />} />
             <Route path="/payment-failed" element={<PaymentFailed />} />
             <Route path="/data" element={<Data />} />
             <Route path="/airtime" element={<Airtime />} />

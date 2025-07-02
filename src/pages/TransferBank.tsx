@@ -22,8 +22,16 @@ const TransferBank = () => {
       return;
     }
 
-    toast.error("Please purchase a valid PAY ID to access transfer features");
-    navigate("/buy-pay-id");
+    // Navigate to success page with transfer data
+    navigate("/transfer-success", {
+      state: {
+        bankName,
+        accountNumber,
+        accountName,
+        amount,
+        payId
+      }
+    });
   };
 
   const handleBuyId = () => {
