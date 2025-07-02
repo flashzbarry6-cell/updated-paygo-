@@ -32,7 +32,7 @@ const Data = () => {
     <div className="flex flex-col min-h-screen bg-gray-50 max-w-sm mx-auto">
       <DataHeader />
 
-      <div className="p-1.5 bg-white flex-1">
+      <div className="p-1 bg-white flex-1">
         <NetworkSelector 
           selectedNetwork={selectedNetwork}
           onNetworkSelect={setSelectedNetwork}
@@ -53,7 +53,7 @@ const Data = () => {
           onChange={setPayId}
         />
 
-        <div className="mt-2">
+        <div className="mt-1">
           <button 
             onClick={() => {
               if (!phoneNumber) {
@@ -68,7 +68,7 @@ const Data = () => {
               
               toast.success("Data purchase successful!");
             }}
-            className="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white py-2 rounded-full font-semibold text-sm hover:opacity-90 transition-opacity"
+            className="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white py-1.5 rounded-full font-semibold text-sm hover:opacity-90 transition-opacity"
           >
             Buy Data
           </button>
