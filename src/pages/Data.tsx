@@ -29,10 +29,10 @@ const Data = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50 max-w-sm mx-auto">
+    <div className="flex flex-col h-screen bg-gray-50 max-w-sm mx-auto">
       <DataHeader />
 
-      <div className="p-2 bg-white flex-1">
+      <div className="p-2 bg-white flex-1 overflow-y-auto">
         <NetworkSelector 
           selectedNetwork={selectedNetwork}
           onNetworkSelect={setSelectedNetwork}
