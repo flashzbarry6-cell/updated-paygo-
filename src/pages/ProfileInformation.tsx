@@ -29,19 +29,19 @@ const ProfileInformation = () => {
   };
 
   return (
-    <div className="flex justify-center min-h-screen bg-gradient-to-br from-purple-50 to-purple-100">
+    <div className="flex justify-center min-h-screen bg-gray-50">
       <div className="w-full max-w-sm bg-white">
         <header className="bg-white p-4 flex items-center border-b">
           <ArrowLeft className="mr-3 cursor-pointer" onClick={() => navigate("/profile")} />
           <h1 className="text-xl font-semibold text-black">Profile Information</h1>
         </header>
         
-        <div className="p-6 bg-gradient-to-br from-purple-50 to-purple-100 min-h-screen">
+        <div className="p-6 bg-gray-50 min-h-screen">
           {/* Profile Picture and Name */}
           <div className="text-center mb-8">
-            <div className="w-32 h-32 bg-purple-200 rounded-full flex items-center justify-center mb-4 mx-auto border-4 border-purple-400">
-              <div className="w-24 h-24 bg-purple-300 rounded-full flex items-center justify-center">
-                <span className="text-purple-600 text-3xl">👤</span>
+            <div className="w-32 h-32 bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] rounded-full flex items-center justify-center mb-4 mx-auto border-4 border-white shadow-lg">
+              <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center">
+                <span className="text-white text-3xl">👤</span>
               </div>
             </div>
             <h2 className="text-2xl font-bold text-gray-800">{user.name}</h2>
@@ -54,8 +54,8 @@ const ProfileInformation = () => {
             <div className="space-y-6">
               {/* Full Name */}
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
-                  <User className="text-purple-600" size={20} />
+                <div className="w-12 h-12 bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] rounded-full flex items-center justify-center mr-4">
+                  <User className="text-white" size={20} />
                 </div>
                 <div className="flex-1">
                   <p className="text-gray-500 text-sm">Full Name</p>
@@ -65,8 +65,8 @@ const ProfileInformation = () => {
 
               {/* Email Address */}
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                  <Mail className="text-blue-600" size={20} />
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center mr-4">
+                  <Mail className="text-white" size={20} />
                 </div>
                 <div className="flex-1">
                   <p className="text-gray-500 text-sm">Email Address</p>
@@ -76,8 +76,8 @@ const ProfileInformation = () => {
 
               {/* Country */}
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
-                  <Globe className="text-green-600" size={20} />
+                <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-green-500 rounded-full flex items-center justify-center mr-4">
+                  <Globe className="text-white" size={20} />
                 </div>
                 <div className="flex-1">
                   <p className="text-gray-500 text-sm">Country</p>
@@ -87,8 +87,8 @@ const ProfileInformation = () => {
 
               {/* Account Level */}
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4">
-                  <Award className="text-yellow-600" size={20} />
+                <div className="w-12 h-12 bg-gradient-to-r from-[#ff6f43] to-[#ffaa43] rounded-full flex items-center justify-center mr-4">
+                  <Award className="text-white" size={20} />
                 </div>
                 <div className="flex-1">
                   <p className="text-gray-500 text-sm">Account Level</p>
@@ -98,8 +98,8 @@ const ProfileInformation = () => {
 
               {/* Account Status */}
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
-                  <CheckCircle className="text-green-600" size={20} />
+                <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-green-500 rounded-full flex items-center justify-center mr-4">
+                  <CheckCircle className="text-white" size={20} />
                 </div>
                 <div className="flex-1">
                   <p className="text-gray-500 text-sm">Account Status</p>
@@ -112,8 +112,8 @@ const ProfileInformation = () => {
 
               {/* PAY ID Status */}
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
-                  <CreditCard className="text-purple-600" size={20} />
+                <div className="w-12 h-12 bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] rounded-full flex items-center justify-center mr-4">
+                  <CreditCard className="text-white" size={20} />
                 </div>
                 <div className="flex-1">
                   <p className="text-gray-500 text-sm">PAY ID Status</p>

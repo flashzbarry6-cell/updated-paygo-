@@ -14,18 +14,18 @@ const DataHeader = () => {
           className="p-0 mr-2" 
           onClick={() => navigate("/dashboard")}
         >
-          <ArrowLeft size={18} />
+          <ArrowLeft size={16} />
         </Button>
-        <h1 className="text-lg font-bold">Data</h1>
+        <h1 className="text-base font-bold">Data</h1>
       </header>
       
       {/* Promotional Banner */}
-      <div className="bg-gradient-to-r from-green-600 to-green-700 p-2 text-white flex items-center justify-between">
+      <div className="bg-gradient-to-r from-green-600 to-green-700 p-1.5 text-white flex items-center justify-between">
         <div>
           <span className="text-xs">Enjoy Amazing </span>
           <span className="text-yellow-300 font-bold text-xs">5X Data Bonuses!</span>
         </div>
-        <Button className="bg-yellow-400 text-black font-bold px-3 py-1 rounded-full hover:bg-yellow-300 text-xs">
+        <Button className="bg-yellow-400 text-black font-bold px-2 py-0.5 rounded-full hover:bg-yellow-300 text-xs">
           GO
         </Button>
       </div>

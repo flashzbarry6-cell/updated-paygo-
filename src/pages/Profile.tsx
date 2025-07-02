@@ -29,23 +29,23 @@ const Profile = () => {
   };
 
   return (
-    <div className="flex justify-center min-h-screen bg-gradient-to-br from-purple-50 to-purple-100">
+    <div className="flex justify-center min-h-screen bg-gray-50">
       <div className="w-full max-w-sm bg-white">
         <header className="bg-white p-4 flex items-center border-b">
           <ArrowLeft className="mr-3 cursor-pointer" onClick={() => navigate("/dashboard")} />
           <h1 className="text-xl font-semibold text-black">Profile</h1>
         </header>
         
-        <div className="p-6 bg-gradient-to-br from-purple-50 to-purple-100 min-h-screen">
+        <div className="p-6 bg-gray-50 min-h-screen">
           {/* Profile Picture Section */}
           <div className="text-center mb-8">
             <div className="relative inline-block">
-              <div className="w-32 h-32 bg-purple-200 rounded-full flex items-center justify-center mb-4 border-4 border-purple-400">
-                <div className="w-24 h-24 bg-purple-300 rounded-full flex items-center justify-center">
-                  <span className="text-purple-600 text-3xl">👤</span>
+              <div className="w-32 h-32 bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] rounded-full flex items-center justify-center mb-4 border-4 border-white shadow-lg">
+                <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center">
+                  <span className="text-white text-3xl">👤</span>
                 </div>
               </div>
-              <div className="absolute -bottom-2 -right-2 bg-purple-600 rounded-full p-2 border-2 border-white">
+              <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] rounded-full p-2 border-2 border-white">
                 <span className="text-white text-sm">📷</span>
               </div>
             </div>
@@ -61,8 +61,8 @@ const Profile = () => {
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
-                    <span className="text-purple-600 text-xl">👤</span>
+                  <div className="w-12 h-12 bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] rounded-full flex items-center justify-center mr-4">
+                    <span className="text-white text-xl">👤</span>
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg">Profile Information</h3>
@@ -80,8 +80,8 @@ const Profile = () => {
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center mr-4">
-                    <span className="text-teal-600 text-xl">❓</span>
+                  <div className="w-12 h-12 bg-gradient-to-r from-teal-400 to-teal-500 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-white text-xl">❓</span>
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg">Help & Support</h3>
@@ -99,8 +99,8 @@ const Profile = () => {
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                    <span className="text-blue-600 text-xl">ℹ️</span>
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-white text-xl">ℹ️</span>
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg">About</h3>
@@ -118,8 +118,8 @@ const Profile = () => {
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4">
-                    <span className="text-yellow-600 text-xl">💰</span>
+                  <div className="w-12 h-12 bg-gradient-to-r from-[#ff6f43] to-[#ffaa43] rounded-full flex items-center justify-center mr-4">
+                    <span className="text-white text-xl">💰</span>
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg">Refer & Earn</h3>
