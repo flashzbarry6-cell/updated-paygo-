@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -13,6 +13,22 @@ const TransferBank = () => {
   const [accountName, setAccountName] = useState("");
   const [amount, setAmount] = useState("");
   const [payId, setPayId] = useState("");
+  const [balance, setBalance] = useState("₦180,000.00");
+
+  useEffect(() => {
+    // Get balance from localStorage and format it
+    const storedBalance = localStorage.getItem("paygo-balance");
+    const currentBalance = storedBalance ? parseFloat(storedBalance) : 180000;
+    
+    const formattedBalance = new Intl.NumberFormat('en-NG', {
+      style: 'currency',
+      currency: 'NGN',
+      minimumFractionDigits: 2,
+      currencyDisplay: 'symbol'
+    }).format(currentBalance).replace('NGN', '₦');
+
+    setBalance(formattedBalance);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -40,7 +56,7 @@ const TransferBank = () => {
 
   return (
     <div className="flex justify-center min-h-screen bg-gray-50">
-      <div className="w-full max-w-sm bg-white">
+      <div className="w-full max-w-sm bg-white relative">
         <header className="bg-white p-4 flex items-center border-b">
           <ArrowLeft className="mr-3 cursor-pointer" onClick={() => navigate("/dashboard")} />
           <h1 className="text-xl font-semibold text-black">Transfer to Bank</h1>
@@ -50,7 +66,7 @@ const TransferBank = () => {
           {/* Available Balance Card */}
           <div className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] rounded-2xl p-4 text-white mb-6">
             <p className="text-white/80 mb-2">Available Balance</p>
-            <h2 className="text-2xl font-bold">₦180,000.00</h2>
+            <h2 className="text-2xl font-bold">{balance}</h2>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -110,15 +126,18 @@ const TransferBank = () => {
             >
               Submit
             </Button>
-
-            <Button 
-              type="button"
-              onClick={handleBuyId}
-              className="w-full bg-orange-500 hover:bg-orange-600 text-white text-lg py-6 rounded-full mt-4"
-            >
-              Buy ID Code
-            </Button>
           </form>
+        </div>
+
+        {/* Buy ID Button - moved to bottom right */}
+        <div className="fixed bottom-4 right-4">
+          <Button 
+            type="button"
+            onClick={handleBuyId}
+            className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-full text-sm"
+          >
+            Buy ID Code
+          </Button>
         </div>
       </div>
     </div>

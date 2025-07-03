@@ -7,7 +7,9 @@ import { toast } from "sonner";
 
 const PaymentReceived = () => {
   const navigate = useNavigate();
-  const payId = "FB-2822XCQBURMK3JGBGOC842C1200A";
+  const fullPayId = "FB-2822XCQBURMK3JGBGOC842C1200A";
+  // Remove last 4 digits
+  const payId = fullPayId.slice(0, -4);
 
   const handleCopyPayId = () => {
     navigator.clipboard.writeText(payId);

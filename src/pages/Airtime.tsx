@@ -29,11 +29,11 @@ const Airtime = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-sm mx-auto bg-white min-h-screen">
+    <div className="h-3 bg-gray-50">
+      <div className="max-w-sm mx-auto bg-white h-3">
         <AirtimeHeader />
 
-        <div className="p-4 space-y-4">
+        <div className="p-2 space-y-2">
           <NetworkSelector 
             selectedNetwork={selectedNetwork}
             onNetworkSelect={setSelectedNetwork}
@@ -56,7 +56,7 @@ const Airtime = () => {
 
           <button 
             onClick={() => handleBuyAirtime(100, 2)}
-            className="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white py-4 rounded-full font-semibold text-lg hover:opacity-90 transition-opacity"
+            className="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white py-2 rounded-full font-semibold text-sm hover:opacity-90 transition-opacity"
           >
             Buy Airtime
           </button>
