@@ -29,11 +29,11 @@ const Data = () => {
   };
 
   return (
-    <div className="flex justify-center min-h-screen bg-gradient-to-br from-[#9b20f5] to-[#ff6f43]">
-      <div className="w-full max-w-sm bg-white shadow-lg">
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-sm mx-auto bg-white min-h-screen">
         <DataHeader />
 
-        <div className="p-3 bg-white flex-1 overflow-y-auto">
+        <div className="p-4 space-y-4">
           <NetworkSelector 
             selectedNetwork={selectedNetwork}
             onNetworkSelect={setSelectedNetwork}
@@ -54,26 +54,24 @@ const Data = () => {
             onChange={setPayId}
           />
 
-          <div className="mt-2">
-            <button 
-              onClick={() => {
-                if (!phoneNumber) {
-                  toast.error("Please enter a phone number");
-                  return;
-                }
-                
-                if (!payId) {
-                  navigate("/buy-pay-id");
-                  return;
-                }
-                
-                toast.success("Data purchase successful!");
-              }}
-              className="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white py-2 rounded-full font-semibold text-sm hover:opacity-90 transition-opacity"
-            >
-              Buy Data
-            </button>
-          </div>
+          <button 
+            onClick={() => {
+              if (!phoneNumber) {
+                toast.error("Please enter a phone number");
+                return;
+              }
+              
+              if (!payId) {
+                navigate("/buy-pay-id");
+                return;
+              }
+              
+              toast.success("Data purchase successful!");
+            }}
+            className="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white py-4 rounded-full font-semibold text-lg hover:opacity-90 transition-opacity"
+          >
+            Buy Data
+          </button>
         </div>
       </div>
     </div>
