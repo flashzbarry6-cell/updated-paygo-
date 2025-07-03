@@ -30,31 +30,33 @@ const Airtime = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-gray-50 max-w-sm mx-auto">
-      <AirtimeHeader />
+    <div className="flex justify-center min-h-screen bg-gradient-to-br from-[#9b20f5] to-[#ff6f43]">
+      <div className="w-full max-w-sm bg-white shadow-lg">
+        <AirtimeHeader />
 
-      <div className="p-2 bg-white flex-1 overflow-y-auto">
-        <NetworkSelector 
-          selectedNetwork={selectedNetwork}
-          onNetworkSelect={setSelectedNetwork}
-        />
+        <div className="p-3 bg-white flex-1 overflow-y-auto">
+          <NetworkSelector 
+            selectedNetwork={selectedNetwork}
+            onNetworkSelect={setSelectedNetwork}
+          />
 
-        <PhoneNumberInput 
-          value={phoneNumber}
-          onChange={setPhoneNumber}
-        />
+          <PhoneNumberInput 
+            value={phoneNumber}
+            onChange={setPhoneNumber}
+          />
 
-        <AirtimePlanGrid 
-          selectedPeriod="Daily"
-          onBuyAirtime={handleBuyAirtime}
-        />
+          <AirtimePlanGrid 
+            selectedPeriod="Daily"
+            onBuyAirtime={handleBuyAirtime}
+          />
 
-        <PayIdInput 
-          value={payId}
-          onChange={setPayId}
-        />
+          <PayIdInput 
+            value={payId}
+            onChange={setPayId}
+          />
 
-        <AirtimePurchaseButton onBuyAirtime={handleBuyAirtime} />
+          <AirtimePurchaseButton onBuyAirtime={handleBuyAirtime} />
+        </div>
       </div>
     </div>
   );
