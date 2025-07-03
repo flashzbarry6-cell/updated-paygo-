@@ -9,20 +9,9 @@ const DashboardHeader = () => {
   const [rewards, setRewards] = useState("₦180,000.00");
 
   useEffect(() => {
-    // Get balance from localStorage or default to 180000
-    const storedBalance = localStorage.getItem("paygo-balance");
-    let currentBalance = storedBalance ? parseFloat(storedBalance) : 180000;
-
-    // Check if user just logged in and needs welcome bonus
-    const justLoggedIn = localStorage.getItem("paygo-just-logged-in");
-    const bonusClaimed = localStorage.getItem("paygo-welcome-bonus-claimed");
-    
-    if (justLoggedIn && !bonusClaimed && currentBalance === 0) {
-      // Reset balance to 180000 for welcome bonus
-      currentBalance = 180000;
-      localStorage.setItem("paygo-balance", currentBalance.toString());
-      localStorage.removeItem("paygo-just-logged-in");
-    }
+    // Always reset balance to 180000 when dashboard loads
+    const currentBalance = 180000;
+    localStorage.setItem("paygo-balance", currentBalance.toString());
 
     // Format the balance
     const formattedBalance = new Intl.NumberFormat('en-NG', {

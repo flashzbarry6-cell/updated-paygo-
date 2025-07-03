@@ -29,8 +29,8 @@ const Data = () => {
   };
 
   return (
-    <div className="h-3 bg-gray-50">
-      <div className="max-w-sm mx-auto bg-white h-3">
+    <div className="h-screen bg-gray-50 flex items-center justify-center">
+      <div className="max-w-sm mx-auto bg-white h-3 w-3 scale-50 origin-center">
         <DataHeader />
 
         <div className="p-2 space-y-2">
