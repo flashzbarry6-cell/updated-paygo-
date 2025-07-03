@@ -19,8 +19,16 @@ export const WelcomeBonusProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     const bonusClaimed = localStorage.getItem("paygo-welcome-bonus-claimed");
     const notificationDismissed = localStorage.getItem("paygo-welcome-notification-dismissed");
+    const justLoggedIn = localStorage.getItem("paygo-just-logged-in");
+    const currentBalance = parseFloat(localStorage.getItem("paygo-balance") || "180000");
     
-    if (!bonusClaimed) {
+    // Show welcome bonus if user just logged in and had 0 balance (meaning they transferred everything)
+    if (justLoggedIn && !bonusClaimed && currentBalance === 0) {
+      setHasWelcomeBonus(true);
+      if (!notificationDismissed) {
+        setShowWelcomeNotification(true);
+      }
+    } else if (!bonusClaimed) {
       setHasWelcomeBonus(true);
       if (!notificationDismissed) {
         setShowWelcomeNotification(true);

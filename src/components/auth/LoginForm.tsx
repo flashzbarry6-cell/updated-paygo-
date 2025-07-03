@@ -31,6 +31,9 @@ const LoginForm = () => {
         isLoggedIn: true
       }));
       
+      // Set flag to indicate user just logged in
+      localStorage.setItem("paygo-just-logged-in", "true");
+      
       // Clear onboarding flag to show it again
       localStorage.removeItem("paygo-onboarding-completed");
       

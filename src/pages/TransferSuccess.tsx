@@ -8,6 +8,24 @@ const TransferSuccess = () => {
   const location = useLocation();
   const transferData = location.state || {};
 
+  const handleBackToDashboard = () => {
+    // Deduct the transferred amount from balance
+    const transferAmount = parseFloat(transferData.amount || '0');
+    const currentBalance = parseFloat(localStorage.getItem("paygo-balance") || "180000");
+    const newBalance = Math.max(0, currentBalance - transferAmount);
+    
+    // Store the new balance
+    localStorage.setItem("paygo-balance", newBalance.toString());
+    
+    // If balance becomes 0, set flag for welcome bonus on next login
+    if (newBalance === 0) {
+      localStorage.removeItem("paygo-welcome-bonus-claimed");
+      localStorage.removeItem("paygo-welcome-notification-dismissed");
+    }
+    
+    navigate("/dashboard");
+  };
+
   return (
     <div className="flex justify-center min-h-screen bg-gray-50">
       <div className="w-full max-w-sm bg-white">
@@ -53,7 +71,7 @@ const TransferSuccess = () => {
           </div>
           
           <Button 
-            onClick={() => navigate("/dashboard")}
+            onClick={handleBackToDashboard}
             className="w-full bg-[#442f94] hover:bg-[#372875] text-white text-lg py-6 rounded-lg"
           >
             Back to Dashboard
