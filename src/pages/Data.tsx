@@ -30,7 +30,7 @@ const Data = () => {
 
   return (
     <div className="h-screen bg-gray-50 flex items-center justify-center">
-      <div className="max-w-sm mx-auto bg-white h-3 w-10 scale-100 origin-center">
+      <div className="max-w-sm mx-auto bg-white h-3 w-90 scale-80 origin-center">
         <DataHeader />
 
         <div className="p-2 space-y-2">
