@@ -29,8 +29,8 @@ const Airtime = () => {
   };
 
   return (
-    <div className="h-screen bg-gray-50 flex items-center justify-center">
-      <div className="max-w-sm mx-auto bg-white h-3 w-80 scale-70 origin-center">
+    <div className="min-h-screen bg-gray-50 flex items-start justify-center pt-4">
+      <div className="max-w-sm mx-auto bg-white w-80 scale-70 origin-top">
         <AirtimeHeader />
 
         <div className="p-2 space-y-2">
