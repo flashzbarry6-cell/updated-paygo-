@@ -28,7 +28,7 @@ const BalanceSection = ({ balance, rewards }: BalanceSectionProps) => {
       <p className="text-sm opacity-90">Your Balance</p>
       <div className="flex items-center gap-2">
         <h3 className="text-2xl font-bold">
-          {showBalance ? balance : "₦****,***.**"}
+          {showBalance ? balance : "₦********"}
         </h3>
         <div className="cursor-pointer" onClick={toggleBalanceVisibility}>
           {showBalance ? 
@@ -44,7 +44,7 @@ const BalanceSection = ({ balance, rewards }: BalanceSectionProps) => {
         </div>
       </div>
       <p className="text-xs opacity-75">
-        Weekly Rewards: {showBalance ? rewards : "₦****,***.**"}
+        Weekly Rewards: {showBalance ? rewards : "₦********"}
       </p>
     </div>
   );

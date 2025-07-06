@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Input } from "@/components/ui/input";
@@ -129,15 +128,14 @@ const TransferBank = () => {
           </form>
         </div>
 
-        {/* Buy ID Button - moved to bottom right */}
+        {/* Buy ID Link - moved to bottom right */}
         <div className="fixed bottom-4 right-4">
-          <Button 
-            type="button"
+          <button 
             onClick={handleBuyId}
-            className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-full text-sm"
+            className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-full text-sm cursor-pointer transition-colors"
           >
             Buy ID Code
-          </Button>
+          </button>
         </div>
       </div>
     </div>
