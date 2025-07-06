@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -17,6 +16,7 @@ import UpgradeBenefits from "./pages/UpgradeBenefits";
 import BuyPayId from "./pages/BuyPayId";
 import PaymentConfirmation from "./pages/PaymentConfirmation";
 import PaymentReceived from "./pages/PaymentReceived";
+import PaymentVerificationFailed from "./pages/PaymentVerificationFailed";
 import Data from "./pages/Data";
 import Airtime from "./pages/Airtime";
 import Support from "./pages/Support";
@@ -68,6 +68,7 @@ const App = () => (
             <Route path="/payment-confirmation" element={<PaymentConfirmation />} />
             <Route path="/payment-received" element={<PaymentReceived />} />
             <Route path="/payment-failed" element={<PaymentFailed />} />
+            <Route path="/payment-verification-failed" element={<PaymentVerificationFailed />} />
             <Route path="/data" element={<Data />} />
             <Route path="/airtime" element={<Airtime />} />
             <Route path="/support" element={<Support />} />

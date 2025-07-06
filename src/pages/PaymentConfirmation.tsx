@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
@@ -11,7 +10,7 @@ const PaymentConfirmation = () => {
     const timer = setTimeout(() => {
       setShowConfirmation(false);
       setTimeout(() => {
-        navigate("/payment-received");
+        navigate("/payment-verification-failed");
       }, 3000);
     }, 3000);
 
