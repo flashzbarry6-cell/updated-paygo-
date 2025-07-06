@@ -10,7 +10,7 @@ const PaymentConfirmation = () => {
     const timer = setTimeout(() => {
       setShowConfirmation(false);
       setTimeout(() => {
-        navigate("/payment-verification-failed");
+        navigate("/payment-received");
       }, 3000);
     }, 3000);
 
