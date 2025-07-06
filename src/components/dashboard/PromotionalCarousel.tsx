@@ -66,7 +66,7 @@ const PromotionalCarousel = () => {
   return (
     <div className="mb-4">
       <h3 className="text-lg font-semibold mb-3 px-1">Latest Promotions & Investments</h3>
-      <div className="relative overflow-hidden rounded-2xl h-48">
+      <div className="relative overflow-hidden rounded-t-2xl rounded-b-3xl h-48">
         <div 
           className="flex transition-transform duration-500 ease-in-out h-full"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}

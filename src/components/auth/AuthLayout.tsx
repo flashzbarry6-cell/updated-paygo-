@@ -24,7 +24,7 @@ const AuthLayout = ({ children, heading }: AuthLayoutProps) => {
               <img 
                 src="/lovable-uploads/63dcf04b-d54d-4fae-b4d5-6146cba42114.png" 
                 alt="PayGo Logo" 
-                className="w-full h-auto animate-[slide-in-right_3s_ease-in-out_infinite_alternate]"
+                className="w-full h-auto animate-[slide-in-right_1.5s_ease-in-out_infinite_alternate]"
               />
             </div>
             <h2 className="text-xl font-medium text-gray-600">{heading}</h2>
