@@ -1,11 +1,9 @@
-
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 import MenuGrid from "@/components/dashboard/MenuGrid";
 import PromotionalCarousel from "@/components/dashboard/PromotionalCarousel";
 import WelcomeOnboarding from "@/components/onboarding/WelcomeOnboarding";
-import MobileWarningBanner from "@/components/dashboard/MobileWarningBanner";
 import MobileLogo from "@/components/dashboard/MobileLogo";
 import AnnouncementBanner from "@/components/dashboard/AnnouncementBanner";
 
@@ -55,7 +53,6 @@ const Dashboard = () => {
   return (
     <div className="flex justify-center min-h-screen bg-gray-50">
       <div className="w-full max-w-sm bg-gray-50">
-        <MobileWarningBanner />
         <MobileLogo />
         <AnnouncementBanner />
         <DashboardHeader />
