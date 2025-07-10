@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
@@ -53,8 +54,8 @@ const Dashboard = () => {
   return (
     <div className="flex justify-center min-h-screen bg-gray-50">
       <div className="w-full max-w-sm bg-gray-50">
-        <MobileLogo />
         <AnnouncementBanner />
+        <MobileLogo />
         <DashboardHeader />
         
         <div className="flex-1 px-2 sm:px-3 py-4">
