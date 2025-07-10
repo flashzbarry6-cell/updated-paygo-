@@ -7,6 +7,7 @@ import PromotionalCarousel from "@/components/dashboard/PromotionalCarousel";
 import WelcomeOnboarding from "@/components/onboarding/WelcomeOnboarding";
 import MobileWarningBanner from "@/components/dashboard/MobileWarningBanner";
 import MobileLogo from "@/components/dashboard/MobileLogo";
+import AnnouncementBanner from "@/components/dashboard/AnnouncementBanner";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -56,6 +57,7 @@ const Dashboard = () => {
       <div className="w-full max-w-sm bg-gray-50">
         <MobileWarningBanner />
         <MobileLogo />
+        <AnnouncementBanner />
         <DashboardHeader />
         
         <div className="flex-1 px-2 sm:px-3 py-4">
