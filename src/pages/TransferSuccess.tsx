@@ -27,59 +27,59 @@ const TransferSuccess = () => {
   };
 
   return (
-    <div className="flex justify-center min-h-screen bg-gray-50">
+    <div className="flex justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-sm bg-white">
-        <header className="bg-[#442f94] p-4 text-white">
+        <header className="bg-gradient-to-r from-purple-600 to-purple-700 p-4 text-white">
           <h1 className="text-xl font-bold">Withdrawal Result</h1>
         </header>
         
-        <div className="flex-1 flex flex-col items-center justify-center p-8 text-center">
-          <div className="mb-8">
-            <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <CheckCircle className="w-12 h-12 text-green-500" />
+        <div className="flex-1 flex flex-col items-center justify-center p-6 text-center bg-white">
+          <div className="mb-6">
+            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <CheckCircle className="w-10 h-10 text-green-500" />
             </div>
           </div>
           
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Withdrawal Successful!</h2>
-          <p className="text-gray-600 mb-8">Your withdrawal has been processed successfully.</p>
+          <h2 className="text-2xl font-bold text-black mb-3">Withdrawal Successful!</h2>
+          <p className="text-gray-500 mb-8 text-sm">Your withdrawal has been processed successfully.</p>
           
-          <div className="w-full space-y-4 mb-8">
-            <div className="flex justify-between items-center">
-              <span className="text-gray-600">Amount:</span>
-              <span className="font-bold">₦{transferData.amount || '0'}</span>
+          <div className="w-full space-y-3 mb-8 bg-gray-50 p-4 rounded-lg">
+            <div className="flex justify-between items-center py-1">
+              <span className="text-gray-600 text-sm">Amount:</span>
+              <span className="font-bold text-black">₦{transferData.amount || '0'}</span>
             </div>
             
-            <div className="flex justify-between items-center">
-              <span className="text-gray-600">Bank:</span>
-              <span className="font-bold">{transferData.bankName || 'N/A'}</span>
+            <div className="flex justify-between items-center py-1">
+              <span className="text-gray-600 text-sm">Bank:</span>
+              <span className="font-bold text-black">{transferData.bankName || 'N/A'}</span>
             </div>
             
-            <div className="flex justify-between items-center">
-              <span className="text-gray-600">Account Number:</span>
-              <span className="font-bold">{transferData.accountNumber || 'N/A'}</span>
+            <div className="flex justify-between items-center py-1">
+              <span className="text-gray-600 text-sm">Account Number:</span>
+              <span className="font-bold text-black">{transferData.accountNumber || 'N/A'}</span>
             </div>
             
-            <div className="flex justify-between items-center">
-              <span className="text-gray-600">Account Name:</span>
-              <span className="font-bold">{transferData.accountName || 'N/A'}</span>
+            <div className="flex justify-between items-center py-1">
+              <span className="text-gray-600 text-sm">Account Name:</span>
+              <span className="font-bold text-black">{transferData.accountName || 'N/A'}</span>
             </div>
             
-            <div className="flex justify-between items-center">
-              <span className="text-gray-600">Transaction ID:</span>
-              <span className="font-bold">TRX{Math.random().toString().substr(2, 8)}</span>
+            <div className="flex justify-between items-center py-1">
+              <span className="text-gray-600 text-sm">Transaction ID:</span>
+              <span className="font-bold text-black">TRX{Math.random().toString().substr(2, 8)}</span>
             </div>
           </div>
           
           <Button 
             onClick={handleBackToDashboard}
-            className="w-full bg-[#442f94] hover:bg-[#372875] text-white text-lg py-6 rounded-lg"
+            className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white text-lg py-4 rounded-full font-medium"
           >
             Back to Dashboard
           </Button>
         </div>
         
-        <footer className="bg-gray-100 p-4 text-center text-gray-600">
-          <p>PayGo Financial Services LTD</p>
+        <footer className="p-4 text-center text-gray-600 bg-white">
+          <p className="text-sm">PayGo Financial Services LTD</p>
         </footer>
       </div>
     </div>
