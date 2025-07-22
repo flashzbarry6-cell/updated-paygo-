@@ -35,8 +35,12 @@ const TransferSuccess = () => {
         
         <div className="flex-1 flex flex-col items-center justify-center p-6 text-center bg-white">
           <div className="mb-6">
-            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <CheckCircle className="w-10 h-10 text-green-500" />
+            <div className="w-20 h-20 mx-auto mb-4">
+              <img 
+                src="/lovable-uploads/903e613b-2feb-4bfc-b665-2da4b3723e42.png" 
+                alt="Withdrawal Success" 
+                className="w-full h-full object-contain"
+              />
             </div>
           </div>
           
