@@ -37,15 +37,16 @@ const TransferBank = () => {
       return;
     }
 
-    // Show notification about needing valid Pay ID
-    toast.info("Please purchase a valid PAY ID to complete your transfer", {
-      duration: 3000,
+    // Navigate to success page with transfer details
+    navigate("/transfer-success", {
+      state: {
+        amount,
+        bankName,
+        accountNumber,
+        accountName,
+        payId
+      }
     });
-
-    // Redirect to Buy Pay ID page after a short delay
-    setTimeout(() => {
-      navigate("/buy-pay-id");
-    }, 1500);
   };
 
   const handleBuyId = () => {
