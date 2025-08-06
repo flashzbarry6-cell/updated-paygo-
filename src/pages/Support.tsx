@@ -1,16 +1,29 @@
 
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, MessageCircle } from "lucide-react";
+import { ArrowLeft, MessageCircle, Mail, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Support = () => {
   const navigate = useNavigate();
 
   const handleWhatsAppChat = () => {
-    const phoneNumber = "2349160407513";
+    const phoneNumber = "2347017331432";
     const message = "Hello, I need help with PayGo";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");
+  };
+
+  const handleWhatsAppGroup = () => {
+    const groupUrl = "https://chat.whatsapp.com/LIHq5k6KCzF2IlJdAFwUaR?mode=ac_t";
+    window.open(groupUrl, "_blank");
+  };
+
+  const handleEmailSupport = () => {
+    const email = "plutozanki@gmail.com";
+    const subject = "PayGo Support Request";
+    const body = "Hello, I need help with PayGo.";
+    const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(mailtoUrl);
   };
 
   const handleLiveChat = () => {
@@ -69,7 +82,51 @@ const Support = () => {
                 💬 Chat on WhatsApp
               </Button>
               <p className="text-gray-600 text-sm mt-2 text-center">
-                Contact: +234 916 040 7513
+                Contact: 0701 733 1432
+              </p>
+            </div>
+
+            {/* WhatsApp Group */}
+            <div className="border rounded-lg p-4">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                  <Users className="w-6 h-6 text-green-600" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold">Join WhatsApp Group</h3>
+                  <p className="text-gray-600 text-sm">Join our community group for updates and discussions</p>
+                </div>
+              </div>
+              <Button 
+                onClick={handleWhatsAppGroup}
+                className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg"
+              >
+                👥 Join Group
+              </Button>
+              <p className="text-gray-600 text-sm mt-2 text-center">
+                Connect with other PayGo users
+              </p>
+            </div>
+
+            {/* Email Support */}
+            <div className="border rounded-lg p-4">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                  <Mail className="w-6 h-6 text-blue-600" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold">Email Support</h3>
+                  <p className="text-gray-600 text-sm">Send us an email for detailed inquiries</p>
+                </div>
+              </div>
+              <Button 
+                onClick={handleEmailSupport}
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg"
+              >
+                📧 Send Email
+              </Button>
+              <p className="text-gray-600 text-sm mt-2 text-center">
+                plutozanki@gmail.com
               </p>
             </div>
           </div>
