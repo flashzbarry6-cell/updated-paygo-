@@ -30,7 +30,7 @@ const Data = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-white w-full scale-75 origin-top">
+      <div className="bg-white w-full scale-70 origin-top">
         <DataHeader />
 
         <div className="p-2 space-y-2">
