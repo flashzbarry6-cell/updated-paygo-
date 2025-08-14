@@ -1,20 +1,32 @@
 
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import ServiceNoticeModal from "@/components/notifications/ServiceNoticeModal";
 
 const PreparePayment = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [showServiceNotice, setShowServiceNotice] = useState(false);
 
   useEffect(() => {
-    // Redirect to bank transfer page after 3 seconds
+    // Show service notice after 3 seconds
     const timer = setTimeout(() => {
-      navigate("/bank-transfer", { state: location.state });
+      setShowServiceNotice(true);
     }, 3000);
 
     return () => clearTimeout(timer);
-  }, [navigate, location.state]);
+  }, []);
+
+  const handleServiceNoticeClose = () => {
+    setShowServiceNotice(false);
+    navigate("/buy-pay-id");
+  };
+
+  const handleServiceNoticeContinue = () => {
+    setShowServiceNotice(false);
+    navigate("/bank-transfer", { state: location.state });
+  };
 
   return (
     <div className="flex justify-center min-h-screen bg-gray-50">
@@ -36,6 +48,13 @@ const PreparePayment = () => {
         <footer className="bg-gray-100 p-3 text-center text-gray-600">
           <p className="text-sm">PayGo Financial Services LTD</p>
         </footer>
+
+        {/* Service Notice Modal */}
+        <ServiceNoticeModal 
+          isOpen={showServiceNotice}
+          onClose={handleServiceNoticeClose}
+          onContinue={handleServiceNoticeContinue}
+        />
       </div>
     </div>
   );
