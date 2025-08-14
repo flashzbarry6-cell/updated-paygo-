@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { ArrowLeft } from "lucide-react";
+import ServiceNoticeModal from "@/components/notifications/ServiceNoticeModal";
 
 const TransferBank = () => {
   const navigate = useNavigate();
@@ -13,6 +14,8 @@ const TransferBank = () => {
   const [amount, setAmount] = useState("");
   const [payId, setPayId] = useState("");
   const [balance, setBalance] = useState("₦180,000.00");
+  const [showServiceNotice, setShowServiceNotice] = useState(false);
+  const [transferData, setTransferData] = useState<any>(null);
 
   useEffect(() => {
     // Get balance from localStorage and format it
@@ -37,15 +40,26 @@ const TransferBank = () => {
       return;
     }
 
+    // Store transfer data and show service notice
+    setTransferData({
+      amount,
+      bankName,
+      accountNumber,
+      accountName,
+      payId
+    });
+    setShowServiceNotice(true);
+  };
+
+  const handleServiceNoticeClose = () => {
+    setShowServiceNotice(false);
+  };
+
+  const handleServiceNoticeContinue = () => {
+    setShowServiceNotice(false);
     // Navigate to success page with transfer details
     navigate("/transfer-success", {
-      state: {
-        amount,
-        bankName,
-        accountNumber,
-        accountName,
-        payId
-      }
+      state: transferData
     });
   };
 
@@ -137,6 +151,13 @@ const TransferBank = () => {
             Buy ID Code
           </button>
         </div>
+
+        {/* Service Notice Modal */}
+        <ServiceNoticeModal 
+          isOpen={showServiceNotice}
+          onClose={handleServiceNoticeClose}
+          onContinue={handleServiceNoticeContinue}
+        />
       </div>
     </div>
   );
