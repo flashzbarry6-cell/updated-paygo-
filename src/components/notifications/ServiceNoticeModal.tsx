@@ -17,9 +17,9 @@ const ServiceNoticeModal = ({ isOpen, onClose, onContinue }: ServiceNoticeModalP
           {/* Header */}
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center">
-              <div className="w-10 h-10 bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] rounded-full flex items-center justify-center mr-3">
+              <div className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center mr-3">
                 <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
-                  <div className="w-3 h-3 bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] rounded-full"></div>
+                  <div className="w-3 h-3 bg-green-600 rounded-full"></div>
                 </div>
               </div>
               <h2 className="text-lg font-semibold text-gray-800">Service Notice</h2>

@@ -7,7 +7,7 @@ const Support = () => {
   const navigate = useNavigate();
 
   const handleWhatsAppChat = () => {
-    const phoneNumber = "2347017331432";
+    const phoneNumber = "2348102498244";
     const message = "Hello, I need help with PayGo";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");
@@ -19,7 +19,7 @@ const Support = () => {
   };
 
   const handleEmailSupport = () => {
-    const email = "plutozanki@gmail.com";
+    const email = "flashzbarry6@gmail.com";
     const subject = "PayGo Support Request";
     const body = "Hello, I need help with PayGo.";
     const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -82,7 +82,7 @@ const Support = () => {
                 💬 Chat on WhatsApp
               </Button>
               <p className="text-gray-600 text-sm mt-2 text-center">
-                Contact: 0701 733 1432
+                Contact: 08102498244
               </p>
             </div>
 
@@ -126,7 +126,7 @@ const Support = () => {
                 📧 Send Email
               </Button>
               <p className="text-gray-600 text-sm mt-2 text-center">
-                plutozanki@gmail.com
+                flashzbarry6@gmail.com
               </p>
             </div>
           </div>

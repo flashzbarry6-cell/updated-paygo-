@@ -69,7 +69,7 @@ const LiveChat = () => {
     } else if (lowerQuestion.includes("transfer") || lowerQuestion.includes("send money")) {
       response = "To transfer money, go to the Transfer section in your dashboard. You can transfer to any bank account.";
     } else if (lowerQuestion.includes("contact") || lowerQuestion.includes("support")) {
-      response = "For support, please email plutozanki@gmail.com or visit our Support page from the dashboard.";
+      response = "For support, please email flashzbarry6@gmail.com or visit our Support page from the dashboard.";
     } else if (lowerQuestion.includes("login") || lowerQuestion.includes("sign in")) {
       response = "You can login to your account from the Login page. If you don't have an account, you can register from the Register page.";
     } else if (lowerQuestion.includes("register") || lowerQuestion.includes("sign up")) {
