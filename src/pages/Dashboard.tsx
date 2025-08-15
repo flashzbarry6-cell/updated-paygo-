@@ -7,11 +7,13 @@ import PromotionalCarousel from "@/components/dashboard/PromotionalCarousel";
 import WelcomeOnboarding from "@/components/onboarding/WelcomeOnboarding";
 import MobileLogo from "@/components/dashboard/MobileLogo";
 import AnnouncementBanner from "@/components/dashboard/AnnouncementBanner";
+import JoinPlatformModal from "@/components/notifications/JoinPlatformModal";
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
   const [showOnboarding, setShowOnboarding] = useState(false);
+  const [showJoinModal, setShowJoinModal] = useState(false);
 
   useEffect(() => {
     // Check if user is logged in
@@ -27,6 +29,15 @@ const Dashboard = () => {
       setShowOnboarding(true);
     }
     setIsLoading(false);
+
+    // Show join modal after dashboard loads, but only once per session
+    const modalShownToday = sessionStorage.getItem("paygo-join-modal-shown");
+    if (!modalShownToday) {
+      setTimeout(() => {
+        setShowJoinModal(true);
+        sessionStorage.setItem("paygo-join-modal-shown", "true");
+      }, 2000); // Show after 2 seconds
+    }
 
     // Listen for onboarding completion
     const handleOnboardingCompleted = () => {
@@ -67,6 +78,11 @@ const Dashboard = () => {
         </div>
 
         {showOnboarding && <WelcomeOnboarding />}
+        
+        <JoinPlatformModal 
+          isOpen={showJoinModal}
+          onClose={() => setShowJoinModal(false)}
+        />
       </div>
     </div>
   );
