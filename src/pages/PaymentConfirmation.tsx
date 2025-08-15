@@ -25,20 +25,20 @@ const PaymentConfirmation = () => {
           <h1 className="text-xl font-bold">Confirming Payment</h1>
         </header>
         
-        <div className="flex-1 flex flex-col items-center justify-center p-6 text-center min-h-[calc(100vh-120px)] bg-gray-50">
-          <div className="mb-6">
-            <div className="w-20 h-20 border-6 border-orange-500 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
+        <div className="flex-1 flex flex-col items-center justify-center p-10 text-center min-h-[calc(100vh-120px)] bg-gray-50">
+          <div className="mb-10">
+            <div className="w-28 h-28 border-8 border-orange-500 border-t-transparent rounded-full animate-spin mx-auto mb-8"></div>
           </div>
           
-          <h2 className="text-xl font-bold text-gray-800 mb-3">Confirming Your Payment</h2>
-          <p className="text-gray-600 mb-6 text-sm">Please wait while we verify your transaction...</p>
+          <h2 className="text-3xl font-bold text-gray-800 mb-6">Confirming Your Payment</h2>
+          <p className="text-gray-600 mb-10 text-lg">Please wait while we verify your transaction...</p>
           
-          <div className="w-full max-w-xs bg-gray-300 rounded-full h-1.5 mb-6">
-            <div className="bg-orange-500 h-1.5 rounded-full animate-pulse" style={{ width: '30%', animationDuration: '2s' }}></div>
+          <div className="w-full max-w-xs bg-gray-300 rounded-full h-3 mb-10">
+            <div className="bg-orange-500 h-3 rounded-full animate-pulse" style={{ width: '30%', animationDuration: '2s' }}></div>
           </div>
           
-          <p className="text-gray-500 text-sm mb-1">This may take a few moments</p>
-          <p className="text-gray-500 text-sm">Please do not close this page</p>
+          <p className="text-gray-500 text-lg mb-3">This may take a few moments</p>
+          <p className="text-gray-500 text-lg">Please do not close this page</p>
         </div>
         
         <footer className="bg-gray-100 p-4 text-center text-gray-600">
