@@ -2,6 +2,7 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
+import { toast } from "@/components/ui/use-toast";
 
 const TransferSuccess = () => {
   const navigate = useNavigate();
@@ -9,19 +10,39 @@ const TransferSuccess = () => {
   const transferData = location.state || {};
 
   const handleBackToDashboard = () => {
-    // Deduct the transferred amount from balance
-    const transferAmount = parseFloat(transferData.amount || '0');
-    const currentBalance = parseFloat(localStorage.getItem("paygo-balance") || "180000");
-    const newBalance = Math.max(0, currentBalance - transferAmount);
+    // Set balance to 0 since funds have been withdrawn
+    localStorage.setItem("paygo-balance", "0");
     
-    // Store the new balance
-    localStorage.setItem("paygo-balance", newBalance.toString());
+    // Save withdrawal transaction to history
+    const transaction = {
+      id: `TRX${Math.random().toString().substr(2, 8)}`,
+      type: 'withdrawal',
+      amount: transferData.amount || '0',
+      bankName: transferData.bankName || 'N/A',
+      accountNumber: transferData.accountNumber || 'N/A',
+      accountName: transferData.accountName || 'N/A',
+      date: new Date().toISOString(),
+      status: 'completed'
+    };
     
-    // If balance becomes 0, set flag for welcome bonus on next login
-    if (newBalance === 0) {
-      localStorage.removeItem("paygo-welcome-bonus-claimed");
-      localStorage.removeItem("paygo-welcome-notification-dismissed");
-    }
+    const existingTransactions = JSON.parse(localStorage.getItem("paygo-transactions") || "[]");
+    existingTransactions.unshift(transaction);
+    localStorage.setItem("paygo-transactions", JSON.stringify(existingTransactions));
+    
+    // Play notification sound
+    const audio = new Audio("data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmocBjuMzvLThSYGKHvN8N2QPgcTYSQmZ");
+    audio.play().catch(() => {}); // Ignore errors if sound fails
+    
+    // Show success notification
+    toast({
+      title: "Withdrawal Successful",
+      description: `₦${transferData.amount} has been successfully withdrawn from your account.`,
+      duration: 5000,
+    });
+    
+    // Reset welcome bonus flags since balance is now 0
+    localStorage.removeItem("paygo-welcome-bonus-claimed");
+    localStorage.removeItem("paygo-welcome-notification-dismissed");
     
     navigate("/dashboard");
   };

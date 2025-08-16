@@ -1,12 +1,19 @@
 
 import { useNavigate } from "react-router-dom";
-import { X, Clock, Gift } from "lucide-react";
+import { X, Clock, Gift, ArrowDownLeft, ArrowUpRight } from "lucide-react";
 import { useWelcomeBonus } from "@/contexts/WelcomeBonusContext";
 import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
 
 const History = () => {
   const navigate = useNavigate();
   const { hasWelcomeBonus, welcomeBonusAmount, claimWelcomeBonus } = useWelcomeBonus();
+  const [transactions, setTransactions] = useState([]);
+
+  useEffect(() => {
+    const savedTransactions = JSON.parse(localStorage.getItem("paygo-transactions") || "[]");
+    setTransactions(savedTransactions);
+  }, []);
 
   const handleClose = () => {
     navigate("/dashboard");
@@ -48,7 +55,52 @@ const History = () => {
             </div>
           )}
           
-          {!hasWelcomeBonus && (
+          {transactions.length > 0 && (
+            <div className="space-y-3 mb-6">
+              <h3 className="text-lg font-semibold text-gray-800 mb-3">Recent Transactions</h3>
+              {transactions.map((transaction) => (
+                <div key={transaction.id} className="bg-white border rounded-lg p-4 shadow-sm">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className={`p-2 rounded-full ${
+                        transaction.type === 'withdrawal' ? 'bg-red-100' : 'bg-green-100'
+                      }`}>
+                        {transaction.type === 'withdrawal' ? (
+                          <ArrowDownLeft className="w-5 h-5 text-red-600" />
+                        ) : (
+                          <ArrowUpRight className="w-5 h-5 text-green-600" />
+                        )}
+                      </div>
+                      <div>
+                        <p className="font-medium text-gray-800 capitalize">
+                          {transaction.type === 'withdrawal' ? 'Bank Transfer' : transaction.type}
+                        </p>
+                        <p className="text-sm text-gray-600">
+                          {new Date(transaction.date).toLocaleDateString()}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <p className={`font-semibold ${
+                        transaction.type === 'withdrawal' ? 'text-red-600' : 'text-green-600'
+                      }`}>
+                        {transaction.type === 'withdrawal' ? '-' : '+'}₦{transaction.amount}
+                      </p>
+                      <p className="text-xs text-gray-500 capitalize">{transaction.status}</p>
+                    </div>
+                  </div>
+                  {transaction.type === 'withdrawal' && (
+                    <div className="mt-3 pt-3 border-t text-xs text-gray-600">
+                      <p>Bank: {transaction.bankName}</p>
+                      <p>Account: {transaction.accountNumber}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+
+          {!hasWelcomeBonus && transactions.length === 0 && (
             <div className="flex flex-col items-center justify-center gap-4">
               <div className="p-6 rounded-full bg-gray-200">
                 <Clock className="w-16 h-16 text-gray-500" />
