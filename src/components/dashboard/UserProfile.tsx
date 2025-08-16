@@ -32,7 +32,7 @@ const UserProfile = () => {
   };
 
   return (
-    <div className="flex justify-between items-center mb-3">
+    <div className="flex justify-between items-center">
       <div className="flex items-center gap-3">
         <Avatar className="w-10 h-10 bg-white/20 text-white">
           <AvatarFallback className="text-lg font-semibold bg-white/20 text-white">

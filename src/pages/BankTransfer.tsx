@@ -115,7 +115,7 @@ const BankTransfer = () => {
                 <label className="text-gray-600 text-sm">Account Name</label>
               </div>
               <div className="bg-gray-50 p-2 rounded-lg">
-                <span className="text-base font-bold">PAYGO AGENT</span>
+                <span className="text-base font-bold">CHARIS SOMTOCHUKWU CHISOM</span>
               </div>
             </div>
 

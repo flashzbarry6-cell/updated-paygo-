@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import UserProfile from "./UserProfile";
 import BalanceSection from "./BalanceSection";
 import ActionButtons from "./ActionButtons";
+import TransactionHistoryButton from "./TransactionHistoryButton";
 
 const DashboardHeader = () => {
   const [balance, setBalance] = useState("₦180,000.00");
@@ -39,7 +40,12 @@ const DashboardHeader = () => {
 
   return (
     <div className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] rounded-2xl mx-3 mt-3 p-4 text-white">
-      <UserProfile />
+      <div className="flex justify-between items-start mb-3">
+        <div className="flex-1">
+          <UserProfile />
+        </div>
+        <TransactionHistoryButton />
+      </div>
       <BalanceSection 
         balance={balance} 
         rewards={rewards} 

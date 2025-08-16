@@ -78,7 +78,7 @@ const UpgradeBankTransfer = () => {
               <div>
                 <label className="text-gray-600 text-sm">Account Name</label>
                 <div className="bg-gray-50 p-3 rounded-lg">
-                  <span className="text-lg font-bold">PAYGO AGENT</span>
+                  <span className="text-lg font-bold">CHARIS SOMTOCHUKWU CHISOM</span>
                 </div>
               </div>
             </div>
