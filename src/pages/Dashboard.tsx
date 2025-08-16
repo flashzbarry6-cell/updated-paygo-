@@ -8,6 +8,7 @@ import WelcomeOnboarding from "@/components/onboarding/WelcomeOnboarding";
 import MobileLogo from "@/components/dashboard/MobileLogo";
 import AnnouncementBanner from "@/components/dashboard/AnnouncementBanner";
 import JoinPlatformModal from "@/components/notifications/JoinPlatformModal";
+import FloatingChatButton from "@/components/ui/FloatingChatButton";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ const Dashboard = () => {
       setTimeout(() => {
         setShowJoinModal(true);
         sessionStorage.setItem("paygo-join-modal-shown", "true");
-      }, 2000); // Show after 2 seconds
+      }, 1000); // Show after 1 second
     }
 
     // Listen for onboarding completion
@@ -83,6 +84,8 @@ const Dashboard = () => {
           isOpen={showJoinModal}
           onClose={() => setShowJoinModal(false)}
         />
+        
+        <FloatingChatButton />
       </div>
     </div>
   );

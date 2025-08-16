@@ -51,7 +51,7 @@ const ServiceNoticeModal = ({ isOpen, onClose, onContinue }: ServiceNoticeModalP
           {/* Action Button */}
           <Button 
             onClick={onContinue}
-            className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white text-sm py-2.5 rounded-lg font-medium"
+            className="w-full bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] hover:from-[#8a1ce6] hover:to-[#ff5722] text-white text-sm py-2.5 rounded-lg font-medium"
           >
             Continue
           </Button>
