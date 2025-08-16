@@ -27,7 +27,11 @@ const PaymentConfirmation = () => {
         
         <div className="flex-1 flex flex-col items-center justify-center p-4 text-center bg-gray-50 min-h-screen">
           <div className="mb-4">
-            <div className="w-16 h-16 border-3 border-orange-500 border-t-transparent rounded-full animate-spin mx-auto mb-3"></div>
+            <div className="relative w-20 h-20 mx-auto mb-4">
+              <div className="absolute inset-0 border-4 border-orange-200 rounded-full"></div>
+              <div className="absolute inset-0 border-4 border-orange-500 border-t-transparent rounded-full animate-spin"></div>
+              <div className="absolute inset-2 border-2 border-orange-300 border-b-transparent rounded-full animate-spin" style={{animationDirection: 'reverse', animationDuration: '1s'}}></div>
+            </div>
           </div>
           
           <h2 className="text-lg font-semibold text-gray-800 mb-2">Confirming Your Payment</h2>
