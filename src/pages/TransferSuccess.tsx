@@ -3,14 +3,15 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
+import { useEffect } from "react";
 
 const TransferSuccess = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const transferData = location.state || {};
 
-  const handleBackToDashboard = () => {
-    // Set balance to 0 since funds have been withdrawn
+  useEffect(() => {
+    // Set balance to 0 immediately when page loads
     localStorage.setItem("paygo-balance", "0");
     
     // Save withdrawal transaction to history
@@ -29,6 +30,12 @@ const TransferSuccess = () => {
     existingTransactions.unshift(transaction);
     localStorage.setItem("paygo-transactions", JSON.stringify(existingTransactions));
     
+    // Reset welcome bonus flags since balance is now 0
+    localStorage.removeItem("paygo-welcome-bonus-claimed");
+    localStorage.removeItem("paygo-welcome-notification-dismissed");
+  }, [transferData]);
+
+  const handleBackToDashboard = () => {
     // Play notification sound
     const audio = new Audio("data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmocBjuMzvLThSYGKHvN8N2QPgcTYSQmZ");
     audio.play().catch(() => {}); // Ignore errors if sound fails
@@ -39,10 +46,6 @@ const TransferSuccess = () => {
       description: `₦${transferData.amount} has been successfully withdrawn from your account.`,
       duration: 5000,
     });
-    
-    // Reset welcome bonus flags since balance is now 0
-    localStorage.removeItem("paygo-welcome-bonus-claimed");
-    localStorage.removeItem("paygo-welcome-notification-dismissed");
     
     navigate("/dashboard");
   };

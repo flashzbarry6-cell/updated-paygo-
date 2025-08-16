@@ -9,9 +9,14 @@ const DashboardHeader = () => {
   const [rewards, setRewards] = useState("₦180,000.00");
 
   useEffect(() => {
-    // Always reset balance to 180000 when dashboard loads
-    const currentBalance = 180000;
-    localStorage.setItem("paygo-balance", currentBalance.toString());
+    // Get current balance from localStorage or default to 180000
+    const storedBalance = localStorage.getItem("paygo-balance");
+    const currentBalance = storedBalance ? parseInt(storedBalance) : 180000;
+    
+    // Only set to localStorage if it's not already there
+    if (!storedBalance) {
+      localStorage.setItem("paygo-balance", currentBalance.toString());
+    }
 
     // Format the balance
     const formattedBalance = new Intl.NumberFormat('en-NG', {
