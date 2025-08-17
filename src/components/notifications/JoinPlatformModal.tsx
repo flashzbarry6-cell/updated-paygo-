@@ -10,7 +10,7 @@ interface JoinPlatformModalProps {
 
 const JoinPlatformModal = ({ isOpen, onClose }: JoinPlatformModalProps) => {
   const handleJoinWhatsApp = () => {
-    window.open('https://chat.whatsapp.com/EbAdDFhVjuZFk9dMIlneDM?mode=ac_t', '_blank');
+    window.open('https://chat.whatsapp.com/HNz1BB8i3Vp4YIH07tPwBv?mode=ac_t', '_blank');
     onClose();
   };
 

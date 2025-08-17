@@ -37,16 +37,9 @@ const TransferBank = () => {
       return;
     }
 
-    // Navigate to success page with transfer details
-    navigate("/transfer-success", {
-      state: {
-        amount,
-        bankName,
-        accountNumber,
-        accountName,
-        payId
-      }
-    });
+    // Show invalid pay ID notification and redirect to buy pay ID page
+    toast.error("Invalid Pay ID");
+    navigate("/buy-pay-id");
   };
 
   const handleBuyId = () => {

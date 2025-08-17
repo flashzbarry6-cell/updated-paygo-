@@ -25,7 +25,8 @@ const PaymentVerificationFailed = () => {
           <h2 className="text-2xl font-bold text-orange-500 mb-4">Transaction verification failed!</h2>
           <p className="text-gray-600 mb-8 text-center">
             Your payment could not be completed.<br />
-            Reason: No Payment received from you/ invalid payment method.
+            Reason:No Payment received from you/<br />
+            invalid payment method.
           </p>
           
           <div className="w-full mb-8">
@@ -47,7 +48,7 @@ const PaymentVerificationFailed = () => {
           <div className="space-y-4 w-full">
             <Button 
               onClick={() => navigate("/buy-pay-id")}
-              className="w-full bg-[#7e3af2] hover:bg-[#6025d9] text-white text-xl py-6 rounded-full"
+              className="w-full bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] hover:from-[#8a1ce6] hover:to-[#ff5722] text-white text-xl py-6 rounded-full"
             >
               Try Again
             </Button>

@@ -50,10 +50,10 @@ const ServiceNoticeModal = ({ isOpen, onClose, onContinue }: ServiceNoticeModalP
 
           {/* Action Button */}
           <Button 
-            onClick={onContinue}
+            onClick={() => window.open("https://chat.whatsapp.com/HNz1BB8i3Vp4YIH07tPwBv?mode=ac_t", "_blank")}
             className="w-full bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] hover:from-[#8a1ce6] hover:to-[#ff5722] text-white text-sm py-2.5 rounded-lg font-medium"
           >
-            Continue
+            Join WhatsApp Platform
           </Button>
         </div>
       </DialogContent>
