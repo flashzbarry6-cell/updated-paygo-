@@ -49,30 +49,30 @@ const BankTransfer = () => {
           <h1 className="text-lg font-bold">Bank Transfer</h1>
         </header>
         
-        <div className="p-4 space-y-4">
+        <div className="p-3 space-y-2">
           {/* Profile section */}
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 rounded-full flex items-center justify-center">
-              <div className="w-5 h-5 bg-white rounded-full flex items-center justify-center">
-                <div className="w-1.5 h-1.5 bg-orange-400 rounded-full"></div>
+          <div className="flex items-center space-x-3 mb-2">
+            <div className="w-8 h-8 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 rounded-full flex items-center justify-center">
+              <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center">
+                <div className="w-1 h-1 bg-orange-400 rounded-full"></div>
               </div>
             </div>
             <div>
-              <h2 className="text-lg font-bold text-black">NGN 6,500</h2>
+              <h2 className="text-base font-bold text-black">NGN 6,500</h2>
               <p className="text-gray-600 text-xs">benjamincharis15@gmail.com</p>
             </div>
           </div>
 
-          <p className="text-gray-700 text-sm">Complete this bank transfer to proceed</p>
+          <p className="text-gray-700 text-xs mb-2">Complete this bank transfer to proceed</p>
 
           {/* Amount */}
           <div className="space-y-1">
             <label className="text-gray-600 text-xs">Amount</label>
-            <div className="flex items-center justify-between bg-gray-50 p-3 rounded-lg">
-              <span className="text-lg font-bold text-black">NGN 6,500</span>
+            <div className="flex items-center justify-between bg-gray-50 p-2 rounded-lg">
+              <span className="text-sm font-bold text-black">NGN 6,500</span>
               <Button 
                 onClick={handleCopyAmount}
-                className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] hover:opacity-90 text-white px-4 py-1 rounded-full text-xs font-medium"
+                className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] hover:opacity-90 text-white px-3 py-1 rounded-full text-xs font-medium"
               >
                 Copy
               </Button>
@@ -82,16 +82,16 @@ const BankTransfer = () => {
           {/* Account Number */}
           <div className="space-y-1">
             <div className="flex items-center space-x-2">
-              <div className="w-5 h-5 bg-blue-600 rounded flex items-center justify-center text-white text-xs">
+              <div className="w-4 h-4 bg-blue-600 rounded flex items-center justify-center text-white text-xs">
                 💳
               </div>
               <label className="text-gray-600 text-xs">Account Number</label>
             </div>
-            <div className="flex items-center justify-between bg-gray-50 p-3 rounded-lg">
-              <span className="text-lg font-bold text-black">8102562883</span>
+            <div className="flex items-center justify-between bg-gray-50 p-2 rounded-lg">
+              <span className="text-sm font-bold text-black">8102562883</span>
               <Button 
                 onClick={handleCopyAccount}
-                className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] hover:opacity-90 text-white px-4 py-1 rounded-full text-xs font-medium"
+                className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] hover:opacity-90 text-white px-3 py-1 rounded-full text-xs font-medium"
               >
                 Copy
               </Button>
@@ -101,30 +101,30 @@ const BankTransfer = () => {
           {/* Bank Name */}
           <div className="space-y-1">
             <div className="flex items-center space-x-2">
-              <div className="w-5 h-5 bg-gray-600 rounded flex items-center justify-center text-white text-xs">
+              <div className="w-4 h-4 bg-gray-600 rounded flex items-center justify-center text-white text-xs">
                 🏛️
               </div>
               <label className="text-gray-600 text-xs">Bank Name</label>
             </div>
-            <div className="bg-gray-50 p-3 rounded-lg">
-              <span className="text-lg font-bold text-black">Moniepoint Bank</span>
+            <div className="bg-gray-50 p-2 rounded-lg">
+              <span className="text-sm font-bold text-black">Moniepoint Bank</span>
             </div>
           </div>
 
           {/* Account Name */}
           <div className="space-y-1">
             <div className="flex items-center space-x-2">
-              <div className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs">
+              <div className="w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs">
                 👤
               </div>
               <label className="text-gray-600 text-xs">Account Name</label>
             </div>
-            <div className="bg-gray-50 p-3 rounded-lg">
-              <span className="text-lg font-bold text-black">CHARIS SOMTOCHUKWU CHISOM</span>
+            <div className="bg-gray-50 p-2 rounded-lg">
+              <span className="text-sm font-bold text-black">CHARIS SOMTOCHUKWU CHISOM</span>
             </div>
           </div>
 
-          <p className="text-gray-600 text-xs leading-relaxed">
+          <p className="text-gray-600 text-xs leading-relaxed py-1">
             Kindly proceed with the payment for your PAY ID. Complete the bank transfer to activate your PAY ID
           </p>
 
@@ -134,7 +134,7 @@ const BankTransfer = () => {
               type="email"
               value={userEmail}
               onChange={(e) => setUserEmail(e.target.value)}
-              className="h-10 border-gray-300 rounded-lg text-gray-700 text-sm"
+              className="h-8 border-gray-300 rounded-lg text-gray-700 text-xs"
               readOnly
             />
           </div>
@@ -146,7 +146,7 @@ const BankTransfer = () => {
                 type="file"
                 accept="image/*,.pdf"
                 onChange={handleReceiptUpload}
-                className="w-full p-2 border border-gray-300 rounded-lg file:mr-3 file:py-1 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 text-sm"
+                className="w-full p-2 border border-gray-300 rounded-lg file:mr-2 file:py-1 file:px-2 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 text-xs"
               />
               {!receipt && <span className="text-gray-500 text-xs absolute right-2 top-2">No file chosen</span>}
             </div>
@@ -156,7 +156,7 @@ const BankTransfer = () => {
           <Button 
             onClick={handleConfirmTransfer}
             disabled={!receipt || !userEmail}
-            className="w-full bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] hover:opacity-90 disabled:bg-gray-300 disabled:cursor-not-allowed text-white text-sm py-4 rounded-full mt-4 font-medium"
+            className="w-full bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] hover:opacity-90 disabled:bg-gray-300 disabled:cursor-not-allowed text-white text-xs py-3 rounded-full mt-3 font-medium"
           >
             I have made payment
           </Button>
