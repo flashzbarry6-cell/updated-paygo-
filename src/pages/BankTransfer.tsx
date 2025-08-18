@@ -8,7 +8,7 @@ import { toast } from "sonner";
 const BankTransfer = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [userEmail, setUserEmail] = useState("stevenorumujia@gmail.com");
+  const [userEmail, setUserEmail] = useState("benjamincharis15@gmail.com");
   const [receipt, setReceipt] = useState<File | null>(null);
 
   const handleCopyAmount = () => {
