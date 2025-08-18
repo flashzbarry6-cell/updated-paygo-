@@ -22,20 +22,22 @@ const PaymentConfirmation = () => {
           <h1 className="text-lg font-bold">Confirming Payment</h1>
         </header>
         
-        <div className="flex-1 flex flex-col items-center justify-center p-4 text-center bg-gray-50 min-h-screen">
-          <div className="mb-4">
-            <div className="relative w-16 h-16 mx-auto mb-3">
-              <div className="w-16 h-16 rounded-full border-4 border-gray-200"></div>
-              <div className="absolute top-0 left-0 w-16 h-16 rounded-full border-4 border-transparent border-t-orange-400 border-r-orange-500 animate-spin bg-gradient-to-r from-orange-400 to-yellow-500 rounded-full opacity-80" style={{
-                background: 'conic-gradient(from 0deg, #f97316, #eab308, #f97316)',
-                WebkitMask: 'radial-gradient(farthest-side, transparent calc(100% - 4px), black calc(100% - 4px))',
-                mask: 'radial-gradient(farthest-side, transparent calc(100% - 4px), black calc(100% - 4px))'
-              }}></div>
+        <div className="flex-1 flex flex-col items-center justify-center p-6 text-center bg-gray-50 min-h-screen">
+          <div className="mb-6">
+            <div className="relative w-20 h-20 mx-auto mb-4">
+              <div 
+                className="w-20 h-20 rounded-full animate-spin"
+                style={{
+                  background: 'conic-gradient(from 0deg, #f97316, #eab308, #f59e0b, #f97316)',
+                  WebkitMask: 'radial-gradient(farthest-side, transparent calc(100% - 4px), black calc(100% - 4px))',
+                  mask: 'radial-gradient(farthest-side, transparent calc(100% - 4px), black calc(100% - 4px))'
+                }}
+              ></div>
             </div>
           </div>
           
-          <h2 className="text-lg font-bold text-gray-800 mb-2">Confirming Your Payment</h2>
-          <p className="text-gray-600 mb-4 text-xs">Please wait while we verify your transaction...</p>
+          <h2 className="text-xl font-bold text-gray-800 mb-3">Confirming Your Payment</h2>
+          <p className="text-gray-600 mb-6 text-sm">Please wait while we verify your transaction...</p>
         </div>
         
         <footer className="bg-gray-100 p-3 text-center text-gray-600">
