@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -8,8 +8,17 @@ import { toast } from "sonner";
 const BankTransfer = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [userEmail, setUserEmail] = useState("benjamincharis15@gmail.com");
+  const [userEmail, setUserEmail] = useState("");
   const [receipt, setReceipt] = useState<File | null>(null);
+
+  // Get user email from localStorage on component mount
+  useEffect(() => {
+    const userData = localStorage.getItem("paygo-user");
+    if (userData) {
+      const user = JSON.parse(userData);
+      setUserEmail(user.email || "");
+    }
+  }, []);
 
   const handleCopyAmount = () => {
     navigator.clipboard.writeText("6500");
@@ -59,7 +68,7 @@ const BankTransfer = () => {
             </div>
             <div>
               <h2 className="text-base font-bold text-black">**NGN 6,500**</h2>
-              <p className="text-gray-600 text-xs">benjamincharis15@gmail.com</p>
+              <p className="text-gray-600 text-xs">{userEmail}</p>
             </div>
           </div>
 
