@@ -1,12 +1,21 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { X, Gift, CreditCard, Zap } from "lucide-react";
 
 const WelcomeOnboarding = () => {
   const [currentStep, setCurrentStep] = useState(0);
+  const [userName, setUserName] = useState("User");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const userData = localStorage.getItem("paygo-user");
+    if (userData) {
+      const user = JSON.parse(userData);
+      setUserName(user.name || "User");
+    }
+  }, []);
 
   const steps = [
     {
@@ -59,7 +68,7 @@ const WelcomeOnboarding = () => {
             <X size={18} />
           </button>
           
-          <h2 className="text-lg font-bold">Welcome to PayGo, Charis Benjamin!</h2>
+          <h2 className="text-lg font-bold">Welcome to PayGo, {userName}!</h2>
           <p className="text-sm mt-1 opacity-90">Step {currentStep + 1} of {steps.length}</p>
           
           {/* Progress bar */}
