@@ -14,7 +14,7 @@ const Support = () => {
   };
 
   const handleWhatsAppGroup = () => {
-    const groupUrl = "https://chat.whatsapp.com/LIHq5k6KCzF2IlJdAFwUaR?mode=ac_t";
+    const groupUrl = "https://chat.whatsapp.com/EVKxpd8wVyGATKHV1qgVZD?mode=ems_copy_c";
     window.open(groupUrl, "_blank");
   };
 
