@@ -52,6 +52,30 @@ const PromotionalCarousel = () => {
       title: "Refer & Earn",
       description: "Earn K200 for every successful referral",
       image: "/lovable-uploads/a7fcb042-8bad-43ed-9a4e-7d8555c7f2ca.png"
+    },
+    {
+      id: 9,
+      title: "We are hiring!",
+      description: "Information Security Analyst position available",
+      image: "/lovable-uploads/paygo-hiring.jpeg"
+    },
+    {
+      id: 10,
+      title: "Get your Virtual Card",
+      description: "Download the PayGo app and get your virtual card today",
+      image: "/lovable-uploads/paygo-virtual-card.jpeg"
+    },
+    {
+      id: 11,
+      title: "Download PayGo App",
+      description: "Available on App Store & Google Play",
+      image: "/lovable-uploads/paygo-download-app.jpeg"
+    },
+    {
+      id: 12,
+      title: "Agent Mobile App",
+      description: "PayGo agent mobile app available on all stores",
+      image: "/lovable-uploads/paygo-agent-app.jpeg"
     }
   ];
 
