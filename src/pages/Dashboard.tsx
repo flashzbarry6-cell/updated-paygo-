@@ -67,7 +67,6 @@ const Dashboard = () => {
     <div className="flex justify-center min-h-screen bg-gradient-to-b from-[#2D1B55] to-[#111111]">
       <div className="w-full max-w-sm bg-transparent">
         <AnnouncementBanner />
-        <MobileLogo />
         <DashboardHeader />
         
         <div className="flex-1 px-2 sm:px-3 py-4">
