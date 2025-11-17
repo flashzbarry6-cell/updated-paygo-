@@ -32,49 +32,49 @@ const MenuGrid = () => {
       <MenuCard 
         title="Buy PAY ID" 
         icon="💳" 
-        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
+        iconColor="text-[#FF007A]"
         onClick={() => handleMenuClick("Buy PAY ID", "/buy-pay-id")} 
       />
       <MenuCard 
         title="Watch" 
         icon="📺" 
-        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
+        iconColor="text-[#FF007A]"
         onClick={() => handleMenuClick("Watch", "https://t.me/+9PQFIYgVQUU0YzZk")} 
       />
       <MenuCard 
         title="Airtime" 
         icon="📊" 
-        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
+        iconColor="text-green-500"
         onClick={() => handleMenuClick("Airtime", "/airtime")} 
       />
       <MenuCard 
         title="Data" 
         icon="💾" 
-        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
+        iconColor="text-purple-500"
         onClick={() => handleMenuClick("Data", "/data")} 
       />
       <MenuCard 
         title="Support" 
         icon="🎧" 
-        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
+        iconColor="text-blue-500"
         onClick={() => handleMenuClick("Support", "/support")} 
       />
       <MenuCard 
         title="Group" 
         icon="🌐" 
-        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
+        iconColor="text-orange-500"
         onClick={() => handleMenuClick("Group", "https://t.me/+9PQFIYgVQUU0YzZk")} 
       />
       <MenuCard 
         title="Earn More" 
         icon="💰" 
-        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
+        iconColor="text-yellow-500"
         onClick={() => handleMenuClick("Refer", "/refer")} 
       />
       <MenuCard 
         title="Profile" 
         icon="👤" 
-        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
+        iconColor="text-gray-300"
         onClick={() => handleMenuClick("Profile", "/profile")} 
       />
     </div>
