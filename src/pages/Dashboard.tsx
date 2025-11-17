@@ -54,7 +54,7 @@ const Dashboard = () => {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-[#E91E63]">
+      <div className="flex items-center justify-center min-h-screen bg-[#FF007A]">
         <div className="animate-pulse">
           <div className="h-8 w-24 bg-gray-300 rounded mb-2"></div>
           <div className="h-4 w-16 bg-gray-200 rounded"></div>
@@ -64,8 +64,8 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="flex justify-center min-h-screen bg-[#E91E63]">
-      <div className="w-full max-w-sm bg-[#E91E63]">
+    <div className="flex justify-center min-h-screen bg-[#FF007A]">
+      <div className="w-full max-w-sm bg-[#FF007A]">
         <AnnouncementBanner />
         <MobileLogo />
         <DashboardHeader />
