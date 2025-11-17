@@ -29,7 +29,7 @@ const Data = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#FF0055] to-[#FF1177]">
+    <div className="min-h-screen bg-gray-50">
       <div className="bg-white w-full scale-70 origin-top">
         <DataHeader />
 

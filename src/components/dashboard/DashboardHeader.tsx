@@ -39,7 +39,7 @@ const DashboardHeader = () => {
   }, []);
 
   return (
-    <div className="bg-gradient-to-r from-[#FF0055] to-[#FF1177] rounded-2xl mx-3 mt-3 p-4 text-white shadow-lg shadow-pink-500/50">
+    <div className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] rounded-2xl mx-3 mt-3 p-4 text-white">
       <div className="flex justify-between items-start mb-3">
         <div className="flex-1">
           <UserProfile />

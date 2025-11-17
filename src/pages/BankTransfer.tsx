@@ -51,9 +51,9 @@ const BankTransfer = () => {
   };
 
   return (
-    <div className="flex justify-center min-h-screen bg-gradient-to-br from-[#FF0055] to-[#FF1177]">
+    <div className="flex justify-center min-h-screen bg-gray-50">
       <div className="w-full max-w-sm bg-white">
-        <header className="bg-gradient-to-r from-[#FF0055] to-[#FF1177] p-3 text-white flex items-center">
+        <header className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] p-3 text-white flex items-center">
           <ArrowLeft className="mr-3 cursor-pointer" onClick={() => navigate(-1)} />
           <h1 className="text-lg font-bold">Bank Transfer</h1>
         </header>
@@ -61,9 +61,9 @@ const BankTransfer = () => {
         <div className="p-3 space-y-2.5">
           {/* Profile section */}
           <div className="flex items-center space-x-3 mb-2">
-            <div className="w-9 h-9 bg-gradient-to-br from-[#FF0055] via-pink-500 to-[#FF1177] rounded-full flex items-center justify-center">
+            <div className="w-9 h-9 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 rounded-full flex items-center justify-center">
               <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center">
-                <div className="w-1 h-1 bg-[#FF0055] rounded-full"></div>
+                <div className="w-1 h-1 bg-orange-400 rounded-full"></div>
               </div>
             </div>
             <div>
@@ -81,7 +81,7 @@ const BankTransfer = () => {
               <span className="text-base font-extrabold text-black">NGN 6,500</span>
               <Button 
                 onClick={handleCopyAmount}
-                className="bg-gradient-to-r from-[#FF0055] to-[#FF1177] hover:opacity-90 text-white px-3 py-1 rounded-full text-xs font-medium"
+                className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] hover:opacity-90 text-white px-3 py-1 rounded-full text-xs font-medium"
               >
                 Copy
               </Button>
@@ -100,7 +100,7 @@ const BankTransfer = () => {
               <span className="text-base font-extrabold text-black">8102562883</span>
               <Button 
                 onClick={handleCopyAccount}
-                className="bg-gradient-to-r from-[#FF0055] to-[#FF1177] hover:opacity-90 text-white px-3 py-1 rounded-full text-xs font-medium"
+                className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] hover:opacity-90 text-white px-3 py-1 rounded-full text-xs font-medium"
               >
                 Copy
               </Button>
@@ -165,7 +165,7 @@ const BankTransfer = () => {
           <Button 
             onClick={handleConfirmTransfer}
             disabled={!receipt || !userEmail}
-            className="w-full bg-gradient-to-r from-[#FF0055] to-[#FF1177] hover:opacity-90 disabled:bg-gray-300 disabled:cursor-not-allowed text-white text-xs py-3 rounded-full mt-3 font-medium"
+            className="w-full bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] hover:opacity-90 disabled:bg-gray-300 disabled:cursor-not-allowed text-white text-xs py-3 rounded-full mt-3 font-medium"
           >
             I have made payment
           </Button>

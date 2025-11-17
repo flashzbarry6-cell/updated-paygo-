@@ -9,10 +9,10 @@ interface AuthLayoutProps {
 
 const AuthLayout = ({ children, heading }: AuthLayoutProps) => {
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-[#2D1B55] to-[#111111]">
+    <div className="flex flex-col min-h-screen bg-[#FFF1F3]">
       {/* Help text in top right */}
       <div className="absolute top-6 right-4">
-        <Link to="#" className="text-white text-lg font-medium hover:text-purple-300">
+        <Link to="#" className="text-paygo-purple text-lg font-medium">
           Need Help?
         </Link>
       </div>
@@ -27,7 +27,7 @@ const AuthLayout = ({ children, heading }: AuthLayoutProps) => {
                 className="w-full h-auto animate-[slide-in-right_1.5s_ease-in-out_infinite_alternate]"
               />
             </div>
-            <h2 className="text-xl font-medium text-white">{heading}</h2>
+            <h2 className="text-xl font-medium text-gray-600">{heading}</h2>
           </div>
           {children}
         </div>

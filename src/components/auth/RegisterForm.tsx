@@ -33,8 +33,6 @@ const RegisterForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [phone, setPhone] = useState("");
-  const [accountType, setAccountType] = useState("");
   const [country, setCountry] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
@@ -46,7 +44,7 @@ const RegisterForm = () => {
     // Simulate registration - in a real app, this would call an API
     setTimeout(() => {
       // Simple validation
-      if (!name || !email || !password || !phone || !accountType || !country) {
+      if (!name || !email || !password || !country) {
         toast.error("Please fill in all fields");
         setIsLoading(false);
         return;
@@ -56,8 +54,6 @@ const RegisterForm = () => {
       localStorage.setItem("paygo-user", JSON.stringify({
         name: name,
         email: email,
-        phone: phone,
-        accountType: accountType,
         country: country,
         isLoggedIn: true
       }));
@@ -93,33 +89,12 @@ const RegisterForm = () => {
       </div>
       <div>
         <Input
-          type="tel"
-          placeholder="Enter Phone Number"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          className="h-12 px-4 rounded-full bg-white text-base"
-        />
-      </div>
-      <div>
-        <Input
           type="password"
           placeholder="Enter Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="h-12 px-4 rounded-full bg-white text-base"
         />
-      </div>
-      <div>
-        <Select value={accountType} onValueChange={setAccountType}>
-          <SelectTrigger className="h-12 px-4 rounded-full bg-white text-base">
-            <SelectValue placeholder="Select Account Type" />
-          </SelectTrigger>
-          <SelectContent className="bg-white">
-            <SelectItem value="individual">Individual</SelectItem>
-            <SelectItem value="business">Business</SelectItem>
-            <SelectItem value="agent">Agent</SelectItem>
-          </SelectContent>
-        </Select>
       </div>
       <div>
         <Select value={country} onValueChange={setCountry}>

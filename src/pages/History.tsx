@@ -24,20 +24,20 @@ const History = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-br from-[#FF0055] to-[#FF1177]">
+    <div className="flex flex-col min-h-screen bg-white">
       <div className="p-4 flex justify-end">
-        <div className="bg-white/20 p-2 rounded-full cursor-pointer" onClick={handleClose}>
-          <X className="text-white" />
+        <div className="bg-[#9b87f5]/20 p-2 rounded-full cursor-pointer" onClick={handleClose}>
+          <X className="text-[#9b87f5]" />
         </div>
       </div>
       
       <div className="flex-1 p-5 flex flex-col items-center">
-        <h1 className="text-4xl font-bold text-center mb-2 text-white">Transaction History</h1>
-        <p className="text-xl text-white text-center mb-10">View your transaction history</p>
+        <h1 className="text-4xl font-bold text-center mb-2">Transaction History</h1>
+        <p className="text-xl text-gray-600 text-center mb-10">View your transaction history</p>
         
         <div className="w-full max-w-md">
           {hasWelcomeBonus && (
-            <div className="bg-white text-[#FF0055] p-6 rounded-xl mb-6 shadow-lg">
+            <div className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] text-white p-6 rounded-xl mb-6">
               <div className="flex items-center gap-3 mb-4">
                 <Gift className="w-8 h-8" />
                 <div>
@@ -48,7 +48,7 @@ const History = () => {
               <div className="text-3xl font-bold mb-4">₦{welcomeBonusAmount.toLocaleString()}</div>
               <Button 
                 onClick={handleClaimBonus}
-                className="w-full bg-gradient-to-r from-[#FF0055] to-[#FF1177] text-white hover:opacity-90"
+                className="w-full bg-white text-purple-600 hover:bg-gray-100"
               >
                 Claim Bonus
               </Button>

@@ -28,53 +28,53 @@ const MenuGrid = () => {
   };
 
   return (
-    <div className="grid grid-cols-4 gap-2">
+    <div className="grid grid-cols-4 gap-4">
       <MenuCard 
         title="Buy PAY ID" 
         icon="💳" 
-        iconColor="text-[#FF007A]"
+        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
         onClick={() => handleMenuClick("Buy PAY ID", "/buy-pay-id")} 
       />
       <MenuCard 
         title="Watch" 
         icon="📺" 
-        iconColor="text-[#FF007A]"
+        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
         onClick={() => handleMenuClick("Watch", "https://t.me/+9PQFIYgVQUU0YzZk")} 
       />
       <MenuCard 
         title="Airtime" 
         icon="📊" 
-        iconColor="text-green-500"
+        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
         onClick={() => handleMenuClick("Airtime", "/airtime")} 
       />
       <MenuCard 
         title="Data" 
         icon="💾" 
-        iconColor="text-purple-500"
+        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
         onClick={() => handleMenuClick("Data", "/data")} 
       />
       <MenuCard 
         title="Support" 
         icon="🎧" 
-        iconColor="text-blue-500"
+        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
         onClick={() => handleMenuClick("Support", "/support")} 
       />
       <MenuCard 
         title="Group" 
         icon="🌐" 
-        iconColor="text-orange-500"
+        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
         onClick={() => handleMenuClick("Group", "https://t.me/+9PQFIYgVQUU0YzZk")} 
       />
       <MenuCard 
         title="Earn More" 
         icon="💰" 
-        iconColor="text-yellow-500"
+        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
         onClick={() => handleMenuClick("Refer", "/refer")} 
       />
       <MenuCard 
         title="Profile" 
         icon="👤" 
-        iconColor="text-gray-300"
+        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
         onClick={() => handleMenuClick("Profile", "/profile")} 
       />
     </div>
