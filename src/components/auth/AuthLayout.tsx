@@ -9,7 +9,7 @@ interface AuthLayoutProps {
 
 const AuthLayout = ({ children, heading }: AuthLayoutProps) => {
   return (
-    <div className="flex flex-col min-h-screen bg-[#FFF1F3]">
+    <div className="flex flex-col min-h-screen bg-[#E91E63]">
       {/* Help text in top right */}
       <div className="absolute top-6 right-4">
         <Link to="#" className="text-paygo-purple text-lg font-medium">

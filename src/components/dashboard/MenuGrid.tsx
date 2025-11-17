@@ -28,12 +28,30 @@ const MenuGrid = () => {
   };
 
   return (
-    <div className="grid grid-cols-2 gap-4">
+    <div className="grid grid-cols-4 gap-2">
       <MenuCard 
         title="Buy PAY ID" 
         icon="💳" 
         bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
         onClick={() => handleMenuClick("Buy PAY ID", "/buy-pay-id")} 
+      />
+      <MenuCard 
+        title="Watch" 
+        icon="📺" 
+        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
+        onClick={() => handleMenuClick("Watch", "https://t.me/+9PQFIYgVQUU0YzZk")} 
+      />
+      <MenuCard 
+        title="Airtime" 
+        icon="📊" 
+        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
+        onClick={() => handleMenuClick("Airtime", "/airtime")} 
+      />
+      <MenuCard 
+        title="Data" 
+        icon="💾" 
+        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
+        onClick={() => handleMenuClick("Data", "/data")} 
       />
       <MenuCard 
         title="Support" 
