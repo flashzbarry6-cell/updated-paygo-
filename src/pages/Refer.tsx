@@ -21,14 +21,14 @@ const Refer = () => {
   };
 
   return (
-    <div className="flex justify-center min-h-screen bg-gradient-to-br from-[#9b20f5] to-[#ff6f43]">
+    <div className="flex justify-center min-h-screen bg-gradient-to-br from-[#FF0055] to-[#FF1177]">
       <div className="w-full max-w-sm bg-white shadow-lg">
-        <header className="bg-gradient-to-r from-[#9b20f5] to-[#8b10e5] p-3 flex items-center text-white">
+        <header className="bg-gradient-to-r from-[#FF0055] to-[#FF1177] p-3 flex items-center text-white">
           <ArrowLeft className="mr-3 cursor-pointer" onClick={() => navigate("/dashboard")} />
           <h1 className="text-lg font-semibold">Earn More</h1>
         </header>
         
-        <div className="p-4 bg-gradient-to-br from-[#9b20f5] to-[#ff6f43] min-h-screen">
+        <div className="p-4 bg-gradient-to-br from-[#FF0055] to-[#FF1177] min-h-screen">
           {/* Refer & Earn Section */}
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 mb-4 text-white">
             <div className="flex items-center justify-between mb-3">
@@ -49,7 +49,7 @@ const Refer = () => {
             
             <Button 
               onClick={handleShare}
-              className="w-full bg-white text-purple-600 hover:bg-gray-100 font-semibold text-sm py-2"
+              className="w-full bg-white text-[#FF0055] hover:bg-gray-100 font-semibold text-sm py-2"
             >
               <Share2 className="mr-2" size={14} />
               Share Referral Link

@@ -34,7 +34,6 @@ const RegisterForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
-  const [status, setStatus] = useState("");
   const [accountType, setAccountType] = useState("");
   const [country, setCountry] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -47,7 +46,7 @@ const RegisterForm = () => {
     // Simulate registration - in a real app, this would call an API
     setTimeout(() => {
       // Simple validation
-      if (!name || !email || !password || !phone || !status || !accountType || !country) {
+      if (!name || !email || !password || !phone || !accountType || !country) {
         toast.error("Please fill in all fields");
         setIsLoading(false);
         return;
@@ -58,7 +57,6 @@ const RegisterForm = () => {
         name: name,
         email: email,
         phone: phone,
-        status: status,
         accountType: accountType,
         country: country,
         isLoggedIn: true
@@ -108,15 +106,6 @@ const RegisterForm = () => {
           placeholder="Enter Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="h-12 px-4 rounded-full bg-white text-base"
-        />
-      </div>
-      <div>
-        <Input
-          type="text"
-          placeholder="Enter Status"
-          value={status}
-          onChange={(e) => setStatus(e.target.value)}
           className="h-12 px-4 rounded-full bg-white text-base"
         />
       </div>
