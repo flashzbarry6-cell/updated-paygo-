@@ -29,14 +29,14 @@ const Profile = () => {
   };
 
   return (
-    <div className="flex justify-center min-h-screen bg-gradient-to-br from-[#9b20f5] to-[#ff6f43]">
+    <div className="flex justify-center min-h-screen bg-gradient-to-br from-[#FF0055] to-[#FF1177]">
       <div className="w-full max-w-sm bg-white">
-        <header className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] p-3 flex items-center text-white">
+        <header className="bg-gradient-to-r from-[#FF0055] to-[#FF1177] p-3 flex items-center text-white">
           <ArrowLeft className="mr-3 cursor-pointer" onClick={() => navigate("/dashboard")} />
           <h1 className="text-lg font-semibold">Profile</h1>
         </header>
         
-        <div className="p-4 bg-gradient-to-br from-[#9b20f5] to-[#ff6f43] min-h-screen">
+        <div className="p-4 bg-gradient-to-br from-[#FF0055] to-[#FF1177] min-h-screen">
           {/* Profile Picture Section */}
           <div className="text-center mb-6">
             <div className="relative inline-block">
@@ -61,7 +61,7 @@ const Profile = () => {
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
-                  <div className="w-8 h-8 bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] rounded-full flex items-center justify-center mr-3">
+                  <div className="w-8 h-8 bg-gradient-to-r from-[#FF0055] to-[#FF1177] rounded-full flex items-center justify-center mr-3">
                     <span className="text-white text-sm">👤</span>
                   </div>
                   <div>

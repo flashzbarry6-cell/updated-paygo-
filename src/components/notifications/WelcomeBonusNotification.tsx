@@ -11,7 +11,7 @@ const WelcomeBonusNotification = () => {
 
   return (
     <div className="fixed top-4 left-4 right-4 z-50">
-      <Alert className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] text-white border-none">
+      <Alert className="bg-gradient-to-r from-[#2D1B55] to-[#111111] text-white border-none">
         <Gift className="h-4 w-4" />
         <AlertTitle className="text-white">Welcome Bonus Available!</AlertTitle>
         <AlertDescription className="text-white">
@@ -20,7 +20,7 @@ const WelcomeBonusNotification = () => {
         <Button
           variant="ghost"
           size="icon"
-          className="absolute right-2 top-2 text-white hover:bg-white/20"
+          className="absolute right-2 top-2 text-white hover:bg-white/20 bg-[#2D1B55]"
           onClick={dismissNotification}
         >
           <X className="h-4 w-4" />
