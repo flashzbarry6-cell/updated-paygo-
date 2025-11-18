@@ -32,20 +32,20 @@ const History = () => {
       </div>
       
       <div className="flex-1 p-5 flex flex-col items-center">
-        <h1 className="text-4xl font-bold text-center mb-2">Transaction History</h1>
-        <p className="text-xl text-gray-600 text-center mb-10">View your transaction history</p>
+        <h1 className="text-3xl font-bold text-center mb-2">Transaction History</h1>
+        <p className="text-lg text-gray-600 text-center mb-10">View your transaction history</p>
         
         <div className="w-full max-w-md">
           {hasWelcomeBonus && (
             <div className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] text-white p-6 rounded-xl mb-6">
               <div className="flex items-center gap-3 mb-4">
-                <Gift className="w-8 h-8" />
+                <Gift className="w-7 h-7" />
                 <div>
-                  <h3 className="text-xl font-bold">Welcome Bonus</h3>
-                  <p className="text-sm opacity-90">New user reward</p>
+                  <h3 className="text-lg font-bold">Welcome Bonus</h3>
+                  <p className="text-xs opacity-90">New user reward</p>
                 </div>
               </div>
-              <div className="text-3xl font-bold mb-4">₦{welcomeBonusAmount.toLocaleString()}</div>
+              <div className="text-2xl font-bold mb-4">₦{welcomeBonusAmount.toLocaleString()}</div>
               <Button 
                 onClick={handleClaimBonus}
                 className="w-full bg-white text-purple-600 hover:bg-gray-100"
@@ -57,7 +57,7 @@ const History = () => {
           
           {transactions.length > 0 && (
             <div className="space-y-3 mb-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">Recent Transactions</h3>
+              <h3 className="text-base font-semibold text-gray-800 mb-3">Recent Transactions</h3>
               {transactions.map((transaction) => (
                 <div key={transaction.id} className="bg-white border rounded-lg p-4 shadow-sm">
                   <div className="flex items-center justify-between">

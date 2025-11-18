@@ -34,6 +34,7 @@ const RegisterForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [country, setCountry] = useState("");
+  const [status, setStatus] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -44,19 +45,28 @@ const RegisterForm = () => {
     // Simulate registration - in a real app, this would call an API
     setTimeout(() => {
       // Simple validation
-      if (!name || !email || !password || !country) {
+      if (!name || !email || !password || !country || !status) {
         toast.error("Please fill in all fields");
         setIsLoading(false);
         return;
       }
+      
+      // Generate reference number
+      const referenceNumber = Math.floor(1000000 + Math.random() * 9000000).toString();
       
       // Store user info in localStorage (just for demo purposes)
       localStorage.setItem("paygo-user", JSON.stringify({
         name: name,
         email: email,
         country: country,
-        isLoggedIn: true
+        status: status,
+        isLoggedIn: true,
+        referenceNumber: referenceNumber
       }));
+      
+      // Set initial balance as incoming transfer
+      localStorage.setItem("paygo-balance", "180000");
+      localStorage.setItem("paygo-balance-type", "incoming");
       
       // Clear onboarding flag to show it
       localStorage.removeItem("paygo-onboarding-completed");
@@ -107,6 +117,18 @@ const RegisterForm = () => {
                 {countryName}
               </SelectItem>
             ))}
+          </SelectContent>
+        </Select>
+      </div>
+      <div>
+        <Select value={status} onValueChange={setStatus}>
+          <SelectTrigger className="h-12 px-4 rounded-full bg-white text-base">
+            <SelectValue placeholder="Select Status" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="individual">Individual</SelectItem>
+            <SelectItem value="business">Business</SelectItem>
+            <SelectItem value="personal">Personal</SelectItem>
           </SelectContent>
         </Select>
       </div>

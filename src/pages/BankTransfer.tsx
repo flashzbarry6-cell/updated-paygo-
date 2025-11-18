@@ -137,6 +137,17 @@ const BankTransfer = () => {
             Kindly proceed with the payment for your PAY ID. Complete the bank transfer to activate your PAY ID
           </p>
 
+          {userEmail && (() => {
+            const userData = localStorage.getItem("paygo-user");
+            const user = userData ? JSON.parse(userData) : {};
+            const referenceNumber = user.referenceNumber || "";
+            return referenceNumber ? (
+              <p className="text-gray-700 text-xs font-semibold py-1.5">
+                REFERENCE: {referenceNumber}
+              </p>
+            ) : null;
+          })()}
+
           {/* Email Input */}
           <div className="space-y-1">
             <Input 
