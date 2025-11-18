@@ -6,7 +6,7 @@ const ActionButtons = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-2 justify-between">
       <Button 
         className="bg-white/20 text-white border-white/30 rounded-full px-4 py-1 text-xs hover:bg-white/30" 
         onClick={() => navigate("/upgrade-account")}
@@ -14,7 +14,7 @@ const ActionButtons = () => {
         ✓ Upgrade
       </Button>
       <Button 
-        className="bg-white/20 text-white border-white/30 rounded-full px-4 py-1 text-xs hover:bg-white/30" 
+        className="bg-white/20 text-white border-white/30 rounded-full px-4 py-1 text-xs hover:bg-white/30 ml-auto" 
         onClick={() => navigate("/transfer")}
       >
         ↑ Transfer
