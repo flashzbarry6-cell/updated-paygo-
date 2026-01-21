@@ -1,4 +1,3 @@
-
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, ChevronRight, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -14,9 +13,9 @@ const Profile = () => {
     if (userData) {
       const parsedUser = JSON.parse(userData);
       setUser({
-        name: parsedUser.name || "Charis Benjamin",
-        email: parsedUser.email || "benjamincharis15@gmail.com",
-        phone: parsedUser.phone || "+234 801 234 5678"
+        name: parsedUser.name || "User",
+        email: parsedUser.email || "",
+        phone: parsedUser.phone || ""
       });
     }
   }, []);
@@ -28,114 +27,62 @@ const Profile = () => {
     navigate("/login");
   };
 
+  const menuItems = [
+    { icon: "👤", title: "Profile Information", desc: "View and edit your profile details", route: "/profile-information", gradient: "from-primary to-secondary" },
+    { icon: "❓", title: "Help & Support", desc: "Get help with using PayGo", route: "/support", gradient: "from-teal-400 to-teal-600" },
+    { icon: "ℹ️", title: "About", desc: "Learn more about PayGo", route: "/about", gradient: "from-blue-400 to-blue-600" },
+    { icon: "💰", title: "Refer & Earn", desc: "Invite friends and earn ₦5,000", route: "/refer", gradient: "from-primary to-orange-500" },
+  ];
+
   return (
-    <div className="flex justify-center min-h-screen bg-gradient-to-br from-[#9b20f5] to-[#ff6f43]">
-      <div className="w-full max-w-sm bg-white">
-        <header className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] p-3 flex items-center text-white">
+    <div className="flex justify-center min-h-screen bg-subtle-glow">
+      <div className="w-full max-w-sm bg-background relative overflow-hidden">
+        <header className="bg-gradient-pink p-3 flex items-center text-foreground">
           <ArrowLeft className="mr-3 cursor-pointer" onClick={() => navigate("/dashboard")} />
           <h1 className="text-lg font-semibold">Profile</h1>
         </header>
         
-        <div className="p-4 bg-gradient-to-br from-[#9b20f5] to-[#ff6f43] min-h-screen">
-          {/* Profile Picture Section */}
-          <div className="text-center mb-6">
-            <div className="relative inline-block">
-              <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mb-3 border-2 border-white shadow-lg">
-                <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center">
-                  <span className="text-white text-2xl">👤</span>
-                </div>
-              </div>
-              <div className="absolute -bottom-1 -right-1 bg-white/20 rounded-full p-1 border border-white">
-                <span className="text-white text-xs">📷</span>
-              </div>
+        <div className="p-4 min-h-screen relative">
+          <div className="absolute top-0 right-0 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+          
+          {/* Profile Picture */}
+          <div className="text-center mb-6 relative z-10 animate-fade-up">
+            <div className="w-20 h-20 glass-card rounded-full flex items-center justify-center mx-auto mb-2 border-2 border-primary/50 shadow-glow">
+              <span className="text-3xl">👤</span>
             </div>
-            <p className="text-white/80 text-xs mt-1">Tap to change profile picture</p>
+            <p className="text-muted-foreground text-xs">Tap to change picture</p>
           </div>
 
           {/* Menu Items */}
-          <div className="space-y-3">
-            {/* Profile Information */}
-            <div 
-              className="bg-white/90 rounded-xl p-3 cursor-pointer shadow-sm"
-              onClick={() => navigate("/profile-information")}
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <div className="w-8 h-8 bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] rounded-full flex items-center justify-center mr-3">
-                    <span className="text-white text-sm">👤</span>
+          <div className="space-y-3 relative z-10">
+            {menuItems.map((item, index) => (
+              <div 
+                key={index}
+                className="glass-card p-3 cursor-pointer animate-fade-up hover:border-primary/50 transition-all"
+                style={{ animationDelay: `${index * 50}ms` }}
+                onClick={() => navigate(item.route)}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    <div className={`w-8 h-8 bg-gradient-to-r ${item.gradient} rounded-full flex items-center justify-center mr-3 shadow-glow-sm`}>
+                      <span className="text-sm">{item.icon}</span>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-sm text-foreground">{item.title}</h3>
+                      <p className="text-muted-foreground text-xs">{item.desc}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-sm">Profile Information</h3>
-                    <p className="text-gray-500 text-xs">View and edit your profile details</p>
-                  </div>
+                  <ChevronRight className="w-4 h-4 text-muted-foreground" />
                 </div>
-                <ChevronRight className="w-4 h-4 text-gray-400" />
               </div>
-            </div>
-
-            {/* Help & Support */}
-            <div 
-              className="bg-white/90 rounded-xl p-3 cursor-pointer shadow-sm"
-              onClick={() => navigate("/support")}
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <div className="w-8 h-8 bg-gradient-to-r from-teal-400 to-teal-500 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-white text-sm">❓</span>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-sm">Help & Support</h3>
-                    <p className="text-gray-500 text-xs">Get help with using PayGo</p>
-                  </div>
-                </div>
-                <ChevronRight className="w-4 h-4 text-gray-400" />
-              </div>
-            </div>
-
-            {/* About */}
-            <div 
-              className="bg-white/90 rounded-xl p-3 cursor-pointer shadow-sm"
-              onClick={() => navigate("/about")}
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <div className="w-8 h-8 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-white text-sm">ℹ️</span>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-sm">About</h3>
-                    <p className="text-gray-500 text-xs">Learn more about PayGo</p>
-                  </div>
-                </div>
-                <ChevronRight className="w-4 h-4 text-gray-400" />
-              </div>
-            </div>
-
-            {/* Refer & Earn */}
-            <div 
-              className="bg-white/90 rounded-xl p-3 cursor-pointer shadow-sm"
-              onClick={() => navigate("/refer")}
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <div className="w-8 h-8 bg-gradient-to-r from-[#ff6f43] to-[#ffaa43] rounded-full flex items-center justify-center mr-3">
-                    <span className="text-white text-sm">💰</span>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-sm">Refer & Earn</h3>
-                    <p className="text-gray-500 text-xs">Invite friends and earn ₦5,000 per referral</p>
-                  </div>
-                </div>
-                <ChevronRight className="w-4 h-4 text-gray-400" />
-              </div>
-            </div>
+            ))}
           </div>
 
-          {/* Logout Button */}
-          <div className="mt-6">
+          {/* Logout */}
+          <div className="mt-6 relative z-10 animate-fade-up" style={{ animationDelay: '200ms' }}>
             <Button 
               onClick={handleLogout}
-              className="w-full bg-white/90 border border-red-200 text-red-500 hover:bg-red-50 py-3 rounded-xl font-semibold text-sm"
+              className="w-full glass-card border-destructive/30 text-destructive hover:bg-destructive/10 py-3 rounded-xl font-semibold text-sm"
               variant="outline"
             >
               <LogOut className="mr-2" size={16} />

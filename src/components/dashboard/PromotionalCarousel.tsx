@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 
 const PromotionalCarousel = () => {
@@ -82,17 +81,17 @@ const PromotionalCarousel = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % promotions.length);
-    }, 3500); // Slightly faster rotation for more ads
+    }, 3500);
 
     return () => clearInterval(timer);
   }, [promotions.length]);
 
   return (
-    <div className="mb-4">
-      <h3 className="text-lg font-semibold mb-3 px-1">Latest Promotions & Investments</h3>
-      <div className="relative overflow-hidden rounded-t-2xl rounded-b-3xl h-48">
+    <div className="mb-4 animate-fade-up" style={{ animationDelay: '400ms' }}>
+      <h3 className="text-base font-semibold mb-3 px-1 text-foreground">Latest Promotions & Investments</h3>
+      <div className="glass-card p-0 overflow-hidden h-48">
         <div 
-          className="flex transition-transform duration-500 ease-in-out h-full"
+          className="flex transition-transform duration-700 ease-out h-full"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
           {promotions.map((promo) => (
@@ -105,22 +104,24 @@ const PromotionalCarousel = () => {
                 alt={promo.title}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                <h4 className="text-white font-semibold text-lg">{promo.title}</h4>
-                <p className="text-white/90 text-sm">{promo.description}</p>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-matte-black/90 via-matte-black/50 to-transparent p-4">
+                <h4 className="text-foreground font-semibold text-lg">{promo.title}</h4>
+                <p className="text-muted-foreground text-sm">{promo.description}</p>
               </div>
             </div>
           ))}
         </div>
         
         {/* Dots indicator */}
-        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1">
+        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1.5">
           {promotions.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-2 h-2 rounded-full transition-colors ${
-                index === currentSlide ? 'bg-white' : 'bg-white/50'
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                index === currentSlide 
+                  ? 'bg-primary w-4 shadow-glow-sm' 
+                  : 'bg-foreground/30 hover:bg-foreground/50'
               }`}
             />
           ))}

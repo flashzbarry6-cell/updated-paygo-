@@ -1,23 +1,25 @@
-
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import { ArrowUpRight, Sparkles } from "lucide-react";
 
 const ActionButtons = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex gap-2 justify-between">
+    <div className="flex gap-3 justify-between">
       <Button 
-        className="bg-white/20 text-white border-white/30 rounded-full px-4 py-1 text-xs hover:bg-white/30" 
+        className="glass-button bg-primary/20 text-foreground border-primary/30 rounded-full px-4 py-2 text-xs hover:bg-primary/30 hover:shadow-glow transition-all duration-300 flex items-center gap-1.5" 
         onClick={() => navigate("/upgrade-account")}
       >
-        ✓ Upgrade
+        <Sparkles size={14} />
+        Upgrade
       </Button>
       <Button 
-        className="bg-white/20 text-white border-white/30 rounded-full px-4 py-1 text-xs hover:bg-white/30 ml-auto" 
+        className="bg-gradient-pink text-foreground border-none rounded-full px-4 py-2 text-xs hover:opacity-90 shadow-button transition-all duration-300 flex items-center gap-1.5 ml-auto btn-glow" 
         onClick={() => navigate("/transfer")}
       >
-        ↑ Transfer
+        <ArrowUpRight size={14} />
+        Transfer
       </Button>
     </div>
   );

@@ -1,6 +1,5 @@
-
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, MessageCircle, Mail, Users } from "lucide-react";
+import { ArrowLeft, MessageCircle, Mail, Users, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Support = () => {
@@ -9,132 +8,61 @@ const Support = () => {
   const handleWhatsAppChat = () => {
     const phoneNumber = "2349153889086";
     const message = "Hello, I need help with PayGo";
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, "_blank");
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");
   };
 
   const handleWhatsAppGroup = () => {
-    const groupUrl = "https://chat.whatsapp.com/EVKxpd8wVyGATKHV1qgVZD?mode=ems_copy_c";
-    window.open(groupUrl, "_blank");
+    window.open("https://chat.whatsapp.com/EVKxpd8wVyGATKHV1qgVZD?mode=ems_copy_c", "_blank");
   };
 
   const handleEmailSupport = () => {
-    const email = "flashzbarry6@gmail.com";
-    const subject = "PayGo Support Request";
-    const body = "Hello, I need help with PayGo.";
-    const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.open(mailtoUrl);
+    window.open(`mailto:flashzbarry6@gmail.com?subject=${encodeURIComponent("PayGo Support Request")}`);
   };
 
   const handleTelegramSupport = () => {
-    const telegramUrl = "https://t.me/lumexzz";
-    window.open(telegramUrl, "_blank");
+    window.open("https://t.me/lumexzz", "_blank");
   };
 
   return (
-    <div className="flex justify-center min-h-screen bg-gray-50">
-      <div className="w-full max-w-sm bg-white">
-        <header className="bg-white p-4 flex items-center border-b">
-          <ArrowLeft className="mr-3 cursor-pointer" onClick={() => navigate("/dashboard")} />
-          <h1 className="text-xl font-semibold text-black">Support</h1>
+    <div className="flex justify-center min-h-screen bg-subtle-glow">
+      <div className="w-full max-w-sm bg-background relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+        
+        <header className="glass p-4 flex items-center border-b border-primary/20 relative z-10">
+          <ArrowLeft className="mr-3 cursor-pointer text-foreground" onClick={() => navigate("/dashboard")} />
+          <h1 className="text-lg font-semibold text-foreground">Support</h1>
         </header>
         
-        <div className="flex-1 p-4 flex flex-col">
-          <h2 className="text-2xl font-bold text-center mb-8">How can we help you?</h2>
+        <div className="flex-1 p-4 flex flex-col relative z-10">
+          <h2 className="text-xl font-bold text-center mb-6 text-foreground animate-fade-up">How can we help you?</h2>
           
-          <div className="space-y-4 mb-8">
-            {/* Telegram Support */}
-            <div className="border rounded-lg p-4">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                  <MessageCircle className="w-6 h-6 text-blue-600" />
+          <div className="space-y-3 mb-6">
+            {[
+              { icon: <Send size={20} />, title: "Telegram Support", desc: "Chat with our support team", action: handleTelegramSupport, contact: "@lumexzz", color: "bg-blue-500/20", iconColor: "text-blue-400" },
+              { icon: <MessageCircle size={20} />, title: "Chat on WhatsApp", desc: "Quick assistance on WhatsApp", action: handleWhatsAppChat, contact: "09153889086", color: "bg-green-500/20", iconColor: "text-green-400" },
+              { icon: <Users size={20} />, title: "Join WhatsApp Group", desc: "Community updates & discussions", action: handleWhatsAppGroup, color: "bg-green-500/20", iconColor: "text-green-400" },
+              { icon: <Mail size={20} />, title: "Email Support", desc: "Detailed inquiries", action: handleEmailSupport, contact: "flashzbarry6@gmail.com", color: "bg-primary/20", iconColor: "text-primary" },
+            ].map((item, index) => (
+              <div key={index} className="glass-card p-4 animate-fade-up" style={{ animationDelay: `${index * 50}ms` }}>
+                <div className="flex items-center mb-3">
+                  <div className={`w-10 h-10 ${item.color} rounded-full flex items-center justify-center mr-3`}>
+                    <span className={item.iconColor}>{item.icon}</span>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-foreground text-sm">{item.title}</h3>
+                    <p className="text-muted-foreground text-xs">{item.desc}</p>
+                  </div>
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-bold">Telegram Support</h3>
-                  <p className="text-gray-600 text-sm">Chat with our support team on Telegram</p>
-                </div>
+                <Button onClick={item.action} className="w-full bg-gradient-pink hover:opacity-90 text-foreground text-sm btn-glow">
+                  Contact
+                </Button>
+                {item.contact && <p className="text-muted-foreground text-xs mt-2 text-center">{item.contact}</p>}
               </div>
-              <Button 
-                onClick={handleTelegramSupport}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg"
-              >
-                💬 Chat on Telegram
-              </Button>
-              <p className="text-gray-600 text-sm mt-2 text-center">
-                Contact: @lumexzz
-              </p>
-            </div>
-
-            {/* WhatsApp Support */}
-            <div className="border rounded-lg p-4">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
-                  <MessageCircle className="w-6 h-6 text-green-600" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-bold">Chat on WhatsApp</h3>
-                  <p className="text-gray-600 text-sm">Chat with our support team on WhatsApp for quick assistance</p>
-                </div>
-              </div>
-              <Button 
-                onClick={handleWhatsAppChat}
-                className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg"
-              >
-                💬 Chat on WhatsApp
-              </Button>
-              <p className="text-gray-600 text-sm mt-2 text-center">
-                Contact: 09153889086
-              </p>
-            </div>
-
-            {/* WhatsApp Group */}
-            <div className="border rounded-lg p-4">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
-                  <Users className="w-6 h-6 text-green-600" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-bold">Join WhatsApp Group</h3>
-                  <p className="text-gray-600 text-sm">Join our community group for updates and discussions</p>
-                </div>
-              </div>
-              <Button 
-                onClick={handleWhatsAppGroup}
-                className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg"
-              >
-                👥 Join Group
-              </Button>
-              <p className="text-gray-600 text-sm mt-2 text-center">
-                Connect with other PayGo users
-              </p>
-            </div>
-
-            {/* Email Support */}
-            <div className="border rounded-lg p-4">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                  <Mail className="w-6 h-6 text-blue-600" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-bold">Email Support</h3>
-                  <p className="text-gray-600 text-sm">Send us an email for detailed inquiries</p>
-                </div>
-              </div>
-              <Button 
-                onClick={handleEmailSupport}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg"
-              >
-                📧 Send Email
-              </Button>
-              <p className="text-gray-600 text-sm mt-2 text-center">
-                flashzbarry6@gmail.com
-              </p>
-            </div>
+            ))}
           </div>
 
-          <div className="mt-auto text-center">
-            <h3 className="text-lg font-bold text-gray-800 mb-2">Financial Services</h3>
-            <p className="text-gray-600">PayGo © 2023. All rights reserved</p>
+          <div className="mt-auto text-center py-4">
+            <p className="text-muted-foreground text-sm">PayGo © 2023. All rights reserved</p>
           </div>
         </div>
       </div>

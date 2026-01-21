@@ -1,4 +1,3 @@
-
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import MenuCard from "./MenuCard";
@@ -15,11 +14,9 @@ const MenuGrid = () => {
   const handleMenuClick = (item: string, route?: string) => {
     if (route) {
       if (route.startsWith("http")) {
-        // External link
         window.open(route, "_blank", "noopener,noreferrer");
         toast(`Opening ${item} in a new tab`);
       } else {
-        // Internal route
         navigate(route);
       }
     } else {
@@ -27,56 +24,28 @@ const MenuGrid = () => {
     }
   };
 
+  const menuItems = [
+    { title: "Buy PAY ID", icon: "💳", route: "/buy-pay-id" },
+    { title: "Watch", icon: "📺", route: "https://t.me/+9PQFIYgVQUU0YzZk" },
+    { title: "Airtime", icon: "📊", route: "/airtime" },
+    { title: "Data", icon: "💾", route: "/data" },
+    { title: "Support", icon: "🎧", route: "/support" },
+    { title: "Group", icon: "🌐", route: "https://t.me/+9PQFIYgVQUU0YzZk" },
+    { title: "Earn More", icon: "💰", route: "/refer" },
+    { title: "Profile", icon: "👤", route: "/profile" },
+  ];
+
   return (
-    <div className="grid grid-cols-4 gap-4">
-      <MenuCard 
-        title="Buy PAY ID" 
-        icon="💳" 
-        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
-        onClick={() => handleMenuClick("Buy PAY ID", "/buy-pay-id")} 
-      />
-      <MenuCard 
-        title="Watch" 
-        icon="📺" 
-        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
-        onClick={() => handleMenuClick("Watch", "https://t.me/+9PQFIYgVQUU0YzZk")} 
-      />
-      <MenuCard 
-        title="Airtime" 
-        icon="📊" 
-        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
-        onClick={() => handleMenuClick("Airtime", "/airtime")} 
-      />
-      <MenuCard 
-        title="Data" 
-        icon="💾" 
-        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
-        onClick={() => handleMenuClick("Data", "/data")} 
-      />
-      <MenuCard 
-        title="Support" 
-        icon="🎧" 
-        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
-        onClick={() => handleMenuClick("Support", "/support")} 
-      />
-      <MenuCard 
-        title="Group" 
-        icon="🌐" 
-        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
-        onClick={() => handleMenuClick("Group", "https://t.me/+9PQFIYgVQUU0YzZk")} 
-      />
-      <MenuCard 
-        title="Earn More" 
-        icon="💰" 
-        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
-        onClick={() => handleMenuClick("Refer", "/refer")} 
-      />
-      <MenuCard 
-        title="Profile" 
-        icon="👤" 
-        bgColor="bg-gradient-to-r from-purple-100 to-orange-100" 
-        onClick={() => handleMenuClick("Profile", "/profile")} 
-      />
+    <div className="grid grid-cols-4 gap-3 mt-4">
+      {menuItems.map((item, index) => (
+        <MenuCard 
+          key={item.title}
+          title={item.title} 
+          icon={item.icon}
+          delay={index * 50}
+          onClick={() => handleMenuClick(item.title, item.route)} 
+        />
+      ))}
     </div>
   );
 };
