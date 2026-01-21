@@ -1,10 +1,10 @@
-
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { User, Mail, Lock, Globe, Briefcase, UserPlus } from "lucide-react";
 
 const countries = [
   "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria",
@@ -42,19 +42,15 @@ const RegisterForm = () => {
     e.preventDefault();
     setIsLoading(true);
     
-    // Simulate registration - in a real app, this would call an API
     setTimeout(() => {
-      // Simple validation
       if (!name || !email || !password || !country || !status) {
         toast.error("Please fill in all fields");
         setIsLoading(false);
         return;
       }
       
-      // Generate reference number
       const referenceNumber = Math.floor(1000000 + Math.random() * 9000000).toString();
       
-      // Store user info in localStorage (just for demo purposes)
       localStorage.setItem("paygo-user", JSON.stringify({
         name: name,
         email: email,
@@ -64,11 +60,8 @@ const RegisterForm = () => {
         referenceNumber: referenceNumber
       }));
       
-      // Set initial balance as incoming transfer
       localStorage.setItem("paygo-balance", "180000");
       localStorage.setItem("paygo-balance-type", "incoming");
-      
-      // Clear onboarding flag to show it
       localStorage.removeItem("paygo-onboarding-completed");
       
       toast.success("Registration successful!");
@@ -78,57 +71,62 @@ const RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div>
+    <form onSubmit={handleSubmit} className="space-y-3">
+      <div className="relative">
+        <User className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
         <Input
           type="text"
           placeholder="Enter Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="h-12 px-4 rounded-full bg-white text-base"
+          className="glass-card rounded-full h-12 pl-12 pr-4 bg-card/60 border-primary/30 text-foreground placeholder:text-muted-foreground focus:border-primary focus:shadow-glow-sm transition-all"
         />
       </div>
-      <div>
+      <div className="relative">
+        <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
         <Input
           type="email"
           placeholder="Enter Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="h-12 px-4 rounded-full bg-white text-base"
+          className="glass-card rounded-full h-12 pl-12 pr-4 bg-card/60 border-primary/30 text-foreground placeholder:text-muted-foreground focus:border-primary focus:shadow-glow-sm transition-all"
         />
       </div>
-      <div>
+      <div className="relative">
+        <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
         <Input
           type="password"
           placeholder="Enter Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="h-12 px-4 rounded-full bg-white text-base"
+          className="glass-card rounded-full h-12 pl-12 pr-4 bg-card/60 border-primary/30 text-foreground placeholder:text-muted-foreground focus:border-primary focus:shadow-glow-sm transition-all"
         />
       </div>
-      <div>
+      <div className="relative">
+        <Globe className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground z-10" size={18} />
         <Select value={country} onValueChange={setCountry}>
-          <SelectTrigger className="h-12 px-4 rounded-full bg-white text-base">
-            <SelectValue placeholder="Select Country" />
+          <SelectTrigger className="glass-card rounded-full h-12 pl-12 pr-4 bg-card/60 border-primary/30 text-foreground focus:border-primary focus:shadow-glow-sm transition-all">
+            <SelectValue placeholder="Select Country" className="text-muted-foreground" />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent className="glass-card bg-card border-primary/30 text-foreground max-h-60">
             {countries.map((countryName) => (
-              <SelectItem key={countryName} value={countryName}>
+              <SelectItem key={countryName} value={countryName} className="hover:bg-primary/20 focus:bg-primary/20">
                 {countryName}
               </SelectItem>
             ))}
           </SelectContent>
         </Select>
       </div>
-      <div>
+      <div className="relative">
+        <Briefcase className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground z-10" size={18} />
         <Select value={status} onValueChange={setStatus}>
-          <SelectTrigger className="h-12 px-4 rounded-full bg-white text-base">
-            <SelectValue placeholder="Select Status" />
+          <SelectTrigger className="glass-card rounded-full h-12 pl-12 pr-4 bg-card/60 border-primary/30 text-foreground focus:border-primary focus:shadow-glow-sm transition-all">
+            <SelectValue placeholder="Select Status" className="text-muted-foreground" />
           </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="individual">Individual</SelectItem>
-            <SelectItem value="business">Business</SelectItem>
-            <SelectItem value="personal">Personal</SelectItem>
+          <SelectContent className="glass-card bg-card border-primary/30 text-foreground">
+            <SelectItem value="individual" className="hover:bg-primary/20 focus:bg-primary/20">Individual</SelectItem>
+            <SelectItem value="business" className="hover:bg-primary/20 focus:bg-primary/20">Business</SelectItem>
+            <SelectItem value="personal" className="hover:bg-primary/20 focus:bg-primary/20">Personal</SelectItem>
           </SelectContent>
         </Select>
       </div>
@@ -136,14 +134,21 @@ const RegisterForm = () => {
         <Button
           type="submit"
           disabled={isLoading}
-          className="w-full bg-black hover:bg-gray-800 text-white py-6 rounded-full text-lg font-medium"
+          className="w-full bg-gradient-pink hover:opacity-90 text-foreground py-5 rounded-full text-lg font-medium shadow-button btn-glow disabled:opacity-50 transition-all flex items-center justify-center gap-2"
         >
-          {isLoading ? "Loading..." : "Register"}
+          {isLoading ? (
+            <div className="w-5 h-5 border-2 border-foreground border-t-transparent rounded-full animate-spin" />
+          ) : (
+            <>
+              <UserPlus size={18} />
+              Register
+            </>
+          )}
         </Button>
       </div>
       <div className="text-center mt-4">
-        <Link to="/login" className="text-paygo-purple text-base font-medium hover:underline">
-          Already have an account? Login
+        <Link to="/login" className="text-primary text-sm font-medium hover:text-primary/80 transition-colors">
+          Already have an account? <span className="underline">Login</span>
         </Link>
       </div>
     </form>

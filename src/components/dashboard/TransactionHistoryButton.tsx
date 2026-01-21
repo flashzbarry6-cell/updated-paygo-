@@ -8,7 +8,6 @@ const TransactionHistoryButton = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check for new transactions that haven't been viewed
     const lastViewedTime = localStorage.getItem("paygo-last-viewed-history");
     const transactions = JSON.parse(localStorage.getItem("paygo-transactions") || "[]");
     
@@ -22,7 +21,6 @@ const TransactionHistoryButton = () => {
       }
     }
 
-    // Listen for new transactions
     const handleStorageChange = () => {
       const updatedTransactions = JSON.parse(localStorage.getItem("paygo-transactions") || "[]");
       if (updatedTransactions.length > 0) {
@@ -35,7 +33,6 @@ const TransactionHistoryButton = () => {
   }, []);
 
   const handleClick = () => {
-    // Mark notifications as viewed
     setHasNewNotifications(false);
     localStorage.setItem("paygo-last-viewed-history", Date.now().toString());
     navigate("/history");
@@ -47,12 +44,12 @@ const TransactionHistoryButton = () => {
         onClick={handleClick}
         variant="ghost"
         size="icon"
-        className="bg-white/20 text-white hover:bg-white/30 relative"
+        className="glass-button bg-primary/10 text-foreground hover:bg-primary/20 relative transition-all duration-300"
       >
         <Bell size={20} />
       </Button>
       {hasNewNotifications && (
-        <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+        <div className="absolute -top-1 -right-1 w-3 h-3 bg-primary rounded-full animate-glow-pulse shadow-glow"></div>
       )}
     </div>
   );

@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import UserProfile from "./UserProfile";
 import BalanceSection from "./BalanceSection";
@@ -39,18 +38,23 @@ const DashboardHeader = () => {
   }, []);
 
   return (
-    <div className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] rounded-2xl mx-3 mt-3 p-4 text-white">
-      <div className="flex justify-between items-start mb-3">
-        <div className="flex-1">
-          <UserProfile />
+    <div className="glass-card mx-3 mt-3 p-4 text-foreground animate-fade-up relative overflow-hidden">
+      {/* Decorative glow */}
+      <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/20 rounded-full blur-2xl pointer-events-none" />
+      
+      <div className="relative z-10">
+        <div className="flex justify-between items-start mb-3">
+          <div className="flex-1">
+            <UserProfile />
+          </div>
+          <TransactionHistoryButton />
         </div>
-        <TransactionHistoryButton />
+        <BalanceSection 
+          balance={balance} 
+          rewards={rewards} 
+        />
+        <ActionButtons />
       </div>
-      <BalanceSection 
-        balance={balance} 
-        rewards={rewards} 
-      />
-      <ActionButtons />
     </div>
   );
 };

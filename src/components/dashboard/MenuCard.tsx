@@ -1,4 +1,3 @@
-
 import React from "react";
 
 interface MenuCardProps {
@@ -6,18 +5,24 @@ interface MenuCardProps {
   icon: string;
   bgColor?: string;
   onClick?: () => void;
+  delay?: number;
 }
 
-const MenuCard: React.FC<MenuCardProps> = ({ title, icon, bgColor = "bg-white", onClick }) => {
+const MenuCard: React.FC<MenuCardProps> = ({ title, icon, onClick, delay = 0 }) => {
   return (
     <div 
       onClick={onClick} 
-      className={`${bgColor} rounded-xl shadow-sm p-3 sm:p-4 flex flex-col items-center justify-center gap-1 sm:gap-2 h-[80px] sm:h-[90px] cursor-pointer hover:shadow-md transition-all duration-200 border border-gray-100 active:scale-95`}
+      className="glass-card p-3 flex flex-col items-center justify-center gap-2 h-[85px] cursor-pointer 
+        hover:border-primary/50 hover:shadow-glow transition-all duration-300 
+        active:scale-95 animate-fade-up"
+      style={{ animationDelay: `${delay}ms` }}
     >
-      <div className="text-xl sm:text-2xl">
+      <div className="text-2xl animate-float" style={{ animationDelay: `${delay * 2}ms` }}>
         {icon}
       </div>
-      <p className="font-medium text-center text-[10px] sm:text-xs text-gray-700 leading-tight">{title}</p>
+      <p className="font-medium text-center text-[10px] sm:text-xs text-foreground leading-tight">
+        {title}
+      </p>
     </div>
   );
 };

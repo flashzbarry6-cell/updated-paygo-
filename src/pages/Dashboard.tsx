@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
@@ -37,7 +36,7 @@ const Dashboard = () => {
       setTimeout(() => {
         setShowJoinModal(true);
         sessionStorage.setItem("paygo-join-modal-shown", "true");
-      }, 1000); // Show after 1 second
+      }, 1000);
     }
 
     // Listen for onboarding completion
@@ -54,27 +53,33 @@ const Dashboard = () => {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-50">
-        <div className="animate-pulse">
-          <div className="h-8 w-24 bg-gray-300 rounded mb-2"></div>
-          <div className="h-4 w-16 bg-gray-200 rounded"></div>
+      <div className="flex items-center justify-center min-h-screen bg-background">
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+          <p className="text-muted-foreground animate-pulse">Loading...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="flex justify-center min-h-screen bg-gray-50">
-      <div className="w-full max-w-sm bg-gray-50">
-        <AnnouncementBanner />
-        <MobileLogo />
-        <DashboardHeader />
+    <div className="flex justify-center min-h-screen bg-subtle-glow">
+      <div className="w-full max-w-sm bg-background relative overflow-hidden">
+        {/* Subtle background glow */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+        <div className="absolute bottom-1/3 left-0 w-48 h-48 bg-secondary/10 rounded-full blur-3xl -translate-x-1/2 pointer-events-none" />
         
-        <div className="flex-1 px-2 sm:px-3 py-4">
-          <MenuGrid />
+        <div className="relative z-10">
+          <AnnouncementBanner />
+          <MobileLogo />
+          <DashboardHeader />
           
-          <div className="mt-4 sm:mt-6">
-            <PromotionalCarousel />
+          <div className="flex-1 px-3 py-4">
+            <MenuGrid />
+            
+            <div className="mt-6">
+              <PromotionalCarousel />
+            </div>
           </div>
         </div>
 

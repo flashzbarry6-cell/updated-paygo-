@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -24,19 +23,19 @@ const WelcomeOnboarding = () => {
       amount: "₦180,000",
       description: ", which can be withdrawn after purchasing a PAY ID. Yes, you read that right - it's yours to keep!",
       buttonText: "Amazing! Continue →",
-      icon: <Gift className="w-16 h-16 text-[#9b87f5]" />
+      icon: <Gift className="w-14 h-14 text-primary" />
     },
     {
       title: "Get Your PAY ID",
       subtitle: "To unlock withdrawals and all app features, purchase a PAY ID for just ₦6,500. This one-time purchase gives you access to airtime, data, transfers, and withdrawals.",
       buttonText: "Got it! Next →",
-      icon: <CreditCard className="w-16 h-16 text-blue-500" />
+      icon: <CreditCard className="w-14 h-14 text-primary" />
     },
     {
       title: "Start Earning More!",
       subtitle: "Beyond your welcome bonus, earn through referrals (₦500 each), daily check-ins, watching ads, and special promotions. Ready to explore?",
       buttonText: "Let's Get Started! →",
-      icon: <Zap className="w-16 h-16 text-orange-500" />
+      icon: <Zap className="w-14 h-14 text-primary" />
     }
   ];
 
@@ -57,13 +56,13 @@ const WelcomeOnboarding = () => {
   const currentStepData = steps[currentStep];
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-2xl max-w-sm w-full relative overflow-hidden">
+    <div className="fixed inset-0 bg-matte-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+      <div className="glass-card max-w-sm w-full relative overflow-hidden animate-scale-in">
         {/* Header with gradient */}
-        <div className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] p-4 text-white relative">
+        <div className="bg-gradient-pink p-4 text-foreground relative">
           <button 
             onClick={handleClose}
-            className="absolute top-3 right-3 text-white hover:bg-white/20 rounded-full p-1 transition-colors"
+            className="absolute top-3 right-3 text-foreground hover:bg-foreground/20 rounded-full p-1 transition-colors"
           >
             <X size={18} />
           </button>
@@ -76,8 +75,8 @@ const WelcomeOnboarding = () => {
             {steps.map((_, index) => (
               <div 
                 key={index} 
-                className={`h-2 flex-1 rounded-full transition-all duration-300 ${
-                  index <= currentStep ? 'bg-white' : 'bg-white/30'
+                className={`h-1.5 flex-1 rounded-full transition-all duration-300 ${
+                  index <= currentStep ? 'bg-foreground shadow-glow-sm' : 'bg-foreground/30'
                 }`} 
               />
             ))}
@@ -85,20 +84,20 @@ const WelcomeOnboarding = () => {
         </div>
 
         {/* Content */}
-        <div className="p-6 text-center">
-          <div className="bg-gradient-to-br from-gray-50 to-gray-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner">
+        <div className="p-6 text-center bg-card">
+          <div className="glass-card w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 animate-float">
             {currentStepData.icon}
           </div>
 
-          <h3 className="text-xl font-bold text-gray-800 mb-3">
+          <h3 className="text-xl font-bold text-foreground mb-3">
             {currentStepData.title}
           </h3>
 
-          <div className="text-gray-600 text-sm leading-relaxed mb-6">
+          <div className="text-muted-foreground text-sm leading-relaxed mb-6">
             {currentStep === 0 ? (
               <div>
                 {currentStepData.subtitle}
-                <span className="text-[#9b87f5] font-bold text-xl"> {currentStepData.amount}</span>
+                <span className="text-primary font-bold text-xl text-glow"> {currentStepData.amount}</span>
                 {currentStepData.description}
               </div>
             ) : (
@@ -108,7 +107,7 @@ const WelcomeOnboarding = () => {
 
           <Button
             onClick={handleNext}
-            className="w-full bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] hover:opacity-90 text-white py-5 rounded-xl text-base font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
+            className="w-full bg-gradient-pink hover:opacity-90 text-foreground py-5 rounded-xl text-base font-medium transition-all duration-200 shadow-button btn-glow"
           >
             {currentStepData.buttonText}
           </Button>
