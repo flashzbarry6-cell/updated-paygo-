@@ -1,4 +1,3 @@
-
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
@@ -51,58 +50,65 @@ const TransferSuccess = () => {
   };
 
   return (
-    <div className="flex justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-sm bg-white">
-        <header className="bg-gradient-to-r from-purple-600 to-purple-700 p-4 text-white">
-          <h1 className="text-xl font-bold">Withdrawal Result</h1>
+    <div className="flex justify-center min-h-screen bg-background">
+      <div className="w-full max-w-sm bg-card-dark">
+        <header className="bg-gradient-pink p-4 text-white shadow-glow">
+          <h1 className="text-lg font-bold">Withdrawal Result</h1>
         </header>
         
-        <div className="flex-1 flex flex-col items-center justify-center p-6 text-center bg-white">
-          <div className="mb-6">
-            <div className="w-20 h-20 mx-auto mb-4 flex items-center justify-center">
-              <CheckCircle className="w-20 h-20 text-green-500" />
+        <div className="flex-1 flex flex-col items-center justify-center p-6 text-center">
+          <div className="mb-6 animate-fade-up">
+            <div className="w-24 h-24 bg-green-500/20 rounded-full flex items-center justify-center mx-auto">
+              <CheckCircle className="w-16 h-16 text-green-500" />
             </div>
           </div>
           
-          <h2 className="text-2xl font-bold text-black mb-3">Withdrawal Successful!</h2>
-          <p className="text-gray-500 mb-8 text-sm">Your withdrawal has been processed successfully.</p>
+          <h2 className="text-2xl font-bold text-foreground mb-3 animate-fade-up" style={{ animationDelay: '100ms' }}>
+            Withdrawal Successful!
+          </h2>
+          <p className="text-muted-foreground mb-8 text-sm animate-fade-up" style={{ animationDelay: '200ms' }}>
+            Your withdrawal has been processed successfully.
+          </p>
           
-          <div className="w-full space-y-3 mb-8 bg-gray-50 p-4 rounded-lg">
-            <div className="flex justify-between items-center py-1">
-              <span className="text-gray-600 text-sm">Amount:</span>
-              <span className="font-bold text-black">₦{transferData.amount || '0'}</span>
-            </div>
-            
-            <div className="flex justify-between items-center py-1">
-              <span className="text-gray-600 text-sm">Bank:</span>
-              <span className="font-bold text-black">{transferData.bankName || 'N/A'}</span>
-            </div>
-            
-            <div className="flex justify-between items-center py-1">
-              <span className="text-gray-600 text-sm">Account Number:</span>
-              <span className="font-bold text-black">{transferData.accountNumber || 'N/A'}</span>
-            </div>
-            
-            <div className="flex justify-between items-center py-1">
-              <span className="text-gray-600 text-sm">Account Name:</span>
-              <span className="font-bold text-black">{transferData.accountName || 'N/A'}</span>
-            </div>
-            
-            <div className="flex justify-between items-center py-1">
-              <span className="text-gray-600 text-sm">Transaction ID:</span>
-              <span className="font-bold text-black">TRX{Math.random().toString().substr(2, 8)}</span>
+          <div className="w-full glass-card p-4 mb-8 animate-fade-up" style={{ animationDelay: '300ms' }}>
+            <div className="space-y-3">
+              <div className="flex justify-between items-center py-2 border-b border-border/20">
+                <span className="text-muted-foreground text-sm">Amount:</span>
+                <span className="font-bold text-foreground">₦{transferData.amount || '0'}</span>
+              </div>
+              
+              <div className="flex justify-between items-center py-2 border-b border-border/20">
+                <span className="text-muted-foreground text-sm">Bank:</span>
+                <span className="font-bold text-foreground">{transferData.bankName || 'N/A'}</span>
+              </div>
+              
+              <div className="flex justify-between items-center py-2 border-b border-border/20">
+                <span className="text-muted-foreground text-sm">Account Number:</span>
+                <span className="font-bold text-foreground">{transferData.accountNumber || 'N/A'}</span>
+              </div>
+              
+              <div className="flex justify-between items-center py-2 border-b border-border/20">
+                <span className="text-muted-foreground text-sm">Account Name:</span>
+                <span className="font-bold text-foreground">{transferData.accountName || 'N/A'}</span>
+              </div>
+              
+              <div className="flex justify-between items-center py-2">
+                <span className="text-muted-foreground text-sm">Transaction ID:</span>
+                <span className="font-bold text-primary">TRX{Math.random().toString().substr(2, 8)}</span>
+              </div>
             </div>
           </div>
           
           <Button 
             onClick={handleBackToDashboard}
-            className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white text-lg py-4 rounded-full font-medium"
+            className="w-full bg-gradient-pink hover:opacity-90 text-white text-lg py-6 rounded-full font-semibold shadow-button btn-glow animate-fade-up"
+            style={{ animationDelay: '400ms' }}
           >
             Back to Dashboard
           </Button>
         </div>
         
-        <footer className="p-4 text-center text-gray-600 bg-white">
+        <footer className="bg-card-dark border-t border-border/20 p-4 text-center text-muted-foreground">
           <p className="text-sm">PayGo Financial Services LTD</p>
         </footer>
       </div>
