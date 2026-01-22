@@ -1,11 +1,10 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import { ArrowLeft } from "lucide-react";
 import NetworkSelector from "@/components/telecom/NetworkSelector";
 import PhoneNumberInput from "@/components/telecom/PhoneNumberInput";
 import PayIdInput from "@/components/telecom/PayIdInput";
-import AirtimeHeader from "@/components/telecom/AirtimeHeader";
 import AirtimePlanGrid from "@/components/telecom/AirtimePlanGrid";
 
 const Airtime = () => {
@@ -29,34 +28,62 @@ const Airtime = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="bg-white w-full scale-70 origin-top">
-        <AirtimeHeader />
-
-        <div className="p-2 space-y-2">
-          <NetworkSelector 
-            selectedNetwork={selectedNetwork}
-            onNetworkSelect={setSelectedNetwork}
+    <div className="min-h-screen bg-background">
+      <div className="w-full max-w-sm mx-auto bg-card-dark">
+        {/* Header */}
+        <header className="bg-gradient-pink p-4 text-white flex items-center shadow-glow">
+          <ArrowLeft 
+            className="mr-3 cursor-pointer hover:opacity-80 transition-opacity" 
+            onClick={() => navigate("/dashboard")}
+            size={20}
           />
+          <h1 className="text-lg font-bold">Airtime</h1>
+        </header>
+        
+        {/* Promotional Banner */}
+        <div className="bg-gradient-to-r from-primary to-secondary p-3 text-white flex items-center justify-between">
+          <div>
+            <span className="text-sm">Enjoy </span>
+            <span className="text-yellow-300 font-bold text-sm">Bonuses!</span>
+          </div>
+          <button className="bg-yellow-400 text-black font-bold px-4 py-1 rounded-full hover:bg-yellow-300 text-xs shadow-button">
+            GO
+          </button>
+        </div>
 
-          <PhoneNumberInput 
-            value={phoneNumber}
-            onChange={setPhoneNumber}
-          />
+        <div className="p-4 space-y-4">
+          <div className="animate-fade-up">
+            <NetworkSelector 
+              selectedNetwork={selectedNetwork}
+              onNetworkSelect={setSelectedNetwork}
+            />
+          </div>
 
-          <AirtimePlanGrid 
-            selectedPeriod="Daily"
-            onBuyAirtime={handleBuyAirtime}
-          />
+          <div className="animate-fade-up" style={{ animationDelay: '50ms' }}>
+            <PhoneNumberInput 
+              value={phoneNumber}
+              onChange={setPhoneNumber}
+            />
+          </div>
 
-          <PayIdInput 
-            value={payId}
-            onChange={setPayId}
-          />
+          <div className="animate-fade-up" style={{ animationDelay: '100ms' }}>
+            <AirtimePlanGrid 
+              selectedPeriod="Daily"
+              onBuyAirtime={handleBuyAirtime}
+            />
+          </div>
+
+          <div className="animate-fade-up" style={{ animationDelay: '150ms' }}>
+            <PayIdInput 
+              value={payId}
+              onChange={setPayId}
+            />
+          </div>
 
           <button 
             onClick={() => handleBuyAirtime(100, 2)}
-            className="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white py-2 rounded-full font-semibold text-sm hover:opacity-90 transition-opacity"
+            className="w-full bg-gradient-pink text-white py-4 rounded-full font-semibold text-sm hover:opacity-90 transition-opacity shadow-button btn-glow animate-fade-up"
+            style={{ animationDelay: '200ms' }}
           >
             Buy Airtime
           </button>

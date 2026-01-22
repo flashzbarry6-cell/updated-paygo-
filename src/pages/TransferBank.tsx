@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Building2, CreditCard, User, Wallet } from "lucide-react";
 
 const TransferBank = () => {
   const navigate = useNavigate();
@@ -47,74 +47,93 @@ const TransferBank = () => {
   };
 
   return (
-    <div className="flex justify-center min-h-screen bg-gray-50">
-      <div className="w-full max-w-sm bg-white relative">
-        <header className="bg-white p-4 flex items-center border-b">
-          <ArrowLeft className="mr-3 cursor-pointer" onClick={() => navigate("/dashboard")} />
-          <h1 className="text-xl font-semibold text-black">Transfer to Bank</h1>
+    <div className="flex justify-center min-h-screen bg-background">
+      <div className="w-full max-w-sm bg-card-dark relative">
+        <header className="bg-card-dark p-4 flex items-center border-b border-border/20">
+          <ArrowLeft className="mr-3 cursor-pointer text-foreground hover:text-primary transition-colors" onClick={() => navigate("/dashboard")} />
+          <h1 className="text-lg font-semibold text-foreground">Transfer to Bank</h1>
         </header>
         
         <div className="p-4">
           {/* Available Balance Card */}
-          <div className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] rounded-2xl p-4 text-white mb-6">
-            <p className="text-white/80 mb-2">Available Balance</p>
-            <h2 className="text-2xl font-bold">{balance}</h2>
+          <div className="glass-card p-5 mb-6 animate-fade-up">
+            <div className="flex items-center mb-2">
+              <Wallet className="w-5 h-5 text-primary mr-2" />
+              <p className="text-muted-foreground text-sm">Available Balance</p>
+            </div>
+            <h2 className="text-3xl font-bold text-foreground">{balance}</h2>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label className="block text-gray-700 font-medium mb-2">Select Bank</label>
+            <div className="animate-fade-up" style={{ animationDelay: '50ms' }}>
+              <label className="flex items-center text-muted-foreground text-sm mb-2">
+                <Building2 className="w-4 h-4 mr-2 text-primary" />
+                Select Bank
+              </label>
               <Input 
                 placeholder="Choose a bank"
                 value={bankName}
                 onChange={(e) => setBankName(e.target.value)}
-                className="h-12 border-gray-300 rounded-lg"
+                className="h-12 bg-card-dark border-border/50 rounded-xl text-foreground focus:border-primary focus:ring-primary/20"
               />
             </div>
 
-            <div>
-              <label className="block text-gray-700 font-medium mb-2">Account Number</label>
+            <div className="animate-fade-up" style={{ animationDelay: '100ms' }}>
+              <label className="flex items-center text-muted-foreground text-sm mb-2">
+                <CreditCard className="w-4 h-4 mr-2 text-primary" />
+                Account Number
+              </label>
               <Input 
                 placeholder="Enter account number"
                 value={accountNumber}
                 onChange={(e) => setAccountNumber(e.target.value)}
-                className="h-12 border-gray-300 rounded-lg"
+                className="h-12 bg-card-dark border-border/50 rounded-xl text-foreground focus:border-primary focus:ring-primary/20"
               />
             </div>
 
-            <div>
-              <label className="block text-gray-700 font-medium mb-2">Account Name</label>
+            <div className="animate-fade-up" style={{ animationDelay: '150ms' }}>
+              <label className="flex items-center text-muted-foreground text-sm mb-2">
+                <User className="w-4 h-4 mr-2 text-primary" />
+                Account Name
+              </label>
               <Input 
                 placeholder="Enter account name"
                 value={accountName}
                 onChange={(e) => setAccountName(e.target.value)}
-                className="h-12 border-gray-300 rounded-lg"
+                className="h-12 bg-card-dark border-border/50 rounded-xl text-foreground focus:border-primary focus:ring-primary/20"
               />
             </div>
 
-            <div>
-              <label className="block text-gray-700 font-medium mb-2">Amount</label>
+            <div className="animate-fade-up" style={{ animationDelay: '200ms' }}>
+              <label className="flex items-center text-muted-foreground text-sm mb-2">
+                <Wallet className="w-4 h-4 mr-2 text-primary" />
+                Amount
+              </label>
               <Input 
                 placeholder="Enter amount"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
-                className="h-12 border-gray-300 rounded-lg"
+                className="h-12 bg-card-dark border-border/50 rounded-xl text-foreground focus:border-primary focus:ring-primary/20"
               />
             </div>
 
-            <div>
-              <label className="block text-gray-700 font-medium mb-2">PAY ID Code</label>
+            <div className="animate-fade-up" style={{ animationDelay: '250ms' }}>
+              <label className="flex items-center text-muted-foreground text-sm mb-2">
+                <CreditCard className="w-4 h-4 mr-2 text-primary" />
+                PAY ID Code
+              </label>
               <Input 
                 placeholder="Enter PAY ID Code"
                 value={payId}
                 onChange={(e) => setPayId(e.target.value)}
-                className="h-12 border-gray-300 rounded-lg"
+                className="h-12 bg-card-dark border-border/50 rounded-xl text-foreground focus:border-primary focus:ring-primary/20"
               />
             </div>
 
             <Button 
               type="submit" 
-              className="w-full bg-[#9b20f5] hover:bg-[#8b10e5] text-white text-lg py-6 rounded-full mt-6"
+              className="w-full bg-gradient-pink hover:opacity-90 text-white text-lg py-6 rounded-full mt-6 shadow-button btn-glow animate-fade-up"
+              style={{ animationDelay: '300ms' }}
             >
               Submit
             </Button>
@@ -125,7 +144,7 @@ const TransferBank = () => {
         <div className="fixed bottom-4 right-4">
           <button 
             onClick={handleBuyId}
-            className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-full text-sm cursor-pointer transition-colors"
+            className="bg-gradient-pink hover:opacity-90 text-white px-4 py-2 rounded-full text-sm cursor-pointer transition-opacity shadow-button btn-glow"
           >
             Buy ID Code
           </button>
