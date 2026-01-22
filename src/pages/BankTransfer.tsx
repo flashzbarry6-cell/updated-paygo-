@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Copy, Building2, User, CreditCard } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { toast } from "sonner";
 
 const BankTransfer = () => {
@@ -51,79 +51,89 @@ const BankTransfer = () => {
   };
 
   return (
-    <div className="flex justify-center min-h-screen bg-background">
-      <div className="w-full max-w-sm bg-card-dark">
-        <header className="bg-gradient-pink p-4 text-white flex items-center shadow-glow">
-          <ArrowLeft className="mr-3 cursor-pointer hover:opacity-80 transition-opacity" onClick={() => navigate(-1)} />
+    <div className="flex justify-center min-h-screen bg-gray-50">
+      <div className="w-full max-w-sm bg-white">
+        <header className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] p-3 text-white flex items-center">
+          <ArrowLeft className="mr-3 cursor-pointer" onClick={() => navigate(-1)} />
           <h1 className="text-lg font-bold">Bank Transfer</h1>
         </header>
         
-        <div className="p-4 space-y-4">
+        <div className="p-3 space-y-2.5">
           {/* Profile section */}
-          <div className="glass-card p-4 flex items-center space-x-3 animate-fade-up">
-            <div className="w-12 h-12 bg-gradient-pink rounded-full flex items-center justify-center shadow-glow">
-              <CreditCard className="w-6 h-6 text-white" />
+          <div className="flex items-center space-x-3 mb-2">
+            <div className="w-9 h-9 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 rounded-full flex items-center justify-center">
+              <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center">
+                <div className="w-1 h-1 bg-orange-400 rounded-full"></div>
+              </div>
             </div>
             <div>
-              <h2 className="text-xl font-bold text-foreground">NGN 6,500</h2>
-              <p className="text-muted-foreground text-sm">{userEmail}</p>
+              <h2 className="text-base font-bold text-black">**NGN 6,500**</h2>
+              <p className="text-gray-600 text-xs">{userEmail}</p>
             </div>
           </div>
 
-          <p className="text-muted-foreground text-sm">Complete this bank transfer to proceed</p>
+          <p className="text-gray-700 text-xs mb-2">Complete this bank transfer to proceed</p>
 
           {/* Amount */}
-          <div className="glass-card p-4 space-y-2 animate-fade-up" style={{ animationDelay: '100ms' }}>
-            <label className="text-muted-foreground text-xs uppercase tracking-wider">Amount</label>
-            <div className="flex items-center justify-between">
-              <span className="text-xl font-bold text-foreground">NGN 6,500</span>
+          <div className="space-y-1">
+            <label className="text-gray-600 text-xs">Amount</label>
+            <div className="flex items-center justify-between bg-gray-50 p-2.5 rounded-lg">
+              <span className="text-base font-extrabold text-black">NGN 6,500</span>
               <Button 
                 onClick={handleCopyAmount}
-                className="bg-gradient-pink hover:opacity-90 text-white px-4 py-2 rounded-full text-sm font-medium shadow-button btn-glow"
+                className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] hover:opacity-90 text-white px-3 py-1 rounded-full text-xs font-medium"
               >
-                <Copy className="w-4 h-4 mr-1" />
                 Copy
               </Button>
             </div>
           </div>
 
           {/* Account Number */}
-          <div className="glass-card p-4 space-y-2 animate-fade-up" style={{ animationDelay: '150ms' }}>
+          <div className="space-y-1">
             <div className="flex items-center space-x-2">
-              <CreditCard className="w-4 h-4 text-primary" />
-              <label className="text-muted-foreground text-xs uppercase tracking-wider">Account Number</label>
+              <div className="w-4 h-4 bg-blue-600 rounded flex items-center justify-center text-white text-xs">
+                💳
+              </div>
+              <label className="text-gray-600 text-xs">Account Number</label>
             </div>
-            <div className="flex items-center justify-between">
-              <span className="text-xl font-bold text-foreground">8102562883</span>
+            <div className="flex items-center justify-between bg-gray-50 p-2.5 rounded-lg">
+              <span className="text-base font-extrabold text-black">8102562883</span>
               <Button 
                 onClick={handleCopyAccount}
-                className="bg-gradient-pink hover:opacity-90 text-white px-4 py-2 rounded-full text-sm font-medium shadow-button btn-glow"
+                className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] hover:opacity-90 text-white px-3 py-1 rounded-full text-xs font-medium"
               >
-                <Copy className="w-4 h-4 mr-1" />
                 Copy
               </Button>
             </div>
           </div>
 
           {/* Bank Name */}
-          <div className="glass-card p-4 space-y-2 animate-fade-up" style={{ animationDelay: '200ms' }}>
+          <div className="space-y-1">
             <div className="flex items-center space-x-2">
-              <Building2 className="w-4 h-4 text-primary" />
-              <label className="text-muted-foreground text-xs uppercase tracking-wider">Bank Name</label>
+              <div className="w-4 h-4 bg-gray-600 rounded flex items-center justify-center text-white text-xs">
+                🏛️
+              </div>
+              <label className="text-gray-600 text-xs">Bank Name</label>
             </div>
-            <span className="text-lg font-bold text-foreground block">Moniepoint Bank</span>
+            <div className="bg-gray-50 p-2.5 rounded-lg">
+              <span className="text-base font-extrabold text-black">Moniepoint Bank</span>
+            </div>
           </div>
 
           {/* Account Name */}
-          <div className="glass-card p-4 space-y-2 animate-fade-up" style={{ animationDelay: '250ms' }}>
+          <div className="space-y-1">
             <div className="flex items-center space-x-2">
-              <User className="w-4 h-4 text-primary" />
-              <label className="text-muted-foreground text-xs uppercase tracking-wider">Account Name</label>
+              <div className="w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs">
+                👤
+              </div>
+              <label className="text-gray-600 text-xs">Account Name</label>
             </div>
-            <span className="text-lg font-bold text-foreground block">CHARIS SOMTOCHUKWU CHISOM</span>
+            <div className="bg-gray-50 p-2.5 rounded-lg">
+              <span className="text-base font-extrabold text-black">CHARIS SOMTOCHUKWU CHISOM</span>
+            </div>
           </div>
 
-          <p className="text-muted-foreground text-sm leading-relaxed py-2">
+          <p className="text-gray-600 text-xs leading-relaxed py-1.5">
             Kindly proceed with the payment for your PAY ID. Complete the bank transfer to activate your PAY ID
           </p>
 
@@ -132,33 +142,33 @@ const BankTransfer = () => {
             const user = userData ? JSON.parse(userData) : {};
             const referenceNumber = user.referenceNumber || "";
             return referenceNumber ? (
-              <p className="text-primary text-sm font-semibold py-2">
+              <p className="text-gray-700 text-xs font-semibold py-1.5">
                 REFERENCE: {referenceNumber}
               </p>
             ) : null;
           })()}
 
           {/* Email Input */}
-          <div className="space-y-2 animate-fade-up" style={{ animationDelay: '300ms' }}>
+          <div className="space-y-1">
             <Input 
               type="email"
               value={userEmail}
               onChange={(e) => setUserEmail(e.target.value)}
-              className="h-12 bg-card-dark border-border/50 rounded-xl text-foreground text-sm focus:border-primary focus:ring-primary/20"
+              className="h-9 border-gray-300 rounded-lg text-gray-700 text-xs"
               readOnly
             />
           </div>
 
           {/* File Upload */}
-          <div className="space-y-2 animate-fade-up" style={{ animationDelay: '350ms' }}>
+          <div className="space-y-1">
             <div className="relative">
               <input 
                 type="file"
                 accept="image/*,.pdf"
                 onChange={handleReceiptUpload}
-                className="w-full p-3 bg-card-dark border border-border/50 rounded-xl file:mr-3 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary/20 file:text-primary hover:file:bg-primary/30 text-sm text-foreground"
+                className="w-full p-2.5 border border-gray-300 rounded-lg file:mr-3 file:py-1 file:px-2 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 text-xs"
               />
-              {!receipt && <span className="text-muted-foreground text-xs absolute right-3 top-4">No file chosen</span>}
+              {!receipt && <span className="text-gray-500 text-xs absolute right-2.5 top-2.5">No file chosen</span>}
             </div>
           </div>
 
@@ -166,14 +176,13 @@ const BankTransfer = () => {
           <Button 
             onClick={handleConfirmTransfer}
             disabled={!receipt || !userEmail}
-            className="w-full bg-gradient-pink hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm py-6 rounded-full mt-4 font-semibold shadow-button btn-glow animate-fade-up"
-            style={{ animationDelay: '400ms' }}
+            className="w-full bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] hover:opacity-90 disabled:bg-gray-300 disabled:cursor-not-allowed text-white text-xs py-3 rounded-full mt-3 font-medium"
           >
             I have made payment
           </Button>
         </div>
         
-        <footer className="bg-card-dark border-t border-border/20 p-4 text-center text-muted-foreground">
+        <footer className="bg-gray-100 p-3 text-center text-gray-600">
           <p className="text-sm">PayGo Financial Services LTD</p>
         </footer>
       </div>

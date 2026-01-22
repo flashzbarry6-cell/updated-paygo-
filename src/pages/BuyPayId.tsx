@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, CreditCard } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { toast } from "sonner";
 
 const BuyPayId = () => {
@@ -57,73 +57,66 @@ const BuyPayId = () => {
   };
 
   return (
-    <div className="flex justify-center min-h-screen bg-background">
-      <div className="w-full max-w-sm bg-card-dark">
-        <header className="bg-gradient-pink p-4 text-white flex items-center shadow-glow">
-          <ArrowLeft className="mr-3 cursor-pointer hover:opacity-80 transition-opacity" onClick={() => navigate("/dashboard")} />
-          <h1 className="text-lg font-bold">Buy PAY ID</h1>
+    <div className="flex justify-center min-h-screen bg-gray-50">
+      <div className="w-full max-w-sm bg-white">
+        <header className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] p-4 text-white flex items-center">
+          <ArrowLeft className="mr-3 cursor-pointer" onClick={() => navigate("/dashboard")} />
+          <h1 className="text-xl font-bold">Buy PAY ID</h1>
         </header>
         
-        <div className="p-6 flex-1">
-          {/* Icon */}
-          <div className="flex justify-center mb-6 animate-fade-up">
-            <div className="w-20 h-20 bg-gradient-pink rounded-full flex items-center justify-center shadow-glow">
-              <CreditCard className="w-10 h-10 text-white" />
-            </div>
-          </div>
-
-          <form onSubmit={handleSubmit} className="space-y-5">
-            <div className="space-y-2 animate-fade-up" style={{ animationDelay: '50ms' }}>
-              <label className="text-muted-foreground text-sm uppercase tracking-wider">Amount</label>
+        <div className="p-4 flex-1">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="space-y-2">
+              <label className="text-gray-700 text-lg">Amount</label>
               <Input 
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
-                className="h-14 bg-card-dark border-border/50 rounded-xl text-foreground text-lg font-semibold focus:border-primary focus:ring-primary/20"
+                className="border-2 border-gray-200 rounded-xl h-14 text-lg bg-gray-100"
                 readOnly
               />
             </div>
             
-            <div className="space-y-2 animate-fade-up" style={{ animationDelay: '100ms' }}>
-              <label className="text-muted-foreground text-sm uppercase tracking-wider">Full Name</label>
+            <div className="space-y-2">
+              <label className="text-gray-700 text-lg">Full Name</label>
               <Input 
                 placeholder="Your full name"
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
-                className="h-14 bg-card-dark border-border/50 rounded-xl text-foreground text-lg focus:border-primary focus:ring-primary/20"
+                className="border-2 border-gray-200 rounded-xl h-14 text-lg"
                 readOnly={isTyping}
               />
             </div>
             
-            <div className="space-y-2 animate-fade-up" style={{ animationDelay: '150ms' }}>
-              <label className="text-muted-foreground text-sm uppercase tracking-wider">Your Email Address</label>
+            <div className="space-y-2">
+              <label className="text-gray-700 text-lg">Your Email Address</label>
               <Input 
                 type="email"
                 placeholder="email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="h-14 bg-card-dark border-border/50 rounded-xl text-foreground text-lg focus:border-primary focus:ring-primary/20"
+                className="border-2 border-gray-200 rounded-xl h-14 text-lg"
                 readOnly={isTyping}
               />
             </div>
             
-            <div className="pt-4 animate-fade-up" style={{ animationDelay: '200ms' }}>
+            <div className="pt-4">
               <Button 
                 type="submit" 
-                className="w-full bg-gradient-pink hover:opacity-90 text-white text-lg py-6 rounded-full shadow-button btn-glow"
+                className="w-full bg-[#9b87f5] hover:bg-[#8b77e5] text-white text-xl py-6 rounded-xl"
                 disabled={isTyping}
               >
                 Pay
               </Button>
             </div>
             
-            <div className="text-center text-muted-foreground pt-4 animate-fade-up" style={{ animationDelay: '250ms' }}>
-              <p className="text-sm">Your PAY ID will be displayed on the app once your payment is confirmed.</p>
+            <div className="text-center text-gray-600 pt-4">
+              <p>Your PAY ID will be displayed on the app once your payment is confirmed.</p>
             </div>
           </form>
         </div>
         
-        <footer className="bg-card-dark border-t border-border/20 p-4 text-center text-muted-foreground">
-          <p className="text-sm">PayGo Financial Services LTD</p>
+        <footer className="bg-gray-100 p-4 text-center text-gray-600">
+          <p>PayGo Financial Services LTD</p>
         </footer>
       </div>
     </div>
