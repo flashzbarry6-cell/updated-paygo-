@@ -15,34 +15,31 @@ const PaymentConfirmation = () => {
   }, [navigate]);
 
   return (
-    <div className="flex justify-center min-h-screen bg-gray-50">
-      <div className="w-full max-w-sm bg-white">
-        <header className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] p-3 text-white flex items-center">
-          <ArrowLeft className="mr-3 cursor-pointer" onClick={() => navigate("/bank-transfer")} />
-          <h1 className="text-lg font-bold">Confirming Payment</h1>
-        </header>
+    <div className="flex justify-center min-h-screen bg-background">
+      <div className="w-full max-w-sm bg-background relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
         
-        <div className="flex-1 flex flex-col items-center justify-center p-6 text-center bg-gray-50 min-h-screen">
-          <div className="mb-6">
-            <div className="relative w-20 h-20 mx-auto mb-4">
-              <div 
-                className="w-20 h-20 rounded-full animate-spin"
-                style={{
-                  background: 'conic-gradient(from 0deg, #f97316, #eab308, #f59e0b, #f97316)',
-                  WebkitMask: 'radial-gradient(farthest-side, transparent calc(100% - 4px), black calc(100% - 4px))',
-                  mask: 'radial-gradient(farthest-side, transparent calc(100% - 4px), black calc(100% - 4px))'
-                }}
-              ></div>
+        <div className="relative z-10">
+          <header className="bg-card/80 backdrop-blur-xl border-b border-primary/20 p-3 flex items-center">
+            <ArrowLeft className="mr-3 cursor-pointer text-primary" onClick={() => navigate("/bank-transfer")} />
+            <h1 className="text-lg font-bold text-foreground">Confirming Payment</h1>
+          </header>
+          
+          <div className="flex-1 flex flex-col items-center justify-center p-6 text-center min-h-[60vh]">
+            <div className="mb-6">
+              <div className="relative w-20 h-20 mx-auto mb-4">
+                <div className="w-20 h-20 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+              </div>
             </div>
+            
+            <h2 className="text-xl font-bold text-foreground mb-3">Confirming Your Payment</h2>
+            <p className="text-muted-foreground mb-6 text-sm">Please wait while we verify your transaction...</p>
           </div>
           
-          <h2 className="text-xl font-bold text-gray-800 mb-3">Confirming Your Payment</h2>
-          <p className="text-gray-600 mb-6 text-sm">Please wait while we verify your transaction...</p>
+          <footer className="border-t border-border p-3 text-center text-muted-foreground">
+            <p className="text-sm">PayGo Financial Services LTD</p>
+          </footer>
         </div>
-        
-        <footer className="bg-gray-100 p-3 text-center text-gray-600">
-          <p className="text-sm">PayGo Financial Services LTD</p>
-        </footer>
       </div>
     </div>
   );

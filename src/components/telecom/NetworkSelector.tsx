@@ -1,6 +1,4 @@
 
-import { Button } from "@/components/ui/button";
-
 interface NetworkSelectorProps {
   selectedNetwork: string | null;
   onNetworkSelect: (network: string) => void;
@@ -14,12 +12,10 @@ const NetworkSelector = ({ selectedNetwork, onNetworkSelect }: NetworkSelectorPr
       {networks.map((network) => (
         <button
           key={network}
-          className={`p-4 rounded-full border ${
+          className={`p-3 rounded-full border transition-all text-sm font-medium ${
             selectedNetwork === network 
-              ? network === "MTN" 
-                ? "bg-purple-600 text-white" 
-                : "bg-gray-100"
-              : "bg-white"
+              ? "bg-primary text-primary-foreground border-primary glow-soft" 
+              : "bg-card border-border text-foreground hover:border-primary/50"
           }`}
           onClick={() => onNetworkSelect(network)}
         >

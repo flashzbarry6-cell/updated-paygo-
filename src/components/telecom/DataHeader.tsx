@@ -8,24 +8,23 @@ const DataHeader = () => {
 
   return (
     <div>
-      <header className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] p-2 text-white flex items-center">
+      <header className="bg-card/80 backdrop-blur-xl border-b border-primary/20 p-3 flex items-center">
         <Button 
           variant="ghost" 
-          className="p-0 mr-2" 
+          className="p-0 mr-2 text-primary" 
           onClick={() => navigate("/dashboard")}
         >
-          <ArrowLeft size={16} />
+          <ArrowLeft size={18} />
         </Button>
-        <h1 className="text-base font-bold">Data</h1>
+        <h1 className="text-base font-bold text-foreground">Data</h1>
       </header>
       
-      {/* Promotional Banner */}
-      <div className="bg-gradient-to-r from-green-600 to-green-700 p-1.5 text-white flex items-center justify-between">
+      <div className="bg-primary/10 border-b border-primary/20 p-2 flex items-center justify-between">
         <div>
-          <span className="text-xs">Enjoy Amazing </span>
-          <span className="text-yellow-300 font-bold text-xs">5X Data Bonuses!</span>
+          <span className="text-foreground text-xs">Enjoy Amazing </span>
+          <span className="text-primary font-bold text-xs">5X Data Bonuses!</span>
         </div>
-        <Button className="bg-yellow-400 text-black font-bold px-2 py-0.5 rounded-full hover:bg-yellow-300 text-xs">
+        <Button className="bg-primary text-primary-foreground font-bold px-3 py-0.5 rounded-full hover:bg-primary/90 text-xs">
           GO
         </Button>
       </div>

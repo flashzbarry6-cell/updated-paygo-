@@ -11,7 +11,6 @@ const BankTransfer = () => {
   const [userEmail, setUserEmail] = useState("");
   const [receipt, setReceipt] = useState<File | null>(null);
 
-  // Get user email from localStorage on component mount
   useEffect(() => {
     const userData = localStorage.getItem("paygo-user");
     if (userData) {
@@ -51,140 +50,128 @@ const BankTransfer = () => {
   };
 
   return (
-    <div className="flex justify-center min-h-screen bg-gray-50">
-      <div className="w-full max-w-sm bg-white">
-        <header className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] p-3 text-white flex items-center">
-          <ArrowLeft className="mr-3 cursor-pointer" onClick={() => navigate(-1)} />
-          <h1 className="text-lg font-bold">Bank Transfer</h1>
-        </header>
+    <div className="flex justify-center min-h-screen bg-background">
+      <div className="w-full max-w-sm bg-background relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
         
-        <div className="p-3 space-y-2.5">
-          {/* Profile section */}
-          <div className="flex items-center space-x-3 mb-2">
-            <div className="w-9 h-9 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 rounded-full flex items-center justify-center">
-              <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center">
-                <div className="w-1 h-1 bg-orange-400 rounded-full"></div>
+        <div className="relative z-10">
+          <header className="bg-card/80 backdrop-blur-xl border-b border-primary/20 p-3 flex items-center">
+            <ArrowLeft className="mr-3 cursor-pointer text-primary" onClick={() => navigate(-1)} />
+            <h1 className="text-lg font-bold text-foreground">Bank Transfer</h1>
+          </header>
+          
+          <div className="p-3 space-y-2.5">
+            <div className="flex items-center space-x-3 mb-2">
+              <div className="w-9 h-9 bg-primary/20 rounded-full flex items-center justify-center glow-soft">
+                <div className="w-4 h-4 bg-primary rounded-full" />
+              </div>
+              <div>
+                <h2 className="text-base font-bold text-foreground">**NGN 6,500**</h2>
+                <p className="text-muted-foreground text-xs">{userEmail}</p>
               </div>
             </div>
-            <div>
-              <h2 className="text-base font-bold text-black">**NGN 6,500**</h2>
-              <p className="text-gray-600 text-xs">{userEmail}</p>
-            </div>
-          </div>
 
-          <p className="text-gray-700 text-xs mb-2">Complete this bank transfer to proceed</p>
+            <p className="text-muted-foreground text-xs mb-2">Complete this bank transfer to proceed</p>
 
-          {/* Amount */}
-          <div className="space-y-1">
-            <label className="text-gray-600 text-xs">Amount</label>
-            <div className="flex items-center justify-between bg-gray-50 p-2.5 rounded-lg">
-              <span className="text-base font-extrabold text-black">NGN 6,500</span>
-              <Button 
-                onClick={handleCopyAmount}
-                className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] hover:opacity-90 text-white px-3 py-1 rounded-full text-xs font-medium"
-              >
-                Copy
-              </Button>
-            </div>
-          </div>
-
-          {/* Account Number */}
-          <div className="space-y-1">
-            <div className="flex items-center space-x-2">
-              <div className="w-4 h-4 bg-blue-600 rounded flex items-center justify-center text-white text-xs">
-                💳
+            <div className="space-y-1">
+              <label className="text-muted-foreground text-xs">Amount</label>
+              <div className="flex items-center justify-between glass-card p-2.5">
+                <span className="text-base font-extrabold text-foreground">NGN 6,500</span>
+                <Button 
+                  onClick={handleCopyAmount}
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-3 py-1 rounded-full text-xs font-medium"
+                >
+                  Copy
+                </Button>
               </div>
-              <label className="text-gray-600 text-xs">Account Number</label>
             </div>
-            <div className="flex items-center justify-between bg-gray-50 p-2.5 rounded-lg">
-              <span className="text-base font-extrabold text-black">8102562883</span>
-              <Button 
-                onClick={handleCopyAccount}
-                className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] hover:opacity-90 text-white px-3 py-1 rounded-full text-xs font-medium"
-              >
-                Copy
-              </Button>
-            </div>
-          </div>
 
-          {/* Bank Name */}
-          <div className="space-y-1">
-            <div className="flex items-center space-x-2">
-              <div className="w-4 h-4 bg-gray-600 rounded flex items-center justify-center text-white text-xs">
-                🏛️
+            <div className="space-y-1">
+              <div className="flex items-center space-x-2">
+                <div className="w-4 h-4 bg-primary/30 rounded flex items-center justify-center text-xs">💳</div>
+                <label className="text-muted-foreground text-xs">Account Number</label>
               </div>
-              <label className="text-gray-600 text-xs">Bank Name</label>
-            </div>
-            <div className="bg-gray-50 p-2.5 rounded-lg">
-              <span className="text-base font-extrabold text-black">Moniepoint Bank</span>
-            </div>
-          </div>
-
-          {/* Account Name */}
-          <div className="space-y-1">
-            <div className="flex items-center space-x-2">
-              <div className="w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs">
-                👤
+              <div className="flex items-center justify-between glass-card p-2.5">
+                <span className="text-base font-extrabold text-foreground">8102562883</span>
+                <Button 
+                  onClick={handleCopyAccount}
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-3 py-1 rounded-full text-xs font-medium"
+                >
+                  Copy
+                </Button>
               </div>
-              <label className="text-gray-600 text-xs">Account Name</label>
             </div>
-            <div className="bg-gray-50 p-2.5 rounded-lg">
-              <span className="text-base font-extrabold text-black">CHARIS SOMTOCHUKWU CHISOM</span>
+
+            <div className="space-y-1">
+              <div className="flex items-center space-x-2">
+                <div className="w-4 h-4 bg-muted rounded flex items-center justify-center text-xs">🏛️</div>
+                <label className="text-muted-foreground text-xs">Bank Name</label>
+              </div>
+              <div className="glass-card p-2.5">
+                <span className="text-base font-extrabold text-foreground">Moniepoint Bank</span>
+              </div>
             </div>
-          </div>
 
-          <p className="text-gray-600 text-xs leading-relaxed py-1.5">
-            Kindly proceed with the payment for your PAY ID. Complete the bank transfer to activate your PAY ID
-          </p>
+            <div className="space-y-1">
+              <div className="flex items-center space-x-2">
+                <div className="w-4 h-4 bg-primary/30 rounded-full flex items-center justify-center text-xs">👤</div>
+                <label className="text-muted-foreground text-xs">Account Name</label>
+              </div>
+              <div className="glass-card p-2.5">
+                <span className="text-base font-extrabold text-foreground">CHARIS SOMTOCHUKWU CHISOM</span>
+              </div>
+            </div>
 
-          {userEmail && (() => {
-            const userData = localStorage.getItem("paygo-user");
-            const user = userData ? JSON.parse(userData) : {};
-            const referenceNumber = user.referenceNumber || "";
-            return referenceNumber ? (
-              <p className="text-gray-700 text-xs font-semibold py-1.5">
-                REFERENCE: {referenceNumber}
-              </p>
-            ) : null;
-          })()}
+            <p className="text-muted-foreground text-xs leading-relaxed py-1.5">
+              Kindly proceed with the payment for your PAY ID. Complete the bank transfer to activate your PAY ID
+            </p>
 
-          {/* Email Input */}
-          <div className="space-y-1">
-            <Input 
-              type="email"
-              value={userEmail}
-              onChange={(e) => setUserEmail(e.target.value)}
-              className="h-9 border-gray-300 rounded-lg text-gray-700 text-xs"
-              readOnly
-            />
-          </div>
+            {userEmail && (() => {
+              const userData = localStorage.getItem("paygo-user");
+              const user = userData ? JSON.parse(userData) : {};
+              const referenceNumber = user.referenceNumber || "";
+              return referenceNumber ? (
+                <p className="text-primary text-xs font-semibold py-1.5">
+                  REFERENCE: {referenceNumber}
+                </p>
+              ) : null;
+            })()}
 
-          {/* File Upload */}
-          <div className="space-y-1">
-            <div className="relative">
-              <input 
-                type="file"
-                accept="image/*,.pdf"
-                onChange={handleReceiptUpload}
-                className="w-full p-2.5 border border-gray-300 rounded-lg file:mr-3 file:py-1 file:px-2 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 text-xs"
+            <div className="space-y-1">
+              <Input 
+                type="email"
+                value={userEmail}
+                onChange={(e) => setUserEmail(e.target.value)}
+                className="h-9 bg-input border-border rounded-xl text-foreground text-xs"
+                readOnly
               />
-              {!receipt && <span className="text-gray-500 text-xs absolute right-2.5 top-2.5">No file chosen</span>}
             </div>
-          </div>
 
-          {/* Submit Button */}
-          <Button 
-            onClick={handleConfirmTransfer}
-            disabled={!receipt || !userEmail}
-            className="w-full bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] hover:opacity-90 disabled:bg-gray-300 disabled:cursor-not-allowed text-white text-xs py-3 rounded-full mt-3 font-medium"
-          >
-            I have made payment
-          </Button>
+            <div className="space-y-1">
+              <div className="relative">
+                <input 
+                  type="file"
+                  accept="image/*,.pdf"
+                  onChange={handleReceiptUpload}
+                  className="w-full p-2.5 bg-input border border-border rounded-xl file:mr-3 file:py-1 file:px-2 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-primary/20 file:text-primary hover:file:bg-primary/30 text-xs text-foreground"
+                />
+                {!receipt && <span className="text-muted-foreground text-xs absolute right-2.5 top-2.5">No file chosen</span>}
+              </div>
+            </div>
+
+            <Button 
+              onClick={handleConfirmTransfer}
+              disabled={!receipt || !userEmail}
+              className="w-full bg-primary hover:bg-primary/90 disabled:bg-muted disabled:cursor-not-allowed text-primary-foreground text-xs py-3 rounded-full mt-3 font-medium btn-glow"
+            >
+              I have made payment
+            </Button>
+          </div>
+          
+          <footer className="border-t border-border p-3 text-center text-muted-foreground">
+            <p className="text-sm">PayGo Financial Services LTD</p>
+          </footer>
         </div>
-        
-        <footer className="bg-gray-100 p-3 text-center text-gray-600">
-          <p className="text-sm">PayGo Financial Services LTD</p>
-        </footer>
       </div>
     </div>
   );

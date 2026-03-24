@@ -26,7 +26,6 @@ const LiveChat = () => {
   const [inputMessage, setInputMessage] = useState("");
   const scrollAreaRef = useRef<HTMLDivElement>(null);
 
-  // Auto scroll to bottom when new messages arrive
   useEffect(() => {
     if (scrollAreaRef.current) {
       const scrollContainer = scrollAreaRef.current;
@@ -37,7 +36,6 @@ const LiveChat = () => {
   const handleSendMessage = () => {
     if (!inputMessage.trim()) return;
 
-    // Add user message
     const userMessage: Message = {
       id: `user-${Date.now()}`,
       content: inputMessage,
@@ -48,7 +46,6 @@ const LiveChat = () => {
     setMessages((prev) => [...prev, userMessage]);
     setInputMessage("");
 
-    // Generate response based on user question
     setTimeout(() => {
       const botResponse = generateResponse(inputMessage);
       setMessages((prev) => [...prev, botResponse]);
@@ -59,7 +56,6 @@ const LiveChat = () => {
     const lowerQuestion = question.toLowerCase();
     let response = "I'm not sure about that. Please check our support page for more information.";
 
-    // Predefined answers based on common questions about the app
     if (lowerQuestion.includes("pay id") || lowerQuestion.includes("payid")) {
       response = "PAY ID is our unique payment identifier. You can purchase one from the 'Buy PAY ID' section in your dashboard to make faster transactions.";
     } else if (lowerQuestion.includes("airtime")) {
@@ -95,75 +91,77 @@ const LiveChat = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50">
-      <header className="bg-[#000000] p-5 text-white flex items-center">
-        <Button 
-          variant="ghost" 
-          className="p-0 mr-2" 
-          onClick={() => navigate("/dashboard")}
-        >
-          <ArrowLeft size={24} />
-        </Button>
-        <h1 className="text-2xl font-bold">Live Chat Support</h1>
-      </header>
-
-      <div className="flex-1 p-4 flex flex-col">
-        <div className="bg-white rounded-lg shadow-sm p-4 flex-1 flex flex-col">
-          {/* Chat Messages */}
-          <ScrollArea className="flex-1 mb-4 h-[calc(100vh-240px)]" ref={scrollAreaRef}>
-            <div className="p-2 space-y-4">
-              {messages.map((message) => (
-                <div
-                  key={message.id}
-                  className={`flex ${
-                    message.sender === "user" ? "justify-end" : "justify-start"
-                  }`}
-                >
-                  <div
-                    className={`rounded-lg px-4 py-2 max-w-[80%] shadow-sm ${
-                      message.sender === "user"
-                        ? "bg-purple-600 text-white"
-                        : "bg-gray-100"
-                    }`}
-                  >
-                    {message.sender === "bot" && (
-                      <div className="flex items-center mb-1 text-purple-600">
-                        <Bot size={16} className="mr-1" />
-                        <span className="font-medium text-sm">PayGo Assistant</span>
-                      </div>
-                    )}
-                    <p className="break-words">{message.content}</p>
-                    <p className="text-xs opacity-70 mt-1 text-right">
-                      {message.timestamp.toLocaleTimeString([], {
-                        hour: "2-digit",
-                        minute: "2-digit",
-                      })}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </ScrollArea>
-
-          {/* Input Area */}
-          <div className="flex gap-2">
-            <Input
-              value={inputMessage}
-              onChange={(e) => setInputMessage(e.target.value)}
-              placeholder="Type your message..."
-              className="flex-1"
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  handleSendMessage();
-                }
-              }}
-            />
+    <div className="flex justify-center min-h-screen bg-background">
+      <div className="w-full max-w-sm bg-background relative overflow-hidden flex flex-col">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+        
+        <div className="relative z-10 flex flex-col flex-1">
+          <header className="bg-card/80 backdrop-blur-xl border-b border-primary/20 p-4 flex items-center">
             <Button 
-              onClick={handleSendMessage} 
-              className="bg-purple-600 hover:bg-purple-700"
+              variant="ghost" 
+              className="p-0 mr-2 text-primary" 
+              onClick={() => navigate("/dashboard")}
             >
-              <Send size={18} />
+              <ArrowLeft size={24} />
             </Button>
+            <h1 className="text-xl font-bold text-foreground">Live Chat Support</h1>
+          </header>
+
+          <div className="flex-1 p-4 flex flex-col">
+            <div className="glass-card p-4 flex-1 flex flex-col">
+              <ScrollArea className="flex-1 mb-4 h-[calc(100vh-240px)]" ref={scrollAreaRef}>
+                <div className="p-2 space-y-4">
+                  {messages.map((message) => (
+                    <div
+                      key={message.id}
+                      className={`flex ${message.sender === "user" ? "justify-end" : "justify-start"}`}
+                    >
+                      <div
+                        className={`rounded-2xl px-4 py-2 max-w-[80%] ${
+                          message.sender === "user"
+                            ? "bg-primary text-primary-foreground"
+                            : "bg-muted text-foreground"
+                        }`}
+                      >
+                        {message.sender === "bot" && (
+                          <div className="flex items-center mb-1 text-primary">
+                            <Bot size={16} className="mr-1" />
+                            <span className="font-medium text-sm">PayGo Assistant</span>
+                          </div>
+                        )}
+                        <p className="break-words text-sm">{message.content}</p>
+                        <p className="text-xs opacity-70 mt-1 text-right">
+                          {message.timestamp.toLocaleTimeString([], {
+                            hour: "2-digit",
+                            minute: "2-digit",
+                          })}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </ScrollArea>
+
+              <div className="flex gap-2">
+                <Input
+                  value={inputMessage}
+                  onChange={(e) => setInputMessage(e.target.value)}
+                  placeholder="Type your message..."
+                  className="flex-1 bg-input border-border text-foreground placeholder:text-muted-foreground rounded-xl"
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      handleSendMessage();
+                    }
+                  }}
+                />
+                <Button 
+                  onClick={handleSendMessage} 
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl"
+                >
+                  <Send size={18} />
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

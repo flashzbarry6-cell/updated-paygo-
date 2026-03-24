@@ -28,110 +28,69 @@ const ProfileInformation = () => {
     navigate("/login");
   };
 
+  const infoItems = [
+    { icon: User, label: "Full Name", value: user.name, gradient: "bg-primary/20" },
+    { icon: Mail, label: "Email Address", value: user.email, gradient: "bg-primary/20" },
+    { icon: Globe, label: "Country", value: "Not specified", gradient: "bg-primary/20" },
+    { icon: Award, label: "Account Level", value: "Basic", gradient: "bg-primary/20" },
+    { icon: CheckCircle, label: "Account Status", value: "Active", isActive: true, gradient: "bg-primary/20" },
+    { icon: CreditCard, label: "PAY ID Status", value: "Not Purchased", isWarning: true, gradient: "bg-primary/20" },
+  ];
+
   return (
-    <div className="flex justify-center min-h-screen bg-gradient-to-br from-[#9b20f5] to-[#ff6f43]">
-      <div className="w-full max-w-sm bg-white">
-        <header className="bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] p-3 flex items-center text-white">
-          <ArrowLeft className="mr-3 cursor-pointer" onClick={() => navigate("/profile")} />
-          <h1 className="text-lg font-semibold">Profile Information</h1>
-        </header>
+    <div className="flex justify-center min-h-screen bg-background">
+      <div className="w-full max-w-sm bg-background relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
         
-        <div className="p-4 bg-gradient-to-br from-[#9b20f5] to-[#ff6f43] min-h-screen">
-          {/* Profile Picture and Name */}
-          <div className="text-center mb-6">
-            <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mb-3 mx-auto border-2 border-white shadow-lg">
-              <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center">
-                <span className="text-white text-2xl">👤</span>
+        <div className="relative z-10">
+          <header className="bg-card/80 backdrop-blur-xl border-b border-primary/20 p-3 flex items-center">
+            <ArrowLeft className="mr-3 cursor-pointer text-primary" onClick={() => navigate("/profile")} />
+            <h1 className="text-lg font-semibold text-foreground">Profile Information</h1>
+          </header>
+          
+          <div className="p-4">
+            {/* Profile Picture and Name */}
+            <div className="text-center mb-6">
+              <div className="w-20 h-20 glass-card rounded-full flex items-center justify-center mb-3 mx-auto animate-glow-pulse">
+                <span className="text-2xl">👤</span>
               </div>
+              <h2 className="text-lg font-bold text-foreground">{user.name}</h2>
             </div>
-            <h2 className="text-lg font-bold text-white">{user.name}</h2>
-          </div>
 
-          {/* Account Information Card */}
-          <div className="bg-white/90 rounded-xl p-4 mb-6 shadow-sm">
-            <h3 className="text-lg font-bold text-gray-800 mb-4">Account Information</h3>
-            
-            <div className="space-y-4">
-              {/* Full Name */}
-              <div className="flex items-center">
-                <div className="w-8 h-8 bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] rounded-full flex items-center justify-center mr-3">
-                  <User className="text-white" size={16} />
-                </div>
-                <div className="flex-1">
-                  <p className="text-gray-500 text-xs">Full Name</p>
-                  <p className="text-sm font-semibold text-gray-800">{user.name}</p>
-                </div>
-              </div>
-
-              {/* Email Address */}
-              <div className="flex items-center">
-                <div className="w-8 h-8 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center mr-3">
-                  <Mail className="text-white" size={16} />
-                </div>
-                <div className="flex-1">
-                  <p className="text-gray-500 text-xs">Email Address</p>
-                  <p className="text-sm font-semibold text-gray-800">{user.email}</p>
-                </div>
-              </div>
-
-              {/* Country */}
-              <div className="flex items-center">
-                <div className="w-8 h-8 bg-gradient-to-r from-green-400 to-green-500 rounded-full flex items-center justify-center mr-3">
-                  <Globe className="text-white" size={16} />
-                </div>
-                <div className="flex-1">
-                  <p className="text-gray-500 text-xs">Country</p>
-                  <p className="text-sm font-semibold text-gray-800">Not specified</p>
-                </div>
-              </div>
-
-              {/* Account Level */}
-              <div className="flex items-center">
-                <div className="w-8 h-8 bg-gradient-to-r from-[#ff6f43] to-[#ffaa43] rounded-full flex items-center justify-center mr-3">
-                  <Award className="text-white" size={16} />
-                </div>
-                <div className="flex-1">
-                  <p className="text-gray-500 text-xs">Account Level</p>
-                  <p className="text-sm font-semibold text-gray-800">Basic</p>
-                </div>
-              </div>
-
-              {/* Account Status */}
-              <div className="flex items-center">
-                <div className="w-8 h-8 bg-gradient-to-r from-green-400 to-green-500 rounded-full flex items-center justify-center mr-3">
-                  <CheckCircle className="text-white" size={16} />
-                </div>
-                <div className="flex-1">
-                  <p className="text-gray-500 text-xs">Account Status</p>
-                  <div className="flex items-center">
-                    <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-1"></div>
-                    <p className="text-sm font-semibold text-gray-800">Active</p>
+            {/* Account Information Card */}
+            <div className="glass-card p-4 mb-6">
+              <h3 className="text-base font-bold text-foreground mb-4">Account Information</h3>
+              
+              <div className="space-y-4">
+                {infoItems.map((item, index) => (
+                  <div key={index} className="flex items-center">
+                    <div className={`w-8 h-8 ${item.gradient} rounded-full flex items-center justify-center mr-3`}>
+                      <item.icon className="text-primary" size={16} />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-muted-foreground text-xs">{item.label}</p>
+                      <div className="flex items-center">
+                        {item.isActive && <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-1" />}
+                        <p className={`text-sm font-semibold ${item.isWarning ? 'text-primary' : 'text-foreground'}`}>
+                          {item.value}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-
-              {/* PAY ID Status */}
-              <div className="flex items-center">
-                <div className="w-8 h-8 bg-gradient-to-r from-[#9b20f5] to-[#ff6f43] rounded-full flex items-center justify-center mr-3">
-                  <CreditCard className="text-white" size={16} />
-                </div>
-                <div className="flex-1">
-                  <p className="text-gray-500 text-xs">PAY ID Status</p>
-                  <p className="text-sm font-semibold text-orange-600">Not Purchased</p>
-                </div>
+                ))}
               </div>
             </div>
-          </div>
 
-          {/* Logout Button */}
-          <Button 
-            onClick={handleLogout}
-            className="w-full bg-white/90 border border-red-200 text-red-500 hover:bg-red-50 py-3 rounded-xl font-semibold text-sm"
-            variant="outline"
-          >
-            <LogOut className="mr-2" size={16} />
-            Logout
-          </Button>
+            {/* Logout Button */}
+            <Button 
+              onClick={handleLogout}
+              className="w-full bg-destructive/20 border border-destructive/30 text-destructive hover:bg-destructive/30 py-3 rounded-xl font-semibold text-sm"
+              variant="outline"
+            >
+              <LogOut className="mr-2" size={16} />
+              Logout
+            </Button>
+          </div>
         </div>
       </div>
     </div>

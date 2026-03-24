@@ -19,7 +19,6 @@ const UpgradePayment = () => {
       const user = JSON.parse(userData);
       setIsTyping(true);
       
-      // Type name
       const nameText = user.name || "Charis Benjamin";
       let nameIndex = 0;
       const nameTimer = setInterval(() => {
@@ -28,7 +27,6 @@ const UpgradePayment = () => {
         if (nameIndex >= nameText.length) {
           clearInterval(nameTimer);
           
-          // Type email after name is complete
           const emailText = user.email || "benjamincharis15@gmail.com";
           let emailIndex = 0;
           const emailTimer = setInterval(() => {
@@ -50,67 +48,71 @@ const UpgradePayment = () => {
   };
 
   return (
-    <div className="flex justify-center min-h-screen bg-gray-50">
-      <div className="w-full max-w-sm bg-white">
-        <header className="bg-[#442f94] p-4 text-white flex items-center">
-          <ArrowLeft className="mr-3 cursor-pointer" onClick={() => navigate(`/upgrade-benefits/${level}`)} />
-          <h1 className="text-xl font-bold">Upgrade Payment</h1>
-        </header>
+    <div className="flex justify-center min-h-screen bg-background">
+      <div className="w-full max-w-sm bg-background relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
         
-        <div className="p-4 flex-1">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="space-y-2">
-              <label className="text-gray-700 text-lg">Amount</label>
-              <Input 
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
-                className="border-2 border-gray-200 rounded-xl h-14 text-lg bg-gray-100"
-                readOnly
-              />
-            </div>
-            
-            <div className="space-y-2">
-              <label className="text-gray-700 text-lg">Full Name</label>
-              <Input 
-                placeholder="Your full name"
-                value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
-                className="border-2 border-gray-200 rounded-xl h-14 text-lg"
-                readOnly={isTyping}
-              />
-            </div>
-            
-            <div className="space-y-2">
-              <label className="text-gray-700 text-lg">Your Email Address</label>
-              <Input 
-                type="email"
-                placeholder="email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="border-2 border-gray-200 rounded-xl h-14 text-lg"
-                readOnly={isTyping}
-              />
-            </div>
-            
-            <div className="pt-4">
-              <Button 
-                type="submit" 
-                className="w-full bg-[#9b87f5] hover:bg-[#8b77e5] text-white text-xl py-6 rounded-xl"
-                disabled={isTyping}
-              >
-                Pay
-              </Button>
-            </div>
-            
-            <div className="text-center text-gray-600 pt-4">
-              <p>Your upgrade will be activated once payment is confirmed.</p>
-            </div>
-          </form>
+        <div className="relative z-10">
+          <header className="bg-card/80 backdrop-blur-xl border-b border-primary/20 p-4 flex items-center">
+            <ArrowLeft className="mr-3 cursor-pointer text-primary" onClick={() => navigate(`/upgrade-benefits/${level}`)} />
+            <h1 className="text-xl font-bold text-foreground">Upgrade Payment</h1>
+          </header>
+          
+          <div className="p-4 flex-1">
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="space-y-2">
+                <label className="text-muted-foreground text-sm font-medium">Amount</label>
+                <Input 
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
+                  className="bg-input border-border rounded-xl h-12 text-foreground"
+                  readOnly
+                />
+              </div>
+              
+              <div className="space-y-2">
+                <label className="text-muted-foreground text-sm font-medium">Full Name</label>
+                <Input 
+                  placeholder="Your full name"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                  className="bg-input border-border rounded-xl h-12 text-foreground placeholder:text-muted-foreground"
+                  readOnly={isTyping}
+                />
+              </div>
+              
+              <div className="space-y-2">
+                <label className="text-muted-foreground text-sm font-medium">Your Email Address</label>
+                <Input 
+                  type="email"
+                  placeholder="email address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="bg-input border-border rounded-xl h-12 text-foreground placeholder:text-muted-foreground"
+                  readOnly={isTyping}
+                />
+              </div>
+              
+              <div className="pt-4">
+                <Button 
+                  type="submit" 
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-xl py-6 rounded-full btn-glow"
+                  disabled={isTyping}
+                >
+                  Pay
+                </Button>
+              </div>
+              
+              <div className="text-center text-muted-foreground pt-4">
+                <p className="text-sm">Your upgrade will be activated once payment is confirmed.</p>
+              </div>
+            </form>
+          </div>
+          
+          <footer className="border-t border-border p-4 text-center text-muted-foreground">
+            <p className="text-sm">PayGo Financial Services LTD</p>
+          </footer>
         </div>
-        
-        <footer className="bg-gray-100 p-4 text-center text-gray-600">
-          <p>PayGo Financial Services LTD</p>
-        </footer>
       </div>
     </div>
   );
