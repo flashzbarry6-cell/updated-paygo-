@@ -11,10 +11,8 @@ const TransferSuccess = () => {
   const transferData = location.state || {};
 
   useEffect(() => {
-    // Set balance to 0 immediately when page loads
     localStorage.setItem("paygo-balance", "0");
     
-    // Save withdrawal transaction to history
     const transaction = {
       id: `TRX${Math.random().toString().substr(2, 8)}`,
       type: 'withdrawal',
@@ -30,17 +28,14 @@ const TransferSuccess = () => {
     existingTransactions.unshift(transaction);
     localStorage.setItem("paygo-transactions", JSON.stringify(existingTransactions));
     
-    // Reset welcome bonus flags since balance is now 0
     localStorage.removeItem("paygo-welcome-bonus-claimed");
     localStorage.removeItem("paygo-welcome-notification-dismissed");
   }, [transferData]);
 
   const handleBackToDashboard = () => {
-    // Play notification sound
     const audio = new Audio("data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmocBjuMzvLThSYGKHvN8N2QPgcTYSQmZ");
-    audio.play().catch(() => {}); // Ignore errors if sound fails
+    audio.play().catch(() => {});
     
-    // Show success notification
     toast({
       title: "Withdrawal Successful",
       description: `₦${transferData.amount} has been successfully withdrawn from your account.`,
@@ -51,60 +46,64 @@ const TransferSuccess = () => {
   };
 
   return (
-    <div className="flex justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-sm bg-white">
-        <header className="bg-gradient-to-r from-purple-600 to-purple-700 p-4 text-white">
-          <h1 className="text-xl font-bold">Withdrawal Result</h1>
-        </header>
+    <div className="flex justify-center min-h-screen bg-background">
+      <div className="w-full max-w-sm bg-background relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
         
-        <div className="flex-1 flex flex-col items-center justify-center p-6 text-center bg-white">
-          <div className="mb-6">
-            <div className="w-20 h-20 mx-auto mb-4 flex items-center justify-center">
-              <CheckCircle className="w-20 h-20 text-green-500" />
+        <div className="relative z-10">
+          <header className="bg-card/80 backdrop-blur-xl border-b border-primary/20 p-4">
+            <h1 className="text-xl font-bold text-foreground">Withdrawal Result</h1>
+          </header>
+          
+          <div className="flex-1 flex flex-col items-center justify-center p-6 text-center">
+            <div className="mb-6">
+              <div className="w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+                <CheckCircle className="w-20 h-20 text-green-500" />
+              </div>
             </div>
+            
+            <h2 className="text-2xl font-bold text-foreground mb-3">Withdrawal Successful!</h2>
+            <p className="text-muted-foreground mb-8 text-sm">Your withdrawal has been processed successfully.</p>
+            
+            <div className="w-full space-y-3 mb-8 glass-card p-4">
+              <div className="flex justify-between items-center py-1">
+                <span className="text-muted-foreground text-sm">Amount:</span>
+                <span className="font-bold text-foreground">₦{transferData.amount || '0'}</span>
+              </div>
+              
+              <div className="flex justify-between items-center py-1">
+                <span className="text-muted-foreground text-sm">Bank:</span>
+                <span className="font-bold text-foreground">{transferData.bankName || 'N/A'}</span>
+              </div>
+              
+              <div className="flex justify-between items-center py-1">
+                <span className="text-muted-foreground text-sm">Account Number:</span>
+                <span className="font-bold text-foreground">{transferData.accountNumber || 'N/A'}</span>
+              </div>
+              
+              <div className="flex justify-between items-center py-1">
+                <span className="text-muted-foreground text-sm">Account Name:</span>
+                <span className="font-bold text-foreground">{transferData.accountName || 'N/A'}</span>
+              </div>
+              
+              <div className="flex justify-between items-center py-1">
+                <span className="text-muted-foreground text-sm">Transaction ID:</span>
+                <span className="font-bold text-foreground">TRX{Math.random().toString().substr(2, 8)}</span>
+              </div>
+            </div>
+            
+            <Button 
+              onClick={handleBackToDashboard}
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-lg py-4 rounded-full font-medium btn-glow"
+            >
+              Back to Dashboard
+            </Button>
           </div>
           
-          <h2 className="text-2xl font-bold text-black mb-3">Withdrawal Successful!</h2>
-          <p className="text-gray-500 mb-8 text-sm">Your withdrawal has been processed successfully.</p>
-          
-          <div className="w-full space-y-3 mb-8 bg-gray-50 p-4 rounded-lg">
-            <div className="flex justify-between items-center py-1">
-              <span className="text-gray-600 text-sm">Amount:</span>
-              <span className="font-bold text-black">₦{transferData.amount || '0'}</span>
-            </div>
-            
-            <div className="flex justify-between items-center py-1">
-              <span className="text-gray-600 text-sm">Bank:</span>
-              <span className="font-bold text-black">{transferData.bankName || 'N/A'}</span>
-            </div>
-            
-            <div className="flex justify-between items-center py-1">
-              <span className="text-gray-600 text-sm">Account Number:</span>
-              <span className="font-bold text-black">{transferData.accountNumber || 'N/A'}</span>
-            </div>
-            
-            <div className="flex justify-between items-center py-1">
-              <span className="text-gray-600 text-sm">Account Name:</span>
-              <span className="font-bold text-black">{transferData.accountName || 'N/A'}</span>
-            </div>
-            
-            <div className="flex justify-between items-center py-1">
-              <span className="text-gray-600 text-sm">Transaction ID:</span>
-              <span className="font-bold text-black">TRX{Math.random().toString().substr(2, 8)}</span>
-            </div>
-          </div>
-          
-          <Button 
-            onClick={handleBackToDashboard}
-            className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white text-lg py-4 rounded-full font-medium"
-          >
-            Back to Dashboard
-          </Button>
+          <footer className="border-t border-border p-4 text-center text-muted-foreground">
+            <p className="text-sm">PayGo Financial Services LTD</p>
+          </footer>
         </div>
-        
-        <footer className="p-4 text-center text-gray-600 bg-white">
-          <p className="text-sm">PayGo Financial Services LTD</p>
-        </footer>
       </div>
     </div>
   );

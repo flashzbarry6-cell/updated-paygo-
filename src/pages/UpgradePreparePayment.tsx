@@ -16,25 +16,29 @@ const UpgradePreparePayment = () => {
   }, [navigate, location.state]);
 
   return (
-    <div className="flex justify-center min-h-screen bg-gray-50">
-      <div className="w-full max-w-sm bg-white">
-        <header className="bg-[#442f94] p-4 text-white flex items-center">
-          <ArrowLeft className="mr-3 cursor-pointer" onClick={() => navigate("/upgrade-payment")} />
-          <h1 className="text-xl font-bold">Upgrade Payment</h1>
-        </header>
+    <div className="flex justify-center min-h-screen bg-background">
+      <div className="w-full max-w-sm bg-background relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
         
-        <div className="flex-1 flex flex-col items-center justify-center p-8 text-center">
-          <div className="mb-8">
-            <div className="w-24 h-24 border-4 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
+        <div className="relative z-10">
+          <header className="bg-card/80 backdrop-blur-xl border-b border-primary/20 p-4 flex items-center">
+            <ArrowLeft className="mr-3 cursor-pointer text-primary" onClick={() => navigate("/upgrade-payment")} />
+            <h1 className="text-xl font-bold text-foreground">Upgrade Payment</h1>
+          </header>
+          
+          <div className="flex-1 flex flex-col items-center justify-center p-8 text-center min-h-[60vh]">
+            <div className="mb-8">
+              <div className="w-20 h-20 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
+            </div>
+            
+            <h2 className="text-2xl font-bold text-foreground mb-4">Preparing Payment Account</h2>
+            <p className="text-muted-foreground mb-8">Please wait while we set up your payment...</p>
           </div>
           
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Preparing Payment Account</h2>
-          <p className="text-gray-600 mb-8">Please wait while we set up your payment...</p>
+          <footer className="border-t border-border p-4 text-center text-muted-foreground">
+            <p className="text-sm">PayGo Financial Services LTD</p>
+          </footer>
         </div>
-        
-        <footer className="bg-gray-100 p-4 text-center text-gray-600">
-          <p>PayGo Financial Services LTD</p>
-        </footer>
       </div>
     </div>
   );

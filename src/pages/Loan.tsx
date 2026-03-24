@@ -21,67 +21,70 @@ const Loan = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#fff6f9]">
-      <header className="bg-[#9b87f5] p-4 text-white flex items-center justify-between">
-        <div className="flex items-center">
-          <ArrowLeft className="mr-2 cursor-pointer" onClick={() => navigate("/dashboard")} />
-          <h1 className="text-2xl font-bold">Apply for Loan</h1>
-        </div>
-        <X onClick={handleClose} className="cursor-pointer" />
-      </header>
-      
-      <div className="flex-1 p-5 flex flex-col">
-        <div className="mt-8 space-y-8">
-          {/* Loan Amount Section */}
-          <div>
-            <h2 className="text-2xl font-bold mb-4">Loan Amount (₦)</h2>
-            <div className="relative">
-              <input 
-                type="text" 
-                placeholder="Enter amount" 
-                className="w-full p-6 rounded-full text-xl border-2 border-[#9b87f5] focus:outline-none focus:ring-2 focus:ring-[#9b87f5]"
-              />
+    <div className="flex justify-center min-h-screen bg-background">
+      <div className="w-full max-w-sm bg-background relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+        
+        <div className="relative z-10">
+          <header className="bg-card/80 backdrop-blur-xl border-b border-primary/20 p-4 flex items-center justify-between">
+            <div className="flex items-center">
+              <ArrowLeft className="mr-2 cursor-pointer text-primary" onClick={() => navigate("/dashboard")} />
+              <h1 className="text-xl font-bold text-foreground">Apply for Loan</h1>
             </div>
-            <p className="mt-2 text-gray-500">Minimum: ₦100,000 | Maximum: ₦250,000</p>
-          </div>
+            <X onClick={handleClose} className="cursor-pointer text-muted-foreground" />
+          </header>
           
-          {/* Loan Type Section */}
-          <div>
-            <h2 className="text-2xl font-bold mb-4">Loan Type</h2>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white rounded-3xl p-6 border border-gray-200">
-                <h3 className="text-2xl font-bold text-center mb-2">Free Loan</h3>
-                <p className="text-center text-gray-500">No repayment required</p>
+          <div className="flex-1 p-4 flex flex-col">
+            <div className="mt-4 space-y-6">
+              <div>
+                <h2 className="text-lg font-bold text-foreground mb-3">Loan Amount (₦)</h2>
+                <div className="relative">
+                  <input 
+                    type="text" 
+                    placeholder="Enter amount" 
+                    className="w-full p-4 rounded-full bg-input border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                </div>
+                <p className="mt-2 text-muted-foreground text-xs">Minimum: ₦100,000 | Maximum: ₦250,000</p>
               </div>
-              <div className="bg-white rounded-3xl p-6 border border-gray-200">
-                <h3 className="text-2xl font-bold text-center mb-2">SLF Loan</h3>
-                <p className="text-center text-gray-500">5% processing fee</p>
+              
+              <div>
+                <h2 className="text-lg font-bold text-foreground mb-3">Loan Type</h2>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="glass-card p-4 cursor-pointer hover:border-primary/50 transition-all">
+                    <h3 className="text-lg font-bold text-center text-foreground mb-1">Free Loan</h3>
+                    <p className="text-center text-muted-foreground text-xs">No repayment required</p>
+                  </div>
+                  <div className="glass-card p-4 cursor-pointer hover:border-primary/50 transition-all">
+                    <h3 className="text-lg font-bold text-center text-foreground mb-1">SLF Loan</h3>
+                    <p className="text-center text-muted-foreground text-xs">5% processing fee</p>
+                  </div>
+                </div>
               </div>
+              
+              <div>
+                <h2 className="text-lg font-bold text-foreground mb-3">PAY ID Code</h2>
+                <input 
+                  type="text" 
+                  placeholder="Enter PAY ID Code" 
+                  className="w-full p-4 rounded-full bg-input border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+                <p 
+                  className="mt-2 text-primary text-sm font-semibold cursor-pointer"
+                  onClick={handleBuyPayId}
+                >
+                  Don't have a PAY ID? Buy one now
+                </p>
+              </div>
+              
+              <Button 
+                className="w-full py-6 text-lg bg-primary hover:bg-primary/90 text-primary-foreground rounded-full btn-glow"
+                onClick={handleSubmitApplication}
+              >
+                Submit Application
+              </Button>
             </div>
           </div>
-          
-          {/* PAY ID Section */}
-          <div>
-            <h2 className="text-2xl font-bold mb-4">PAY ID Code</h2>
-            <input 
-              type="text" 
-              placeholder="Enter PAY ID Code" 
-              className="w-full p-6 rounded-full text-xl border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#9b87f5]"
-            />
-            <p 
-              className="mt-3 text-[#9b87f5] text-xl font-semibold cursor-pointer"
-              onClick={handleBuyPayId}
-            >
-              Don't have a PAY ID? Buy one now
-            </p>
-          </div>
-          
-          <Button 
-            className="w-full py-8 text-xl bg-[#9b87f5] hover:bg-[#8a76e4] rounded-full"
-            onClick={handleSubmitApplication}
-          >
-            Submit Application
-          </Button>
         </div>
       </div>
     </div>

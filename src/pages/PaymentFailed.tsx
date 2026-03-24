@@ -7,42 +7,46 @@ const PaymentFailed = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex justify-center min-h-screen bg-gray-50">
-      <div className="w-full max-w-sm bg-white">
-        <header className="bg-red-600 p-4 text-white flex items-center">
-          <ArrowLeft className="mr-3 cursor-pointer" onClick={() => navigate("/bank-transfer")} />
-          <h1 className="text-xl font-bold">PAY ID FAILED</h1>
-        </header>
+    <div className="flex justify-center min-h-screen bg-background">
+      <div className="w-full max-w-sm bg-background relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
         
-        <div className="flex-1 flex flex-col items-center justify-center p-8 text-center">
-          <div className="mb-8">
-            <XCircle className="w-24 h-24 text-red-500 mx-auto mb-6" />
-          </div>
+        <div className="relative z-10">
+          <header className="bg-destructive/80 backdrop-blur-xl p-4 flex items-center">
+            <ArrowLeft className="mr-3 cursor-pointer text-destructive-foreground" onClick={() => navigate("/bank-transfer")} />
+            <h1 className="text-xl font-bold text-destructive-foreground">PAY ID FAILED</h1>
+          </header>
           
-          <h2 className="text-2xl font-bold text-red-600 mb-4">Payment Failed</h2>
-          <p className="text-gray-600 mb-8">Your payment could not be processed. Please check your details and try again.</p>
-          
-          <div className="space-y-4 w-full">
-            <Button 
-              onClick={() => navigate("/dashboard")}
-              className="w-full bg-[#9b87f5] hover:bg-[#8b77e5] text-white text-lg py-6 rounded-full"
-            >
-              Continue to Dashboard
-            </Button>
+          <div className="flex-1 flex flex-col items-center justify-center p-8 text-center min-h-[60vh]">
+            <div className="mb-8">
+              <XCircle className="w-20 h-20 text-destructive mx-auto mb-6" />
+            </div>
             
-            <Button 
-              onClick={() => navigate("/bank-transfer")}
-              variant="outline"
-              className="w-full text-lg py-6 rounded-full border-[#9b87f5] text-[#9b87f5] hover:bg-[#9b87f5] hover:text-white"
-            >
-              Recheck
-            </Button>
+            <h2 className="text-2xl font-bold text-destructive mb-4">Payment Failed</h2>
+            <p className="text-muted-foreground mb-8">Your payment could not be processed. Please check your details and try again.</p>
+            
+            <div className="space-y-4 w-full">
+              <Button 
+                onClick={() => navigate("/dashboard")}
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-lg py-6 rounded-full btn-glow"
+              >
+                Continue to Dashboard
+              </Button>
+              
+              <Button 
+                onClick={() => navigate("/bank-transfer")}
+                variant="outline"
+                className="w-full text-lg py-6 rounded-full border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+              >
+                Recheck
+              </Button>
+            </div>
           </div>
+          
+          <footer className="border-t border-border p-4 text-center text-muted-foreground">
+            <p className="text-sm">PayGo Financial Services LTD</p>
+          </footer>
         </div>
-        
-        <footer className="bg-gray-100 p-4 text-center text-gray-600">
-          <p>PayGo Financial Services LTD</p>
-        </footer>
       </div>
     </div>
   );

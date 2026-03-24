@@ -29,49 +29,53 @@ const Data = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="bg-white w-full scale-70 origin-top">
-        <DataHeader />
+    <div className="flex justify-center min-h-screen bg-background">
+      <div className="w-full max-w-sm bg-background relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+        
+        <div className="relative z-10">
+          <DataHeader />
 
-        <div className="p-2 space-y-2">
-          <NetworkSelector 
-            selectedNetwork={selectedNetwork}
-            onNetworkSelect={setSelectedNetwork}
-          />
+          <div className="p-3 space-y-3">
+            <NetworkSelector 
+              selectedNetwork={selectedNetwork}
+              onNetworkSelect={setSelectedNetwork}
+            />
 
-          <PhoneNumberInput 
-            value={phoneNumber}
-            onChange={setPhoneNumber}
-          />
+            <PhoneNumberInput 
+              value={phoneNumber}
+              onChange={setPhoneNumber}
+            />
 
-          <DataPlanGrid 
-            selectedPeriod="Daily"
-            onBuyData={handleBuyData}
-          />
+            <DataPlanGrid 
+              selectedPeriod="Daily"
+              onBuyData={handleBuyData}
+            />
 
-          <PayIdInput 
-            value={payId}
-            onChange={setPayId}
-          />
+            <PayIdInput 
+              value={payId}
+              onChange={setPayId}
+            />
 
-          <button 
-            onClick={() => {
-              if (!phoneNumber) {
-                toast.error("Please enter a phone number");
-                return;
-              }
-              
-              if (!payId) {
-                navigate("/buy-pay-id");
-                return;
-              }
-              
-              toast.success("Data purchase successful!");
-            }}
-            className="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white py-2 rounded-full font-semibold text-sm hover:opacity-90 transition-opacity"
-          >
-            Buy Data
-          </button>
+            <button 
+              onClick={() => {
+                if (!phoneNumber) {
+                  toast.error("Please enter a phone number");
+                  return;
+                }
+                
+                if (!payId) {
+                  navigate("/buy-pay-id");
+                  return;
+                }
+                
+                toast.success("Data purchase successful!");
+              }}
+              className="w-full bg-pink-gradient text-primary-foreground py-3 rounded-full font-semibold text-sm btn-glow"
+            >
+              Buy Data
+            </button>
+          </div>
         </div>
       </div>
     </div>
