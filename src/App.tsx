@@ -17,6 +17,7 @@ import BuyPayId from "./pages/BuyPayId";
 import PaymentConfirmation from "./pages/PaymentConfirmation";
 import PaymentReceived from "./pages/PaymentReceived";
 import PaymentVerificationFailed from "./pages/PaymentVerificationFailed";
+import PaymentUnderReview from "./pages/PaymentUnderReview";
 import Data from "./pages/Data";
 import Airtime from "./pages/Airtime";
 import Support from "./pages/Support";
@@ -37,6 +38,11 @@ import UpgradePreparePayment from "./pages/UpgradePreparePayment";
 import UpgradeBankTransfer from "./pages/UpgradeBankTransfer";
 import UpgradePaymentConfirmation from "./pages/UpgradePaymentConfirmation";
 import UpgradePaymentFailed from "./pages/UpgradePaymentFailed";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminUsers from "./pages/admin/AdminUsers";
+import AdminPayments from "./pages/admin/AdminPayments";
+import AdminBanned from "./pages/admin/AdminBanned";
+import AdminBroadcast from "./pages/admin/AdminBroadcast";
 
 const queryClient = new QueryClient();
 
@@ -69,6 +75,7 @@ const App = () => (
             <Route path="/payment-received" element={<PaymentReceived />} />
             <Route path="/payment-failed" element={<PaymentFailed />} />
             <Route path="/payment-verification-failed" element={<PaymentVerificationFailed />} />
+            <Route path="/payment-under-review" element={<PaymentUnderReview />} />
             <Route path="/data" element={<Data />} />
             <Route path="/airtime" element={<Airtime />} />
             <Route path="/support" element={<Support />} />
@@ -80,6 +87,12 @@ const App = () => (
             <Route path="/history" element={<History />} />
             <Route path="/notification-settings" element={<NotificationSettings />} />
             <Route path="/live-chat" element={<LiveChat />} />
+            {/* Admin Routes */}
+            <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/admin/users" element={<AdminUsers />} />
+            <Route path="/admin/payments/:status" element={<AdminPayments />} />
+            <Route path="/admin/banned" element={<AdminBanned />} />
+            <Route path="/admin/broadcast" element={<AdminBroadcast />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
