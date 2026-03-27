@@ -8,7 +8,7 @@ const PaymentConfirmation = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate("/payment-verification-failed");
+      navigate("/payment-under-review");
     }, 5000);
 
     return () => clearTimeout(timer);
